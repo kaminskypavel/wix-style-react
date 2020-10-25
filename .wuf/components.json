@@ -398,6 +398,9 @@
   "Skeleton": {
     "path": "src/Skeleton"
   },
+  "SkeletonGroup": {
+    "path": "src/SkeletonGroup"
+  },
   "Slider": {
     "path": "src/Slider"
   },

@@ -488,4 +488,8 @@ export { default as CardFolderTabs } from './CardFolderTabs';
 export * from './CardFolderTabs';
 
 export { default as StackedBarChart } from './StackedBarChart';
+
+export { default as SkeletonGroup } from './SkeletonGroup';
+export * from './SkeletonGroup';
+
 export * from './StackedBarChart';
