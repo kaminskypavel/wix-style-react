@@ -159,6 +159,7 @@ const javascriptFiles = [
   ['VerticalTabsItem.bundle.min.js', 39],
   ['WarningIndicator.bundle.min.js', 40],
   ['SkeletonGroup.bundle.min.js', 10],
+  ['SkeletonRectangle.bundle.min.js', 10],
 ];
 
 const cssFiles = [
@@ -281,6 +282,7 @@ const cssFiles = [
   ['VariableInput.min.css', 2],
   ['WarningIndicator.min.css', 2],
   ['SkeletonGroup.min.css', 1],
+  ['SkeletonRectangle.min.css', 1],
 ];
 
 const getJS = () =>
