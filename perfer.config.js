@@ -160,6 +160,7 @@ const javascriptFiles = [
   ['WarningIndicator.bundle.min.js', 40],
   ['SkeletonGroup.bundle.min.js', 10],
   ['SkeletonRectangle.bundle.min.js', 10],
+  ['SkeletonCircle.bundle.min.js', 10],
 ];
 
 const cssFiles = [
@@ -283,6 +284,7 @@ const cssFiles = [
   ['WarningIndicator.min.css', 2],
   ['SkeletonGroup.min.css', 1],
   ['SkeletonRectangle.min.css', 1],
+  ['SkeletonCircle.min.css', 1],
 ];
 
 const getJS = () =>

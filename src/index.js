@@ -190,3 +190,4 @@ export { default as StackedBarChart } from './StackedBarChart';
 export { default as CardFolderTabs } from './CardFolderTabs';
 export { default as SkeletonGroup } from './SkeletonGroup';
 export { default as SkeletonRectangle } from './SkeletonRectangle';
+export { default as SkeletonCircle } from './SkeletonCircle';
