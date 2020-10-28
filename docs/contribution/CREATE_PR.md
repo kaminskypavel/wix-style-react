@@ -35,7 +35,7 @@ Q: I'm getting the following error:
 error: gpg failed to sign the data
 fatal: failed to write commit object
 ```
-A: Tell your local git client about your newly generated PGP key [instructions here](https://docs.github.com/en/github/authenticating-to-github/telling-git-about-your-signing-key).
+A: Tell your local git client about your newly generated GPG key [instructions here](https://docs.github.com/en/github/authenticating-to-github/telling-git-about-your-signing-key).
 
 Q: I'm not a wix employee, can I contribute to wix-style-react without signing my commits?
 
