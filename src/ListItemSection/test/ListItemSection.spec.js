@@ -37,10 +37,11 @@ describe('ListItemSection', () => {
 
   describe('suffix', () => {
     it('should render suffix when provided', async () => {
+      const suffix = 'suffix';
       const { driver } = render(
         renderListItemSection({
           title: 'ListItemSection title',
-          suffix: 'suffix',
+          suffix,
         }),
       );
 
@@ -48,24 +49,24 @@ describe('ListItemSection', () => {
     });
 
     it('should render provided `suffix` node', async () => {
-      const suffixNode = <div data-hook="suffix">Suffix</div>;
+      const suffix = <div data-hook="suffix">Suffix</div>;
       const { driver } = render(
         renderListItemSection({
           title: 'ListItemSection title',
-          suffix: suffixNode,
+          suffix,
         }),
       );
 
       expect(await driver.getSuffix().exists()).toBe(true);
-      expect(await driver.childExists('[data-hook="suffix"]')).toBe(true);
     });
 
     it('should call onClick when clicking suffix text button', async () => {
       const onClick = jest.fn();
+      const suffix = 'suffix';
       const { driver } = render(
         renderListItemSection({
           title: 'ListItemSection title',
-          suffix: 'suffix',
+          suffix,
           onClick,
         }),
       );
@@ -77,11 +78,11 @@ describe('ListItemSection', () => {
 
     it('should call onClick when clicking suffix node', async () => {
       const onClick = jest.fn();
-      const suffixNode = <div data-hook="suffix">Suffix</div>;
+      const suffix = <div data-hook="suffix">Suffix</div>;
       const { driver } = render(
         renderListItemSection({
           title: 'ListItemSection title',
-          suffix: suffixNode,
+          suffix,
           onClick,
         }),
       );
@@ -94,10 +95,11 @@ describe('ListItemSection', () => {
 
   it('should not call onClick when clicking elsewhere', async () => {
     const onClick = jest.fn();
+    const suffix = 'suffix';
     const { driver } = render(
       renderListItemSection({
         title: 'ListItemSection title',
-        suffix: 'suffix',
+        suffix,
         onClick,
       }),
     );
