@@ -49,7 +49,7 @@ describe('ListItemSection', () => {
     });
 
     it('should render provided `suffix` node', async () => {
-      const suffix = <div data-hook="suffix">Suffix</div>;
+      const suffix = <div>Suffix</div>;
       const { driver } = render(
         renderListItemSection({
           title: 'ListItemSection title',
@@ -78,7 +78,7 @@ describe('ListItemSection', () => {
 
     it('should call onClick when clicking suffix node', async () => {
       const onClick = jest.fn();
-      const suffix = <div data-hook="suffix">Suffix</div>;
+      const suffix = <div>Suffix</div>;
       const { driver } = render(
         renderListItemSection({
           title: 'ListItemSection title',
