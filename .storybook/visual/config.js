@@ -7,7 +7,7 @@ import { create } from '@storybook/theming';
 import './stories.scss';
 
 function loadStories() {
-  const req = require.context('../../src', true, /Skeleton.*\.visual\.js$/);
+  const req = require.context('../../src', true, /\.visual\.js$/);
   req.keys().forEach(filename => req(filename));
 }
 const theme = create({
