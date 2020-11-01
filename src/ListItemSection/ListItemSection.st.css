@@ -50,11 +50,13 @@
   flex-shrink: 0;
   max-width: 30%;
   height: auto;
-  white-space: normal;
+  white-space: normal !important;
+  text-align: right;
 }
 
 :global([dir="rtl"]) .suffix {
   margin: 0 auto 0 6px;
   padding-left: 0;
   padding-right: 6px;
+  text-align: left;
 }
