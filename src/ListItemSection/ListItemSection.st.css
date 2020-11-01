@@ -50,6 +50,7 @@
   flex-shrink: 0;
   max-width: 30%;
   height: auto;
+  white-space: normal;
 }
 
 :global([dir="rtl"]) .suffix {
