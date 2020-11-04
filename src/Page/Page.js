@@ -504,6 +504,15 @@ class Page extends React.PureComponent {
       </div>
     );
   }
+
+  /**
+   * Scrolls the page to a particular set of coordinates
+   * @param {ScrollToOptions} scrollTo {     left: number, top: number, behavior: 'smooth' | 'auto' }
+   */
+  scrollTo(scrollTo) {
+    const scrollContainer = this._getScrollContainer();
+    scrollContainer.scrollTo(scrollTo);
+  }
 }
 
 const FixedContent = props => props.children;
