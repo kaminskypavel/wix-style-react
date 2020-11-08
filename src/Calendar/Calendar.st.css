@@ -10,6 +10,11 @@
   -st-named: text-small-thin;
 }
 
+:import {
+  -st-from: "../Calendar/DatePickerHead/styles.st.css";
+  -st-default: CalendarHeader;
+}
+
 :vars {
     rootPadding: 24px;
     rootBackgroundColor: value(D80);
@@ -34,6 +39,10 @@
 
 .calendar :global(.DayPicker) abbr {
   text-decoration: none;
+}
+
+.calendarHeader {
+  -st-extends: CalendarHeader;
 }
 
 .calendar :global(.DayPicker-Weekdays) {

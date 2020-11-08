@@ -227,6 +227,7 @@ export default class Calendar extends React.PureComponent {
     return (
       <DatePickerHead
         {...{
+          className: classes.calendarHeader,
           date: month,
           showYearDropdown,
           showMonthDropdown,

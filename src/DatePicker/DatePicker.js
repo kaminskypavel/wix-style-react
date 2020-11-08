@@ -211,6 +211,7 @@ export default class DatePicker extends React.PureComponent {
 
     const calendarProps = {
       dataHook: dataHooks.datePickerCalendar,
+      className: classes.datePickerCalendar,
       locale,
       showMonthDropdown,
       showYearDropdown,

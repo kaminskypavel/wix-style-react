@@ -13,6 +13,7 @@ import Text from '../../Text';
 const getMonthName = (months, month) => months[month] || months[0];
 
 const DatePickerHead = ({
+  className,
   date,
   localeUtils,
   onChange,
@@ -24,7 +25,10 @@ const DatePickerHead = ({
   // We use global DayPicker-Nav--Left(--Right) class for consistency.
   // All styles of the DayPicker component are global and kept in ../DatePicker.scss
   return (
-    <div data-hook="datepicker-head" className={classes.root}>
+    <div
+      data-hook="datepicker-head"
+      className={classnames(classes.root, className)}
+    >
       <div
         className={classnames(
           classes.arrow,
