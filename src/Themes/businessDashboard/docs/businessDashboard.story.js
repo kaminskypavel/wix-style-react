@@ -18,6 +18,7 @@ import * as buttons from './components/Button';
 import * as headings from './components/Heading';
 import * as texts from './components/Text';
 import * as textButtons from './components/TextButton';
+import * as iconButtons from './components/IconButton';
 import * as circularProgressBar from './components/CircularProgressBar';
 import * as linearProgressBar from './components/LinearProgressBar';
 import { Category } from '../../../../stories/storiesHierarchy';
@@ -96,6 +97,10 @@ import { theme } from 'wix-style-react/themes/businessDashboard';
           example({
             text: TextComponent('TextButton'),
             source: textButtons.playground,
+          }),
+          example({
+            text: TextComponent('IconButton'),
+            source: iconButtons.playground,
           }),
         ],
       }),

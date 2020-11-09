@@ -6,6 +6,7 @@ import { runTests as LinearProgressBarTests } from '../../../LinearProgressBar/t
 import { runTests as HeadingTests } from '../../../Heading/test/Heading.visual';
 import { runTests as TextTests } from '../../../Text/test/Text.visual';
 import { runTests as TextButtonTests } from '../../../TextButton/test/TextButton.visual';
+import { runTests as IconButtonTests } from '../../../IconButton/test/IconButton.visual';
 import { ThemeProvider } from '../../..';
 
 const themeName = 'Business Dashboard';
@@ -23,3 +24,4 @@ LinearProgressBarTests({ themeName, testWithTheme });
 HeadingTests({ themeName, testWithTheme });
 TextTests({ themeName, testWithTheme });
 TextButtonTests({ themeName, testWithTheme });
+IconButtonTests({ themeName, testWithTheme });

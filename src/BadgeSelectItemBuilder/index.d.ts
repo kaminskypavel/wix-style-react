@@ -1,5 +1,5 @@
 import * as React from 'react';
-import BadgeSelectOption from '../BadgeSelect/index';
+import { BadgeSkin } from '../Badge';
 
 
 export type BadgeSelectItemBuilderFn = (data: {
@@ -36,3 +36,11 @@ export type BadgeSelectItemSkin =
   | 'premium';
 
 export const badgeSelectItemBuilder: BadgeSelectItemBuilderFn;
+
+export interface BadgeSelectOption {
+  id: string;
+  skin: BadgeSkin;
+  text: React.ReactNode;
+  subtitle?: string;
+  ellipsis?: boolean;
+}

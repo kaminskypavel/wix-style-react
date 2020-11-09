@@ -344,12 +344,7 @@ describe('DropdownLayout', () => {
         <DropdownLayout visible options={_options} selectedId={selectedId} />,
       );
 
-      expect(await driver.isOptionSelectedWithGlobalClassName(0)).toBe(true);
-      expect(
-        await (
-          await driver.optionByHook('dropdown-item-0')
-        ).isSelectedWithGlobalClassName(),
-      ).toBe(true);
+      expect(await driver.isOptionSelected(0)).toBe(true);
     });
 
     it('should select the chosen value when label is provided', async () => {
@@ -679,19 +674,9 @@ describe('DropdownLayout', () => {
         );
 
         await driver.mouseEnterAtOption(0);
-        expect(await driver.isOptionHoveredWithGlobalClassName(0)).toBe(true);
-        expect(
-          await (
-            await driver.optionByHook('dropdown-item-0')
-          ).isHoveredWithGlobalClassName(),
-        ).toBe(true);
+        expect(await driver.isOptionHovered(0)).toBe(true);
         await driver.mouseLeaveAtOption(0);
-        expect(await driver.isOptionHoveredWithGlobalClassName(0)).toBe(false);
-        expect(
-          await (
-            await driver.optionByHook('dropdown-item-0')
-          ).isHoveredWithGlobalClassName(),
-        ).toBe(false);
+        expect(await driver.isOptionHovered(0)).toBe(false);
       });
       it('should not hover divider or a disabled item when mouse enter', async () => {
         const driver = createDriver(

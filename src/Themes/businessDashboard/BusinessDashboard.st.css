@@ -29,6 +29,11 @@
   -st-default: TextButton;
 }
 
+:import {
+  -st-from: "../../IconButton/IconButton.st.css";
+  -st-default: IconButton;
+}
+
 /* Overrides */
 :import {
   -st-from: "./components/Button.st.css";
@@ -60,6 +65,11 @@
   -st-default: TextButtonOverrides;
 }
 
+:import {
+  -st-from: "./components/IconButton.st.css";
+  -st-default: IconButtonOverrides;
+}
+
 @st-scope .root {
   Button {
     -st-mixin: ButtonOverrides();
@@ -78,5 +88,8 @@
   }
   TextButton {
     -st-mixin: TextButtonOverrides();
+  }
+  IconButton {
+    -st-mixin: IconButtonOverrides();
   }
 }

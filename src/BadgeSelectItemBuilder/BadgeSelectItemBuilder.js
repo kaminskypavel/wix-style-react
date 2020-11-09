@@ -37,6 +37,8 @@ BadgeOption.propTypes = {
   selected: PropTypes.bool,
 };
 
+export default BadgeOption;
+
 export const badgeSelectItemBuilder = ({
   id,
   text,

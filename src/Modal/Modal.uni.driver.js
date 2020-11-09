@@ -1,14 +1,17 @@
-import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
+import { baseUniDriverFactory } from '../../test/utils/unidriver';
 
 export const modalUniDriverFactory = (base, body) => {
   const getPortal = async () => {
-    const dataHook = await base.attr('data-hook');
-    return dataHook ? body.$(`.portal.portal-${dataHook}`) : body.$('.portal');
+    if (await base.exists()) {
+      const dataHook = !!base.attr && (await base.attr('data-hook'));
+      return dataHook
+        ? body.$(`.portal.portal-${dataHook}`)
+        : body.$('.portal');
+    }
   };
   const getOverlay = () => body.$('.ReactModal__Overlay');
   const getContent = () => body.$('.ReactModal__Content');
   const getCloseButton = () => body.$('[data-hook="modal-close-button"]');
-
   const isOpen = () => getContent().exists();
 
   return {

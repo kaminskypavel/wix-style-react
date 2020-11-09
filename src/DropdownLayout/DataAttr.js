@@ -15,6 +15,8 @@ export const DATA_SHOWN = 'data-shown';
 
 export const DATA_DIRECTION = 'data-direction';
 
+export const DROPDOWN_LAYOUT_LOADER = 'dropdownLayout-loader';
+
 export const DATA_OPTION = {
   SIZE: 'data-option-size',
   HOVERED: 'data-option-hovered',

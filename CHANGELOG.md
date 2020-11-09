@@ -15,8 +15,21 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
+## 9.36.0 - 2020-11-09
+### Added
+- `Themes | Business Dashboard` - theme the `IconButton` component [#6187](https://github.com/wix/wix-style-react/pull/6187)
+### Changed
+- `<DropdownLayout/>`-  align driver and uni driver [#6184](https://github.com/wix/wix-style-react/pull/6184)
+
+## 9.35.0 - 2020-11-08
 ### Added
 - `<CircularProgressBar/>` - support custom label label + add Business Dashboard theme [#6192](https://github.com/wix/wix-style-react/pull/6192)
+
+### Fixed
+- `<DatePicker/>` - add the public methods to the index.d.ts file [#6189](https://github.com/wix/wix-style-react/pull/6189)
+- `<CustomModalLayout/>` - fix top and bottom dividers [#6149](https://github.com/wix/wix-style-react/pull/6149)
+- `<RichTextInputArea/>` and `<VariableInput/>` - prevent entering a text into rich text inputs from clearing the previous value [#6168](https://github.com/wix/wix-style-react/pull/6168)
+- `<BadgeOption/>` and `badgeSelectItemBuilder`- adding visuals and fix types [#6196](https://github.com/wix/wix-style-react/pull/6196)
 
 ## 9.34.0 - 2020-11-06
 

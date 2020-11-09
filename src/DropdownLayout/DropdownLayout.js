@@ -10,6 +10,7 @@ import {
   DATA_DIRECTION,
   DROPDOWN_LAYOUT_DIRECTIONS,
   OPTION_DATA_HOOKS,
+  DROPDOWN_LAYOUT_LOADER,
 } from './DataAttr';
 import { st, classes } from './DropdownLayout.st.css';
 import deprecationLog from '../utils/deprecationLog';
@@ -242,9 +243,7 @@ class DropdownLayout extends React.PureComponent {
     }
   };
 
-  _onMouseLeave = () => {
-    this._markOption(NOT_HOVERED_INDEX);
-  };
+  _onMouseLeave = () => this._markOption(NOT_HOVERED_INDEX);
 
   _getMarkedIndex() {
     const { options } = this.props;
@@ -368,7 +367,7 @@ class DropdownLayout extends React.PureComponent {
       hasMore={this.props.hasMore}
       loader={
         <div className={classes.loader}>
-          <Loader dataHook={'dropdownLayout-loader'} size={'small'} />
+          <Loader dataHook={DROPDOWN_LAYOUT_LOADER} size="small" />
         </div>
       }
     >
@@ -413,18 +412,16 @@ class DropdownLayout extends React.PureComponent {
   }
 
   // For testing purposes only
-  _getItemDataAttr = ({ hovered, selected, disabled, overrideStyle }) => {
+  _getItemDataAttr = ({ hovered, selected, disabled }) => {
     const { itemHeight, selectedHighlight } = this.props;
 
     return filterObject(
       {
-        [DATA_OPTION.HOVERED]: hovered && !overrideStyle,
+        [DATA_OPTION.DISABLED]: disabled,
+        [DATA_OPTION.SELECTED]: selected && selectedHighlight,
+        [DATA_OPTION.HOVERED]: hovered,
         /* deprecated */
         [DATA_OPTION.SIZE]: itemHeight,
-        [DATA_OPTION.DISABLED]: disabled,
-        [DATA_OPTION.SELECTED]: selected && !overrideStyle && selectedHighlight,
-        [DATA_OPTION.HOVERED_GLOBAL]: hovered && overrideStyle,
-        [DATA_OPTION.SELECTED_GLOBAL]: selected && overrideStyle,
       },
       (key, value) => !!value,
     );
@@ -444,7 +441,7 @@ class DropdownLayout extends React.PureComponent {
 
     return (
       <div
-        {...this._getItemDataAttr({ ...optionState, overrideStyle })}
+        {...this._getItemDataAttr({ ...optionState })}
         className={
           overrideOptionStyle
             ? null
