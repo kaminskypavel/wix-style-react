@@ -22,5 +22,6 @@
 }
 
 .datePickerCalendar {
-  -st-extends: Calendar;
+ /** todo: Sivan: add this after fixing the calendar component styles */
+/*  -st-extends: Calendar;*/
 }
