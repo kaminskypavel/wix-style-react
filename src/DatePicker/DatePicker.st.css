@@ -3,7 +3,6 @@
   -st-default: Popover;
 }
 
-
 :import {
   -st-from: "../Calendar/Calendar.st.css";
   -st-default: Calendar;
