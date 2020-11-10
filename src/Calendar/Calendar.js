@@ -299,27 +299,24 @@ export default class Calendar extends React.PureComponent {
       dir: rtl ? 'rtl' : 'ltr',
       classNames: {
         container: containerClass,
-        wrapper: 'DayPicker-wrapper',
+        wrapper: 'DayPicker-wrapper', // is used at the drivers and e2e test
         interactionDisabled: 'DayPicker--interactionDisabled',
 
-        months: `DayPicker-Months ${classes.calendarMonths}`,
-        month: `DayPicker-Month ${classes.calendarMonth}`,
-        weekdays: `DayPicker-Weekdays ${classes.calendarWeekdays}`,
-        weekdaysRow: `DayPicker-WeekdaysRow ${classes.calendarWeekdaysRow}`,
-        weekday: `DayPicker-Weekday ${classes.calendarWeekday}`,
-        body: `DayPicker-Body ${classes.calendarBody}`,
-        week: `DayPicker-Week ${classes.calendarWeek}`,
+        months: classes.calendarMonths,
+        month: `DayPicker-Month ${classes.calendarMonth}`, // 'DayPicker-Month' at used at the drivers and e2e test
+        weekdays: classes.calendarWeekdays,
+        weekdaysRow: classes.calendarWeekdaysRow,
+        weekday: `DayPicker-Weekday ${classes.calendarWeekday}`, // 'DayPicker-Weekday' at used in the drivers and e2e test
+        body: classes.calendarBody,
+        week: classes.calendarWeek,
         weekNumber: 'DayPicker-WeekNumber',
-        day: `DayPicker-Day ${classes.calendarDay}`,
-
-        footer: 'DayPicker-Footer', // todo: Sivan: we might remove it
-        todayButton: 'DayPicker-TodayButton', // todo: Sivan: we might remove it
+        day: `DayPicker-Day ${classes.calendarDay}`, // 'DayPicker-Day' at used in the drivers and e2e test
 
         // default modifiers
         today: classes.today,
         selected: classes.selectedDay,
-        disabled: classes.disabledDay,
-        outside: classes.outsideDay,
+        disabled: `disabled ${classes.disabledDay}`, // 'disabled' is used at the drivers and e2e test
+        outside: `outside ${classes.outsideDay}`, // 'outside' is used at the drivers and e2e test
       },
     };
   };
@@ -345,7 +342,8 @@ export default class Calendar extends React.PureComponent {
       );
 
       if (selectedDay) {
-        selectedDay.classList.add(classes.unfocusedDay);
+        // The 'unfocused' class is used at the drivers and e2e test
+        selectedDay.classList.add(classes.unfocusedDay, 'unfocused');
         selectedDay.focus();
       }
     }
@@ -359,7 +357,8 @@ export default class Calendar extends React.PureComponent {
     );
 
     if (unfocusedDay) {
-      unfocusedDay.classList.remove(classes.unfocusedDay);
+      // The 'unfocused' class is used at the drivers and e2e test
+      unfocusedDay.classList.remove(classes.unfocusedDay, 'unfocused');
     }
   };
 

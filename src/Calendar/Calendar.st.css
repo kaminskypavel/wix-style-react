@@ -115,7 +115,7 @@
   box-shadow: value(focusBoxShadow);
 }
 
-.calendarDay.unfocused, .calendarDay:focus:hover {
+.calendarDay.unfocusedDay, .calendarDay:focus:hover {
   box-shadow: none;
 }
 
@@ -194,14 +194,14 @@
   border-radius: 50%;
 }
 
-.calendarDay.selectedDay:global(.start):not(.outsideDay) .dayCircle ,
-.calendarDay.selectedDay:global(.end):not(.outsideDay) .dayCircle ,
+.calendarDay.selectedDay:global(.start):not(.outsideDay) .dayCircle,
+.calendarDay.selectedDay:global(.end):not(.outsideDay) .dayCircle,
 .calendarDay:global(.singleDay):not(.outsideDay) .dayCircle {
   background-color: value(THEME-COLOR-10);
 }
 
-.calendarDay.selectedDay:global(.start):not(.outsideDay):hover .dayCircle ,
-.calendarDay.selectedDay:global(.end):not(.outsideDay):hover .dayCircle ,
+.calendarDay.selectedDay:global(.start):not(.outsideDay):hover .dayCircle,
+.calendarDay.selectedDay:global(.end):not(.outsideDay):hover .dayCircle,
 .calendarDay:global(.singleDay):not(.outsideDay):hover .dayCircle {
   background-color: value(THEME-COLOR-20);
 }

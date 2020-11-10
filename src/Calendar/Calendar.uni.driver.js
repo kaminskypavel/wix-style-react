@@ -14,9 +14,7 @@ export const calendarUniDriverFactory = base => {
       `[role="gridcell"]:not([class*="outside"])>[data-date='${year}-${month}-${day}']`,
     );
   const getSelectedDay = () =>
-    base.$(
-      '[role="gridcell"][aria-selected=true]:not(.DayPicker-Day--outside)',
-    );
+    base.$('[role="gridcell"][aria-selected=true]:not(.outside)');
 
   const getVisibleDisabledList = () =>
     base.$$('[role="gridcell"][aria-disabled=true]');
@@ -36,13 +34,11 @@ export const calendarUniDriverFactory = base => {
   const getNextMonthButton = () =>
     base.$('[data-hook="datepicker-right-arrow"]');
   const getFocusedDay = () => base.$('.DayPicker-Day:focus');
-  const getVisuallyUnfocusedDay = () => base.$('.DayPicker-Day--unfocused');
+  const getVisuallyUnfocusedDay = () => base.$('.unfocused');
   const getMonthContainers = () => base.$$('.DayPicker-Month');
   const getVisibleMonths = () => base.$$('[class="DayPicker-Month"]');
   const getSelectedDays = () =>
-    base.$$(
-      '[role="gridcell"][aria-selected=true]:not(.DayPicker-Day--outside)',
-    );
+    base.$$('[role="gridcell"][aria-selected=true]:not(.outside)');
   const getMonthDropdown = () =>
     base.$('[data-hook="datepicker-month-dropdown"]');
   const getYearDropdown = () =>

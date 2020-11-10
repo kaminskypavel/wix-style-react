@@ -15,7 +15,7 @@ const calendarDriverFactory = ({ element }) => {
     );
   const getSelectedDay = () =>
     element.querySelector(
-      '[role="gridcell"][aria-selected=true]:not(.DayPicker-Day--outside)',
+      '[role="gridcell"][aria-selected=true]:not(.outside)',
     );
   const getYearDropdown = () =>
     element.querySelector('[data-hook="datepicker-year-dropdown-button"]');
@@ -35,14 +35,13 @@ const calendarDriverFactory = ({ element }) => {
   const getNextMonthButton = () =>
     element.querySelector('[data-hook="datepicker-right-arrow"]');
   const getFocusedDay = () => element.querySelector('.DayPicker-Day:focus');
-  const getVisuallyUnfocusedDay = () =>
-    element.querySelector('.DayPicker-Day--unfocused');
+  const getVisuallyUnfocusedDay = () => element.querySelector('.unfocused');
   const getMonthContainers = () => element.querySelectorAll('.DayPicker-Month');
   const getVisibleMonths = () =>
     element.querySelectorAll('[class="DayPicker-Month"]');
   const getSelectedDays = () =>
     element.querySelectorAll(
-      '[role="gridcell"][aria-selected=true]:not(.DayPicker-Day--outside)',
+      '[role="gridcell"][aria-selected=true]:not(.outside)',
     );
 
   const driver = {
