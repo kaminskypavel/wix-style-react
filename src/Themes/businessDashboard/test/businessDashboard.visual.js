@@ -8,6 +8,7 @@ import { runTests as TextTests } from '../../../Text/test/Text.visual';
 import { runTests as TextButtonTests } from '../../../TextButton/test/TextButton.visual';
 import { runTests as IconButtonTests } from '../../../IconButton/test/IconButton.visual';
 import { ThemeProvider } from '../../..';
+import { runTests as CarouselTests } from '../../../Carousel/test/Carousel.visual';
 
 const themeName = 'Business Dashboard';
 const testWithTheme = test => {
@@ -25,3 +26,4 @@ HeadingTests({ themeName, testWithTheme });
 TextTests({ themeName, testWithTheme });
 TextButtonTests({ themeName, testWithTheme });
 IconButtonTests({ themeName, testWithTheme });
+CarouselTests({ themeName, testWithTheme });

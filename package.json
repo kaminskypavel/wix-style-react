@@ -59,7 +59,6 @@
     "update-components": ".wuf/update-components.sh",
     "lint": "eslint \"{src,test,testkit,stories}/**/*.js\" --cache --cache-location target/.eslintcache --fix",
     "copy-public-styles": "cp src/*.scss .",
-    "bundle": "webpack --config ./node_modules/yoshi/config/webpack.config.client.js --debug --display-error-details --progress",
     "transpile": "node ./scripts/transpile/index.js",
     "build-puppeteer-testkit": "webpack --config ./testkit/webpack.config.js",
     "storybook:build-visual": "build-storybook -c ./.storybook/visual",
@@ -76,13 +75,7 @@
     "test7:performance": "npm run test:performance",
     "test8:chromatic": "echo ok",
     "------performance analysis tools": "",
-    "bundles:analyse": "npm run analyse --prefix .perfer",
-    "------can be removed?": "",
-    "storybook:named-imports": " npm run transpile && start-storybook -c ./test-runtime/imports/.storybook -p 6009",
-    "travis": "npm run lint && npm run transpile && npm run test:unit -- --maxWorkers=4",
-    "transpile:watch": "babel src --out-dir dist/es/src --copy-files --watch --plugins=@babel/plugin-syntax-dynamic-import",
-    "make-async-spec": "npx jscodeshift -t scripts/unidriver-migration/src/make-async/make-async.js",
-    "------END": ""
+    "bundles:analyse": "npm run analyse --prefix .perfer"
   },
   "husky": {
     "hooks": {
@@ -186,11 +179,12 @@
     "webpack-cli": "^3.3.12",
     "wix-storybook-utils": "^3.0.137",
     "wix-ui-framework": "^3.5.2",
-    "yoshi": "4.87.0",
-    "yoshi-config": "4.87.0",
-    "yoshi-helpers": "4.87.0",
+    "yoshi": "^4.87.0",
+    "yoshi-config": "^4.87.0",
+    "yoshi-flow-library": "^4.87.0",
+    "yoshi-helpers": "^4.87.0",
     "yoshi-runtime": "1.0.732",
-    "yoshi-style-dependencies": "4.71.0"
+    "yoshi-style-dependencies": "^4.71.0"
   },
   "peerDependencies": {
     "react": "^16.13.1",
@@ -245,7 +239,7 @@
     "wix-ui-core": "^3.0.148",
     "wix-ui-icons-common": "^2.0.293",
     "wix-ui-test-utils": "^1.0.177",
-    "yoshi-stylable-dependencies": "^4.167.0"
+    "yoshi-stylable-dependencies": "^4.0.0"
   },
   "lint-staged": {
     "linters": {

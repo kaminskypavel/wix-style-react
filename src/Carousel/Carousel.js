@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ChevronLeftLarge from 'wix-ui-icons-common/ChevronLeftLarge';
 import ChevronRightLarge from 'wix-ui-icons-common/ChevronRightLarge';
+import ChevronLeftLargeSmall from 'wix-ui-icons-common/ChevronLeftLargeSmall';
+import ChevronRightLargeSmall from 'wix-ui-icons-common/ChevronRightLargeSmall';
 // This is here and not in the test setup because we don't want consumers to need to run it as well
 import '../common/match-media-register';
 import Slider from 'react-slick';
@@ -45,7 +47,7 @@ class Carousel extends React.Component {
     children: PropTypes.node,
 
     /** Sets the skin of the arrow buttons */
-    buttonSkin: PropTypes.oneOf(['standard', 'inverted']),
+    buttonSkin: PropTypes.oneOf(['standard', 'inverted', 'light']),
 
     /** Images loop endlessly */
     infinite: PropTypes.bool,
@@ -70,6 +72,9 @@ class Carousel extends React.Component {
 
     /** Sets the arrows position */
     controlsPosition: PropTypes.oneOf(['sides', 'overlay', 'bottom', 'none']),
+
+    /** Sets the arrows position */
+    controlsSize: PropTypes.oneOf(['small', 'medium']),
   };
 
   static defaultProps = {
@@ -80,6 +85,7 @@ class Carousel extends React.Component {
     images: [],
     buttonSkin: 'standard',
     controlsPosition: 'sides',
+    controlsSize: 'medium',
   };
 
   constructor(props) {
@@ -97,6 +103,7 @@ class Carousel extends React.Component {
       images,
       children,
       controlsPosition,
+      controlsSize,
     } = this.props;
     const { sliderSettings } = this.state;
     const hasImages = !children && images.length > 0;
@@ -104,7 +111,11 @@ class Carousel extends React.Component {
     return (
       <div
         data-hook={dataHook}
-        className={st(classes.root, { controlsPosition }, className)}
+        className={st(
+          classes.root,
+          { controlsPosition, controlsSize },
+          className,
+        )}
       >
         <Slider {...sliderSettings}>
           {children}
@@ -124,6 +135,7 @@ class Carousel extends React.Component {
     afterChange,
     beforeChange,
     controlsPosition,
+    controlsSize,
   }) => {
     return {
       infinite,
@@ -141,20 +153,40 @@ class Carousel extends React.Component {
         <WrappedSliderArrow
           dataHook={dataHooks.nextButton}
           buttonSkin={buttonSkin}
-          icon={<ChevronRightLarge />}
+          arrowSize={controlsSize}
+          icon={
+            controlsSize === 'small' ? (
+              <ChevronRightLargeSmall />
+            ) : (
+              <ChevronRightLarge />
+            )
+          }
         />
       ),
       prevArrow: (
         <WrappedSliderArrow
           dataHook={dataHooks.prevButton}
           buttonSkin={buttonSkin}
-          icon={<ChevronLeftLarge />}
+          arrowSize={controlsSize}
+          icon={
+            controlsSize === 'small' ? (
+              <ChevronLeftLargeSmall />
+            ) : (
+              <ChevronLeftLarge />
+            )
+          }
         />
       ),
       arrows: controlsPosition !== 'none',
-      appendDots: pages => (
-        <Pagination className={classes.pagination} pages={pages} />
-      ),
+      appendDots: pages => {
+        /*
+         * originalClassName is a workaround for stylable API extend to work and pass an extendable className.
+         * This is because react-slick overrides brutally the className prop with cloneElement().
+         */
+        return (
+          <Pagination originalClassName={classes.pagination} pages={pages} />
+        );
+      },
       customPaging: i => (
         <div
           className={classes.pageNavigation}

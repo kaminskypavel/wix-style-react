@@ -5,7 +5,7 @@
 
 :import {
   -st-from: '../foundations/colors.st.css';
-  -st-named: D10, D20, D30, D40, D80, B10, B20;
+  -st-named: D10, D10-40, D20, D30, D40, D80, B10, B20;
 }
 
 .root {
@@ -73,7 +73,15 @@
   line-height: 20px;
 }
 
+.root:skin(standard):weight(bold) {
+  color: value(D10);
+}
+
+.root:skin(standard):weight(bold):light {
+  color: value(D80);
+}
+
 /* Disabled */
 .root:skin(disabled) {
-  color: value(D40);
+  color: value(D10-40);
 }

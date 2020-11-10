@@ -14,6 +14,7 @@ export const controlsPositionExample = `
 <Carousel
   buttonSkin="inverted"
   controlsPosition="bottom"
+  controlsSize="medium"
   images={[
     {
       src: 'https://a-static.besthdwallpaper.com/garfield-wallpaper-2800x2100-815_28.jpg'

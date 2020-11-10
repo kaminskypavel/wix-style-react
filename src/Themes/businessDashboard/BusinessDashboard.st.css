@@ -34,6 +34,11 @@
   -st-default: IconButton;
 }
 
+:import {
+  -st-from: "../../Carousel/Carousel.st.css";
+  -st-default: Carousel;
+}
+
 /* Overrides */
 :import {
   -st-from: "./components/Button.st.css";
@@ -70,6 +75,11 @@
   -st-default: IconButtonOverrides;
 }
 
+:import {
+  -st-from: "./components/Carousel.st.css";
+  -st-default: CarouselOverrides;
+}
+
 @st-scope .root {
   Button {
     -st-mixin: ButtonOverrides();
@@ -91,5 +101,8 @@
   }
   IconButton {
     -st-mixin: IconButtonOverrides();
+  }
+  Carousel {
+    -st-mixin: CarouselOverrides();
   }
 }

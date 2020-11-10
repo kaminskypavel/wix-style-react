@@ -1,0 +1,13 @@
+:import {
+  -st-from: "../../../Carousel/Carousel.st.css";
+  -st-default: Carousel;
+}
+
+.root {
+  -st-extends: Carousel;
+}
+
+.root::pagination::dot {
+  width: 4px;
+  bottom: 6px;
+}

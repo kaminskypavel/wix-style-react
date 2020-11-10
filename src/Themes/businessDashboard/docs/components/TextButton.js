@@ -17,7 +17,10 @@ export const playground = `
       <TextButton size="tiny" skin="light" disabled>Light disabled</TextButton>
     </Box>
     <Box padding="3px">
-      <TextButton size="tiny" skin="dark">Dark</TextButton>
+      <TextButton size="tiny" skin="dark">Dark thin</TextButton>
+    </Box>
+    <Box padding="3px">
+      <TextButton weight="normal" size="tiny" skin="dark">Dark normal</TextButton>
     </Box>
     <Box padding="3px">
       <TextButton size="tiny" skin="dark" disabled>Dark disabled</TextButton>
