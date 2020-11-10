@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Animator } from 'wix-animations';
-import { classes } from './Collapse.st.css';
 
 // Returns the height of element including vertical margin
 export const getElementHeight = element => {
@@ -26,7 +25,6 @@ const Collapse = ({ children, open, dataHook }) => (
     show={open}
     height={getElementHeight}
     data-hook={dataHook}
-    className={classes.collapse}
     children={children}
   />
 );
