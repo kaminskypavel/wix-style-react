@@ -24,7 +24,7 @@ const Collapse = ({ children, open, dataHook }) => (
   <Animator
     show={open}
     height={getElementHeight}
-    data-hook={dataHook}
+    dataHook={dataHook}
     children={children}
   />
 );
