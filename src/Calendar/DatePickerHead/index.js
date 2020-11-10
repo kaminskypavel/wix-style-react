@@ -22,19 +22,13 @@ const DatePickerHead = ({
   showMonthDropdown,
   showYearDropdown,
 }) => {
-  // We use global DayPicker-Nav--Left(--Right) class for consistency.
-  // All styles of the DayPicker component are global and kept in ../DatePicker.scss
   return (
     <div
       data-hook="datepicker-head"
       className={classnames(classes.root, className)}
     >
       <div
-        className={classnames(
-          classes.arrow,
-          classes.arrowLeft,
-          'DayPicker-Nav--Left',
-        )}
+        className={classnames(classes.arrow, classes.arrowLeft)}
         data-hook="datepicker-left-arrow"
         onClick={onLeftArrowClick}
       >
@@ -70,11 +64,7 @@ const DatePickerHead = ({
       )}
 
       <div
-        className={classnames(
-          classes.arrow,
-          classes.arrowRight,
-          'DayPicker-Nav--Right',
-        )}
+        className={classnames(classes.arrow, classes.arrowRight)}
         data-hook="datepicker-right-arrow"
         onClick={onRightArrowClick}
       >

@@ -25,54 +25,59 @@
     focusBoxShadow: 0 0 0 value(focusBoxShadowWidth) value(F00);
     boxShadow: 0 0 0 value(focusBoxShadowWidth) value(rootBackgroundColor) inset;
 }
+.root {
+}
 
-.calendar :global(.DayPicker) {
+.calendarContainer {
   font-size: 14px;
   line-height: 18px;
   font-family: var(--wsr-font-family, "HelveticaNeueW01-45Ligh", "HelveticaNeueW02-45Ligh", "HelveticaNeueW10-45Ligh",
-      "Helvetica Neue", "Helvetica", "Arial", "メイリオ, meiryo", "ヒラギノ角ゴ pro w3", "hiragino kaku gothic pro", "sans-serif");
+  "Helvetica Neue", "Helvetica", "Arial", "メイリオ, meiryo", "ヒラギノ角ゴ pro w3", "hiragino kaku gothic pro", "sans-serif");
 }
 
-.calendar :global(.DayPicker-Month) {
+.calendarMonths {
+}
+
+.calendarMonth {
   width: value(calendarWidth);
-}
-
-.calendar :global(.DayPicker) abbr {
-  text-decoration: none;
 }
 
 .calendarHeader {
   -st-extends: CalendarHeader;
 }
 
-.calendar :global(.DayPicker-Weekdays) {
+.calendarWeekdays {
   background-color: value(rootBackgroundColor);
   padding: 0 value(rootPadding);
 }
 
-.calendar :global(.DayPicker-WeekdaysRow) {
+.calendarWeekdaysRow {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.calendar :global(.DayPicker-Body) {
-  background-color: value(rootBackgroundColor);
-  padding: 0 value(rootPadding) value(rootPadding);
-}
-
-.calendar :global(.DayPicker-Weekday) {
+.calendarWeekday {
   width: 17px;
   padding: 18px 0 12px;
   color: value(D10);
 }
 
-.calendar :global(.DayPicker-Week) {
+.calendarWeekday abbr {
+  text-decoration: none;
+}
+
+.calendarBody {
+  background-color: value(rootBackgroundColor);
+  padding: 0 value(rootPadding) value(rootPadding);
+}
+
+.calendarWeek {
   display: flex;
   justify-content: space-around;
 }
 
-.calendar :global(.DayPicker-Day) {
+.calendarDay {
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -86,12 +91,12 @@
   position: relative;
 }
 
-.calendar :global(.DayPicker-Day):focus {
-    outline: none;
-    z-index: 10;
+.calendarDay:focus {
+  outline: none;
+  z-index: 10;
 }
 
-.calendar :global(.DayPicker-Day:focus::after) {
+.calendarDay:focus::after {
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -99,85 +104,109 @@
   right: 0px;
   border-radius: 50%;
   outline: none;
-	border-color: value(THEME-COLOR-10);
-	box-shadow: value(focusBoxShadow);
+  border-color: value(THEME-COLOR-10);
+  box-shadow: value(focusBoxShadow);
   content: " ";
   display: block;
   z-index: 11;
 }
 
-.calendar :global(.DayPicker-Day):focus .dayCircle {
+.calendarDay:focus .dayCircle {
   box-shadow: value(focusBoxShadow);
 }
 
-.calendar :global(.DayPicker-Day.DayPicker-Day--unfocused),
-.calendar :global(.DayPicker-Day):focus:hover {
+.calendarDay.unfocused, .calendarDay:focus:hover {
   box-shadow: none;
 }
 
-.calendar :global(.DayPicker-Day--today:not(.DayPicker-Day--selected)):not(:hover) {
+.today {
+}
+
+.selectedDay {
+}
+
+.disabledDay {
+}
+
+.outsideDay {
+}
+.unfocusedDay {
+}
+/*.start {*/
+/*}*/
+/*.end {*/
+/*}*/
+/*.firstOfMonth {*/
+/*}*/
+/*.lastOfMonth {*/
+/*}*/
+/*.singleDay {*/
+/*}*/
+
+.calendarDay.today:not(.selectedDay):not(:hover) {
   background-color: value(D70);
   box-shadow: value(boxShadow);
   z-index: 0;
 }
 
-.calendar :global(.DayPicker-Day--today:not(.DayPicker-Day--selected)):not(:hover):focus {
+.calendarDay.today:not(.selectedDay):not(:hover):focus {
   box-shadow: value(boxShadow), value(focusBoxShadow);
 }
 
-.calendar :global(.DayPicker-Day):hover {
+.calendarDay:hover {
   background-color: value(THEME-COLOR-50);
 }
 
-.calendar :global(.DayPicker-Day--selected:not(.DayPicker-Day--outside)) {
+.calendarDay.selectedDay:not(.outsideDay) {
   background-color: value(THEME-COLOR-10);
   color: value(D80);
 }
 
-.calendar :global(.DayPicker-Day--outside),
-.calendar :global(.DayPicker-Day--disabled) {
+.calendarDay.outsideDay, .calendarDay.disabledDay {
   pointer-events: none;
   color: value(D55);
 }
 
-.calendar :global(.DayPicker-Day.DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside):not(.DayPicker-Day--singleDay)) {
+/** for selection mode type range **/
+.calendarDay.selectedDay:not(:global(.start)):not(:global(.end)):not(.outsideDay):not(:global(.singleDay)) {
   background-color: value(THEME-COLOR-50);
   border-radius: 0;
   box-shadow: none;
   color: value(D10);
 }
 
-.calendar :global(.DayPicker-Day.DayPicker-Day--selected:not(.DayPicker-Day--outside)):last-of-type,
-.calendar :global(.DayPicker-Day.DayPicker-Day--lastOfMonth:not(.DayPicker-Day--outside)) {
+.calendarDay.selectedDay:not(.outsideDay):last-of-type,
+.calendarDay:global(.lastOfMonth):not(.outsideDay) {
   border-top-right-radius: 50% !important;
   border-bottom-right-radius: 50% !important;
 }
 
-.calendar :global(.DayPicker-Day.DayPicker-Day--selected:not(.DayPicker-Day--outside)):first-of-type,
-.calendar :global(.DayPicker-Day.DayPicker-Day--firstOfMonth:not(.DayPicker-Day--outside)) {
+.calendarDay.selectedDay:not(.outsideDay):first-of-type,
+.calendarDay:global(.firstOfMonth):not(.outsideDay) {
   border-top-left-radius: 50% !important;
   border-bottom-left-radius: 50% !important;
 }
+/**************************************************************/
 
-.calendar :global(.DayPicker-Day.DayPicker-Day--singleDay:not(.DayPicker-Day--outside)),
-.calendar :global(.DayPicker-Day.DayPicker-Day--start.DayPicker-Day--end:not(.DayPicker-Day--outside)) {
-  background: none !important;
+:global(.singleDay):not(.outsideDay),
+.calendarDay:global(.start.end):not(.outsideDay) {
+  background: none;
   border-radius: 50%;
 }
 
-.calendar :global(.DayPicker-Day.DayPicker-Day--selected.DayPicker-Day--start:not(.DayPicker-Day--outside)) .dayCircle,
-.calendar :global(.DayPicker-Day.DayPicker-Day--selected.DayPicker-Day--end:not(.DayPicker-Day--outside)) .dayCircle,
-.calendar :global(.DayPicker-Day.DayPicker-Day--singleDay:not(.DayPicker-Day--outside)) .dayCircle {
+.calendarDay.selectedDay:global(.start):not(.outsideDay) .dayCircle ,
+.calendarDay.selectedDay:global(.end):not(.outsideDay) .dayCircle ,
+.calendarDay:global(.singleDay):not(.outsideDay) .dayCircle {
   background-color: value(THEME-COLOR-10);
 }
 
-.calendar :global(.DayPicker-Day.DayPicker-Day--selected.DayPicker-Day--start:not(.DayPicker-Day--outside):hover) .dayCircle,
-.calendar :global(.DayPicker-Day.DayPicker-Day--selected.DayPicker-Day--end:not(.DayPicker-Day--outside):hover) .dayCircle,
-.calendar :global(.DayPicker-Day.DayPicker-Day--singleDay:not(.DayPicker-Day--outside):hover) .dayCircle{
+.calendarDay.selectedDay:global(.start):not(.outsideDay):hover .dayCircle ,
+.calendarDay.selectedDay:global(.end):not(.outsideDay):hover .dayCircle ,
+.calendarDay:global(.singleDay):not(.outsideDay):hover .dayCircle {
   background-color: value(THEME-COLOR-20);
 }
 
-.calendar :global(.DayPicker-Day) .dayCircle {
+.calendarDay .dayCircle {
   border-radius: 50%;
   width: 100%;
   height: 100%;
@@ -187,22 +216,26 @@
   justify-content: center;
 }
 
-.calendar :global(.DayPicker-Day.DayPicker-Day--selected.DayPicker-Day--start:not(.DayPicker-Day--outside)) {
+/** for selection mode type range **/
+.calendarDay.selectedDay:global(.start):not(.outsideDay) {
   background: linear-gradient(to left, value(THEME-COLOR-50) 0%,value(THEME-COLOR-50) 50%,#000000 50%,transparent 50%,transparent 100%);
   border-radius: 0;
 }
 
-.calendar :global(.DayPicker-Day.DayPicker-Day--selected.DayPicker-Day--end:not(.DayPicker-Day--outside)) {
+.calendarDay.selectedDay:global(.end):not(.outsideDay) {
   background: linear-gradient(to right, value(THEME-COLOR-50) 0%,value(THEME-COLOR-50) 50%,#000000 50%,transparent 50%,transparent 100%);
   border-radius: 0;
 }
+/************************************************/
 
-.calendar :global(.DayPicker).TwoMonths :global(.DayPicker-Months) {
+/** Two months mode **/
+.calendarContainer.twoMonths .calendarMonths {
   display: flex;
 }
 
-.calendar :global(.DayPicker).TwoMonths :global(.DayPicker-Month:first-child .DayPicker-Nav--Right),
-.calendar :global(.DayPicker).TwoMonths :global(.DayPicker-Month:last-child .DayPicker-Nav--Left),
-.calendar :global(.DayPicker).TwoMonths :global(.DayPicker-Day--outside) {
+.calendarContainer.twoMonths .calendarMonth:first-child .calendarHeader::arrowRight,
+.calendarContainer.twoMonths .calendarMonth:last-child .calendarHeader::arrowLeft,
+.calendarContainer.twoMonths .outsideDay {
   visibility: hidden;
 }
+/************************************************/

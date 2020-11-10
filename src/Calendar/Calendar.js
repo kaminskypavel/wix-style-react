@@ -271,6 +271,9 @@ export default class Calendar extends React.PureComponent {
     const captionElement = this._createCaptionElement(month);
     const selectedDays = this._getSelectedDays(value);
 
+    let containerClass = `DayPicker ${classes.calendarContainer}`;
+    containerClass += numOfMonths > 1 ? ` ${classes.twoMonths}` : '';
+
     return {
       disabledDays: excludePastDates
         ? { before: new Date() }
@@ -291,10 +294,33 @@ export default class Calendar extends React.PureComponent {
       onCaptionClick: this._preventActionEventDefault,
       onDayKeyDown: this._handleDayKeyDown,
       numberOfMonths: numOfMonths,
-      className: numOfMonths > 1 ? classes.TwoMonths : '',
-      modifiers: { start: from, end: to, firstOfMonth, lastOfMonth, singleDay },
+      modifiers: { start: from, end: to, firstOfMonth, lastOfMonth, singleDay }, // todo: Sivan: change the keys for the stylable classes
       renderDay: Calendar.renderDay,
       dir: rtl ? 'rtl' : 'ltr',
+      classNames: {
+        container: containerClass,
+        wrapper: 'DayPicker-wrapper',
+        interactionDisabled: 'DayPicker--interactionDisabled',
+
+        months: `DayPicker-Months ${classes.calendarMonths}`,
+        month: `DayPicker-Month ${classes.calendarMonth}`,
+        weekdays: `DayPicker-Weekdays ${classes.calendarWeekdays}`,
+        weekdaysRow: `DayPicker-WeekdaysRow ${classes.calendarWeekdaysRow}`,
+        weekday: `DayPicker-Weekday ${classes.calendarWeekday}`,
+        body: `DayPicker-Body ${classes.calendarBody}`,
+        week: `DayPicker-Week ${classes.calendarWeek}`,
+        weekNumber: 'DayPicker-WeekNumber',
+        day: `DayPicker-Day ${classes.calendarDay}`,
+
+        footer: 'DayPicker-Footer', // todo: Sivan: we might remove it
+        todayButton: 'DayPicker-TodayButton', // todo: Sivan: we might remove it
+
+        // default modifiers
+        today: classes.today,
+        selected: classes.selectedDay,
+        disabled: classes.disabledDay,
+        outside: classes.outsideDay,
+      },
     };
   };
 
@@ -315,11 +341,11 @@ export default class Calendar extends React.PureComponent {
   _focusSelectedDay = () => {
     if (this.dayPickerRef) {
       const selectedDay = this.dayPickerRef.dayPicker.querySelector(
-        '.DayPicker-Day--selected',
+        `.${classes.selectedDay}`,
       );
 
       if (selectedDay) {
-        selectedDay.classList.add('DayPicker-Day--unfocused');
+        selectedDay.classList.add(classes.unfocusedDay);
         selectedDay.focus();
       }
     }
@@ -329,11 +355,11 @@ export default class Calendar extends React.PureComponent {
     this._preventActionEventDefault(event);
 
     const unfocusedDay = this.dayPickerRef.dayPicker.querySelector(
-      '.DayPicker-Day--unfocused',
+      `.${classes.unfocusedDay}`,
     );
 
     if (unfocusedDay) {
-      unfocusedDay.classList.remove('DayPicker-Day--unfocused');
+      unfocusedDay.classList.remove(classes.unfocusedDay);
     }
   };
 
@@ -352,7 +378,7 @@ export default class Calendar extends React.PureComponent {
     return (
       <div
         data-hook={dataHook}
-        className={st(classes.calendar, className)}
+        className={st(classes.root, className)}
         onClick={this._preventActionEventDefault}
       >
         <DayPicker
