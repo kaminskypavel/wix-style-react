@@ -74,7 +74,7 @@ class Carousel extends React.Component {
     controlsPosition: PropTypes.oneOf(['sides', 'overlay', 'bottom', 'none']),
 
     /** Sets the arrows position */
-    controlsSize: PropTypes.oneOf(['small', 'medium']),
+    controlsSize: PropTypes.oneOf(['tiny', 'small', 'medium']),
   };
 
   static defaultProps = {
@@ -155,7 +155,7 @@ class Carousel extends React.Component {
           buttonSkin={buttonSkin}
           arrowSize={controlsSize}
           icon={
-            controlsSize === 'small' ? (
+            controlsSize === 'tiny' || controlsSize === 'small' ? (
               <ChevronRightLargeSmall />
             ) : (
               <ChevronRightLarge />
@@ -169,7 +169,7 @@ class Carousel extends React.Component {
           buttonSkin={buttonSkin}
           arrowSize={controlsSize}
           icon={
-            controlsSize === 'small' ? (
+            controlsSize === 'tiny' || controlsSize === 'small' ? (
               <ChevronLeftLargeSmall />
             ) : (
               <ChevronLeftLarge />

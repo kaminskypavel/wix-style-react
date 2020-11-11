@@ -14,7 +14,11 @@
 }
 
 .root {
-  -st-states: controlsPosition(enum(sides, overlay, bottom, none)), controlsSize(enum(small, medium));
+  -st-states: controlsPosition(enum(sides, overlay, bottom, none)), controlsSize(enum(tiny, small, medium, large));
+}
+
+.root:controlsSize(tiny) {
+  --arrow-size: 24px
 }
 
 .root:controlsSize(small) {
@@ -23,6 +27,10 @@
 
 .root:controlsSize(medium) {
   --arrow-size: 36px;
+}
+
+.root:controlsSize(large) {
+  --arrow-size: 42px;
 }
 
 .root[data-is-loading='true'] {

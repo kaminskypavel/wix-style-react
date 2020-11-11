@@ -41,6 +41,7 @@ export type TextPropsBase = EllipsisCommonProps & {
   skin?: TextSkin;
   light?: boolean;
   weight?: TextWeight;
+  listStyle?: ListStyle;
 };
 
 export type TextProps = TextWithAsProp<TextPropsBase>;
@@ -59,3 +60,5 @@ export type TextSkin =
   | 'primary';
 
 export type TextWeight = 'thin' | 'normal' | 'bold';
+
+export type ListStyle = 'checkmark' | 'circle';
