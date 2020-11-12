@@ -5,17 +5,17 @@ const calendarDriverFactory = ({ element }) => {
   const getCalendar = () => element.querySelector('.DayPicker');
   const getNthDay = n =>
     element.querySelectorAll(
-      '[role="gridcell"]:not([class*="outside"]):not([class*="disabled"])',
+      '[role="gridcell"][aria-disabled="false"]:not([class*="disabled"])',
     )[n];
   const getNthDayOfTheMonth = n =>
-    element.querySelectorAll('[role="gridcell"]:not([class*="outside"])')[n];
+    element.querySelectorAll('[role="gridcell"][aria-disabled="false"]')[n];
   const getDayOfDate = (year, month, day) =>
     element.querySelector(
-      `[role="gridcell"]:not([class*="outside"])>[data-date='${year}-${month}-${day}']`,
+      `[role="gridcell"][aria-disabled="false"]>[data-date='${year}-${month}-${day}']`,
     );
   const getSelectedDay = () =>
     element.querySelector(
-      '[role="gridcell"][aria-selected=true]:not(.outside)',
+      '[role="gridcell"][aria-selected=true][aria-disabled="false"]',
     );
   const getYearDropdown = () =>
     element.querySelector('[data-hook="datepicker-year-dropdown-button"]');
@@ -41,7 +41,7 @@ const calendarDriverFactory = ({ element }) => {
     element.querySelectorAll('[class="DayPicker-Month"]');
   const getSelectedDays = () =>
     element.querySelectorAll(
-      '[role="gridcell"][aria-selected=true]:not(.outside)',
+      '[role="gridcell"][aria-selected=true][aria-disabled="false"]',
     );
 
   const driver = {

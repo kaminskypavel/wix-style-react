@@ -316,7 +316,7 @@ export default class Calendar extends React.PureComponent {
         today: classes.today,
         selected: classes.selectedDay,
         disabled: `disabled ${classes.disabledDay}`, // 'disabled' is used at the drivers and e2e test
-        outside: `outside ${classes.outsideDay}`, // 'outside' is used at the drivers and e2e test
+        outside: classes.outsideDay,
       },
     };
   };
