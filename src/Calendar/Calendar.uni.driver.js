@@ -126,8 +126,7 @@ export const calendarUniDriverFactory = base => {
     getSelectedDay: () => getSelectedDay().text(),
     getWidth: () => base._prop('style').then(style => style.width),
     triggerKeyDown: ({ key }) => getFocusedDay().pressKey(key),
-    isFocusedDayVisuallyUnfocused: () =>
-      getFocusedDay().hasClass('DayPicker-Day--unfocused'),
+    isFocusedDayVisuallyUnfocused: () => getFocusedDay().hasClass('unfocused'),
     containsVisuallyUnfocusedDay: () => getVisuallyUnfocusedDay().exists(),
     isTwoMonthsLayout: async () => (await getMonthContainers().count()) === 2,
 
