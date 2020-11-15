@@ -38,7 +38,7 @@ export const calendarUniDriverFactory = base => {
   const getFocusedDay = () => base.$('.DayPicker-Day:focus');
   const getVisuallyUnfocusedDay = () => base.$('.unfocused');
   const getMonthContainers = () => base.$$('.DayPicker-Month');
-  const getVisibleMonths = () => base.$$('[class="DayPicker-Month"]');
+  const getVisibleMonths = () => base.$$('[class*="DayPicker-Month"]');
   const getSelectedDays = () =>
     base.$$(
       '[role="gridcell"][aria-selected="true"]>[data-outsideday="false"]',

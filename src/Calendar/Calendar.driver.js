@@ -38,7 +38,7 @@ const calendarDriverFactory = ({ element }) => {
   const getVisuallyUnfocusedDay = () => element.querySelector('.unfocused');
   const getMonthContainers = () => element.querySelectorAll('.DayPicker-Month');
   const getVisibleMonths = () =>
-    element.querySelectorAll('[class="DayPicker-Month"]');
+    element.querySelectorAll('[class*="DayPicker-Month"]');
   const getSelectedDays = () =>
     element.querySelectorAll(
       '[role="gridcell"][aria-selected=true]>[data-outsideday="false"]',
@@ -135,7 +135,7 @@ const calendarDriverFactory = ({ element }) => {
     triggerKeyDown: params =>
       ReactTestUtils.Simulate.keyDown(getFocusedDay(), params),
     isFocusedDayVisuallyUnfocused: () =>
-      getFocusedDay().classList.contains('DayPicker-Day--unfocused'),
+      getFocusedDay().classList.contains('unfocused'),
     containsVisuallyUnfocusedDay: () => !!getVisuallyUnfocusedDay(),
     isTwoMonthsLayout: () => getMonthContainers().length === 2,
 
