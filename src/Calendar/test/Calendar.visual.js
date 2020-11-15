@@ -111,7 +111,7 @@ const tests = [
         it: 'FilterDate - feature dates only (includes today)',
         props: {
           placeholderText: 'Select Date',
-          value: new Date(),
+          value: new Date('2020/11/10'),
           excludePastDates: true,
         },
       },
@@ -119,7 +119,7 @@ const tests = [
         it: 'Months dropdown',
         props: {
           placeholderText: 'Select Date',
-          value: new Date(),
+          value: new Date('2020/11/10'),
           showMonthDropdown: true,
         },
       },
@@ -127,7 +127,7 @@ const tests = [
         it: 'Years dropdown',
         props: {
           placeholderText: 'Select Date',
-          value: new Date(),
+          value: new Date('2020/11/10'),
           showYearDropdown: true,
         },
       },
@@ -135,7 +135,7 @@ const tests = [
         it: 'Months and years dropdown',
         props: {
           placeholderText: 'Select Date',
-          value: new Date(),
+          value: new Date('2020/11/10'),
           showMonthDropdown: true,
           showYearDropdown: true,
         },
