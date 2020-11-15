@@ -103,8 +103,8 @@ const tests = [
         it: 'FilterDate - Prior for today dates (includes today)',
         props: {
           placeholderText: 'Select Date',
-          value: new Date(),
-          filterDate: date => date < new Date(),
+          value: new Date('2020/11/10'),
+          filterDate: date => date < new Date('2020/11/10'),
         },
       },
       {
@@ -112,7 +112,7 @@ const tests = [
         props: {
           placeholderText: 'Select Date',
           value: new Date('2020/11/10'),
-          excludePastDates: true,
+          filterDate: date => date => new Date('2020/11/10'),
         },
       },
       {
