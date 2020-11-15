@@ -294,7 +294,13 @@ export default class Calendar extends React.PureComponent {
       onCaptionClick: this._preventActionEventDefault,
       onDayKeyDown: this._handleDayKeyDown,
       numberOfMonths: numOfMonths,
-      modifiers: { start: from, end: to, firstOfMonth, lastOfMonth, singleDay }, // todo: Sivan: change the keys for the stylable classes
+      modifiers: {
+        start: from,
+        end: to,
+        [classes.firstOfMonth]: firstOfMonth,
+        [classes.lastOfMonth]: lastOfMonth,
+        singleDay,
+      }, // todo: Sivan: change the keys for the stylable classes
       renderDay: Calendar.renderDay,
       dir: rtl ? 'rtl' : 'ltr',
       classNames: {

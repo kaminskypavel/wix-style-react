@@ -136,10 +136,10 @@
 /*}*/
 /*.end {*/
 /*}*/
-/*.firstOfMonth {*/
-/*}*/
-/*.lastOfMonth {*/
-/*}*/
+.firstOfMonth {
+}
+.lastOfMonth {
+}
 /*.singleDay {*/
 /*}*/
 
@@ -176,13 +176,13 @@
 }
 
 .calendarDay.selectedDay:not(.outsideDay):last-of-type,
-.calendarDay:global(.lastOfMonth):not(.outsideDay) {
+.calendarDay.lastOfMonth:not(.outsideDay) {
   border-top-right-radius: 50% !important;
   border-bottom-right-radius: 50% !important;
 }
 
 .calendarDay.selectedDay:not(.outsideDay):first-of-type,
-.calendarDay:global(.firstOfMonth):not(.outsideDay) {
+.calendarDay.firstOfMonth:not(.outsideDay) {
   border-top-left-radius: 50% !important;
   border-bottom-left-radius: 50% !important;
 }
@@ -201,8 +201,7 @@
 }
 
 .calendarDay.selectedDay:global(.start):not(.outsideDay):hover .dayCircle,
-.calendarDay.selectedDay:global(.end):not(.outsideDay):hover .dayCircle,
-.calendarDay:global(.singleDay):not(.outsideDay):hover .dayCircle {
+.calendarDay.selectedDay:global(.end):not(.outsideDay):hover .dayCircle {
   background-color: value(THEME-COLOR-20);
 }
 
