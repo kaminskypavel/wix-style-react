@@ -5,17 +5,17 @@ const calendarDriverFactory = ({ element }) => {
   const getCalendar = () => element.querySelector('.DayPicker');
   const getNthDay = n =>
     element.querySelectorAll(
-      '[role="gridcell"][aria-disabled="false"]:not([class*="disabled"])',
+      '[role="gridcell"]:not([class*="disabled"])>[data-outsideday="false"]',
     )[n];
   const getNthDayOfTheMonth = n =>
-    element.querySelectorAll('[role="gridcell"][aria-disabled="false"]')[n];
+    element.querySelectorAll('[role="gridcell"][n]>[data-outsideday="false"]');
   const getDayOfDate = (year, month, day) =>
     element.querySelector(
-      `[role="gridcell"][aria-disabled="false"]>[data-date='${year}-${month}-${day}']`,
+      `[role="gridcell"]>[data-outsideday="false"][data-date='${year}-${month}-${day}']`,
     );
   const getSelectedDay = () =>
     element.querySelector(
-      '[role="gridcell"][aria-selected=true][aria-disabled="false"]',
+      '[role="gridcell"][aria-selected=true]>[data-outsideday="false"]',
     );
   const getYearDropdown = () =>
     element.querySelector('[data-hook="datepicker-year-dropdown-button"]');
@@ -29,7 +29,7 @@ const calendarDriverFactory = ({ element }) => {
     element.querySelector('[data-hook="datepicker-year-caption"]');
   const getMonthAndYear = () => [getMonthCaption(), getYearCaption()];
   const getNthWeekDayName = n =>
-    element.querySelectorAll('[class="DayPicker-Weekday"] abbr')[n];
+    element.querySelectorAll('[class*="DayPicker-Weekday"] abbr')[n];
   const getPrevMonthButton = () =>
     element.querySelector('[data-hook="datepicker-left-arrow"]');
   const getNextMonthButton = () =>
@@ -41,7 +41,7 @@ const calendarDriverFactory = ({ element }) => {
     element.querySelectorAll('[class="DayPicker-Month"]');
   const getSelectedDays = () =>
     element.querySelectorAll(
-      '[role="gridcell"][aria-selected=true][aria-disabled="false"]',
+      '[role="gridcell"][aria-selected=true]>[data-outsideday="false"]',
     );
 
   const driver = {
@@ -171,7 +171,7 @@ const calendarDriverFactory = ({ element }) => {
     getSelectedDays: () => {
       const result = [];
       getSelectedDays().forEach(item => {
-        const date = item.childNodes[0]
+        const date = item
           .getAttribute('data-date')
           .split('-')
           .map(part => parseInt(part));

@@ -66,13 +66,21 @@ export default class Calendar extends React.PureComponent {
   }
 
   static renderDay(day, modifiers) {
-    const relevantModifiers = [classes.start, classes.end, classes.selectedDay];
+    const relevantModifiers = [
+      classes.start,
+      classes.end,
+      classes.selectedDay,
+      classes.outsideDay,
+    ];
+    const isOutsideDay = !!modifiers[classes.outsideDay];
+
     for (const modifier of relevantModifiers) {
       if (modifier in modifiers) {
         return (
           <div
             className={classes.dayCircle}
             data-date={`${day.getFullYear()}-${day.getMonth()}-${day.getDate()}`}
+            data-outsideday={isOutsideDay}
           >
             {day.getDate()}
           </div>
@@ -83,6 +91,7 @@ export default class Calendar extends React.PureComponent {
     return (
       <div
         data-date={`${day.getFullYear()}-${day.getMonth()}-${day.getDate()}`}
+        data-outsideday={isOutsideDay}
       >
         {day.getDate()}
       </div>

@@ -5,16 +5,18 @@ export const calendarUniDriverFactory = base => {
   const getCalendar = () => base.$('.DayPicker');
   const getNthDay = n =>
     base
-      .$$('[role="gridcell"][aria-disabled="false"]:not([class*="disabled"])')
+      .$$(
+        '[role="gridcell"]:not([class*="disabled"])>[data-outsideday="false"]',
+      )
       .get(n);
   const getNthDayOfTheMonth = n =>
-    base.$$('[role="gridcell"][aria-disabled="false"])')[n];
+    base.$$('[role="gridcell"][n]>[data-outsideday="false"]');
   const getDayOfDate = (year, month, day) =>
     base.$(
-      `[role="gridcell"][aria-disabled="false"]>[data-date='${year}-${month}-${day}']`,
+      `[role="gridcell"]>[data-outsideday="false"][data-date='${year}-${month}-${day}']`,
     );
   const getSelectedDay = () =>
-    base.$('[role="gridcell"][aria-selected="true"][aria-disabled="false"]');
+    base.$('[role="gridcell"][aria-selected="true"]>[data-outsideday="false"]');
 
   const getVisibleDisabledList = () =>
     base.$$('[role="gridcell"][aria-disabled="true"]');
@@ -28,7 +30,7 @@ export const calendarUniDriverFactory = base => {
   const getYearCaption = () => base.$('[data-hook="datepicker-year-caption"]');
   const getMonthAndYear = () => [getMonthCaption(), getYearCaption()];
   const getNthWeekDayName = n =>
-    base.$$('[class="DayPicker-Weekday"] abbr').get(n);
+    base.$$('[class*="DayPicker-Weekday"] abbr').get(n);
   const getPrevMonthButton = () =>
     base.$('[data-hook="datepicker-left-arrow"]');
   const getNextMonthButton = () =>
@@ -38,7 +40,9 @@ export const calendarUniDriverFactory = base => {
   const getMonthContainers = () => base.$$('.DayPicker-Month');
   const getVisibleMonths = () => base.$$('[class="DayPicker-Month"]');
   const getSelectedDays = () =>
-    base.$$('[role="gridcell"][aria-selected="true"][aria-disabled="false"]');
+    base.$$(
+      '[role="gridcell"][aria-selected="true"]>[data-outsideday="false"]',
+    );
   const getMonthDropdown = () =>
     base.$('[data-hook="datepicker-month-dropdown"]');
   const getYearDropdown = () =>
@@ -140,9 +144,7 @@ export const calendarUniDriverFactory = base => {
     getNumOfSelectedDays: () => getSelectedDays().count(),
     getSelectedDays: () => {
       const datesPromises = getSelectedDays().map(async item => {
-        const children = await ReactBase(item)._DEPRECATED_children();
-        const child = await children.get(0);
-        const attr = await child.attr('data-date');
+        const attr = await item.attr('data-date');
         const date = attr.split('-').map(part => parseInt(part));
 
         return new Date(date[0], date[1], date[2]);
