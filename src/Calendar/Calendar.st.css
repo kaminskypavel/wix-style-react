@@ -132,16 +132,16 @@
 }
 .unfocusedDay {
 }
-/*.start {*/
-/*}*/
-/*.end {*/
-/*}*/
+.start {
+}
+.end {
+}
 .firstOfMonth {
 }
 .lastOfMonth {
 }
-/*.singleDay {*/
-/*}*/
+.singleDay {
+}
 
 .calendarDay.today:not(.selectedDay):not(:hover) {
   background-color: value(D70);
@@ -168,7 +168,7 @@
 }
 
 /** for selection mode type range **/
-.calendarDay.selectedDay:not(:global(.start)):not(:global(.end)):not(.outsideDay):not(:global(.singleDay)) {
+.calendarDay.selectedDay:not(.start):not(.end):not(.outsideDay):not(.singleDay) {
   background-color: value(THEME-COLOR-50);
   border-radius: 0;
   box-shadow: none;
@@ -188,20 +188,21 @@
 }
 /**************************************************************/
 
-:global(.singleDay):not(.outsideDay),
-.calendarDay:global(.start.end):not(.outsideDay) {
-  background: none;
-  border-radius: 50%;
+.calendarDay.singleDay:not(.outsideDay),
+.calendarDay.start.end:not(.outsideDay) {
+  background: none !important;
+  border-radius: 50% !important;
 }
 
-.calendarDay.selectedDay:global(.start):not(.outsideDay) .dayCircle,
-.calendarDay.selectedDay:global(.end):not(.outsideDay) .dayCircle,
-.calendarDay:global(.singleDay):not(.outsideDay) .dayCircle {
+.calendarDay.selectedDay.start:not(.outsideDay) .dayCircle,
+.calendarDay.selectedDay.end:not(.outsideDay) .dayCircle,
+.calendarDay.singleDay:not(.outsideDay) .dayCircle {
   background-color: value(THEME-COLOR-10);
 }
 
-.calendarDay.selectedDay:global(.start):not(.outsideDay):hover .dayCircle,
-.calendarDay.selectedDay:global(.end):not(.outsideDay):hover .dayCircle {
+.calendarDay.selectedDay.start:not(.outsideDay):hover .dayCircle,
+.calendarDay.selectedDay.end:not(.outsideDay):hover .dayCircle,
+.calendarDay.singleDay:not(.outsideDay):hover .dayCircle {
   background-color: value(THEME-COLOR-20);
 }
 
@@ -216,12 +217,12 @@
 }
 
 /** for selection mode type range **/
-.calendarDay.selectedDay:global(.start):not(.outsideDay) {
+.calendarDay.selectedDay.start:not(.outsideDay) {
   background: linear-gradient(to left, value(THEME-COLOR-50) 0%,value(THEME-COLOR-50) 50%,#000000 50%,transparent 50%,transparent 100%);
   border-radius: 0;
 }
 
-.calendarDay.selectedDay:global(.end):not(.outsideDay) {
+.calendarDay.selectedDay.end:not(.outsideDay) {
   background: linear-gradient(to right, value(THEME-COLOR-50) 0%,value(THEME-COLOR-50) 50%,#000000 50%,transparent 50%,transparent 100%);
   border-radius: 0;
 }

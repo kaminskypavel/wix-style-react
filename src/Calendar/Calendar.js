@@ -66,7 +66,7 @@ export default class Calendar extends React.PureComponent {
   }
 
   static renderDay(day, modifiers) {
-    const relevantModifiers = ['start', 'end', 'selected'];
+    const relevantModifiers = [classes.start, classes.end, classes.selectedDay];
     for (const modifier of relevantModifiers) {
       if (modifier in modifiers) {
         return (
@@ -295,12 +295,12 @@ export default class Calendar extends React.PureComponent {
       onDayKeyDown: this._handleDayKeyDown,
       numberOfMonths: numOfMonths,
       modifiers: {
-        start: from,
-        end: to,
+        [classes.start]: from,
+        [classes.end]: to,
         [classes.firstOfMonth]: firstOfMonth,
         [classes.lastOfMonth]: lastOfMonth,
-        singleDay,
-      }, // todo: Sivan: change the keys for the stylable classes
+        [classes.singleDay]: singleDay,
+      },
       renderDay: Calendar.renderDay,
       dir: rtl ? 'rtl' : 'ltr',
       classNames: {
