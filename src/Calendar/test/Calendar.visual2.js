@@ -104,7 +104,7 @@ const tests = [
         props: {
           placeholderText: 'Select Date',
           value: new Date('2020/10/10'),
-          filterDate: date => date < new Date('2020/10/10'),
+          filterDate: date => date <= new Date('2020/10/10'),
         },
       },
       {
@@ -112,7 +112,7 @@ const tests = [
         props: {
           placeholderText: 'Select Date',
           value: new Date('2020/10/10'),
-          filterDate: date => date => new Date('2020/10/10'),
+          filterDate: date => date >= new Date('2020/10/10'),
         },
       },
       {
