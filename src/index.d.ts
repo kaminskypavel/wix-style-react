@@ -490,6 +490,10 @@ export * from './CardFolderTabs';
 export { default as StackedBarChart } from './StackedBarChart';
 
 export { default as PageFooter } from './PageFooter';
+
+export { default as AnalyticsSummaryCard } from './AnalyticsSummaryCard';
+export * from './AnalyticsSummaryCard';
+
 export * from './PageFooter';
 
 export * from './StackedBarChart';

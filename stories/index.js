@@ -167,6 +167,7 @@ require('../src/VerticalTabs/docs/index.story');
 require('../src/VerticalTabs/docs/index.story');
 require('../src/VerticalTabsItem/docs/index.story');
 require('../src/VerticalTabsItem/docs/index.story');
+require('../src/AnalyticsSummaryCard/docs/index.story');
 require('./WIP');
 require('./Internal');
 
