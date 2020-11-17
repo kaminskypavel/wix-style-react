@@ -143,15 +143,28 @@
 .singleDay {
 }
 
-.calendarDay.today:not(.selectedDay):not(:hover) {
+@custom-selector :--todayNotSelectedDay .calendarDay.today:not(.selectedDay):not(:hover);
+
+:--todayNotSelectedDay {
   background-color: value(D70);
   box-shadow: value(boxShadow);
   z-index: 0;
 }
 
-.calendarDay.today:not(.selectedDay):not(:hover):focus {
+/*.calendarDay.today:not(.selectedDay):not(:hover) {*/
+/*  background-color: value(D70);*/
+/*  box-shadow: value(boxShadow);*/
+/*  z-index: 0;*/
+/*}*/
+
+@custom-selector :--todayNotSelectedDayFocus .calendarDay.today:not(.selectedDay):not(:hover):focus;
+
+:--todayNotSelectedDayFocus {
   box-shadow: value(boxShadow), value(focusBoxShadow);
 }
+/*.calendarDay.today:not(.selectedDay):not(:hover):focus {*/
+/*  box-shadow: value(boxShadow), value(focusBoxShadow);*/
+/*}*/
 
 .calendarDay:hover {
   background-color: value(THEME-COLOR-50);
@@ -207,17 +220,31 @@
   border-radius: 50% !important;
 }
 
+@custom-selector :--singleSelectedDayCircle .calendarDay.singleDay:not(.outsideDay) .dayCircle;
+@custom-selector :--singleSelectedDayCircleHover .calendarDay.singleDay:not(.outsideDay):hover .dayCircle;
+
 .calendarDay.selectedDay.start:not(.outsideDay) .dayCircle,
 .calendarDay.selectedDay.end:not(.outsideDay) .dayCircle,
-.calendarDay.singleDay:not(.outsideDay) .dayCircle {
+:--singleSelectedDayCircle {
   background-color: value(THEME-COLOR-10);
 }
 
 .calendarDay.selectedDay.start:not(.outsideDay):hover .dayCircle,
 .calendarDay.selectedDay.end:not(.outsideDay):hover .dayCircle,
-.calendarDay.singleDay:not(.outsideDay):hover .dayCircle {
+:--singleSelectedDayCircleHover {
   background-color: value(THEME-COLOR-20);
 }
+/*.calendarDay.selectedDay.start:not(.outsideDay) .dayCircle,*/
+/*.calendarDay.selectedDay.end:not(.outsideDay) .dayCircle,*/
+/*.calendarDay.singleDay:not(.outsideDay) .dayCircle {*/
+/*  background-color: value(THEME-COLOR-10);*/
+/*}*/
+
+/*.calendarDay.selectedDay.start:not(.outsideDay):hover .dayCircle,*/
+/*.calendarDay.selectedDay.end:not(.outsideDay):hover .dayCircle,*/
+/*.calendarDay.singleDay:not(.outsideDay):hover .dayCircle {*/
+/*  background-color: value(THEME-COLOR-20);*/
+/*}*/
 
 .calendarDay .dayCircle {
   border-radius: 50%;
