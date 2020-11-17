@@ -162,10 +162,17 @@
   color: value(D80);
 }
 
-.calendarDay.outsideDay, .calendarDay.disabledDay {
+@custom-selector :--outsideDay .calendarDay.outsideDay;
+@custom-selector :--disabledDay .calendarDay.disabledDay;
+
+:--outsideDay, :--disabledDay {
   pointer-events: none;
   color: value(D55);
 }
+/*.calendarDay.outsideDay, .calendarDay.disabledDay {*/
+/*  pointer-events: none;*/
+/*  color: value(D55);*/
+/*}*/
 
 /** for selection mode type range **/
 .calendarDay.selectedDay:not(.start):not(.end):not(.outsideDay):not(.singleDay) {
