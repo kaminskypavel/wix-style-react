@@ -39,27 +39,3 @@ describe('Collapse', () => {
     });
   });
 });
-
-describe('getElementHeight', () => {
-  it('returns height of element', () => {
-    const wrapper = mount(<div style={{ height: 500 }}>Text</div>);
-    const element = wrapper.getDOMNode();
-    Object.defineProperty(element, 'scrollHeight', {
-      configurable: true,
-      value: 500,
-    });
-    expect(getElementHeight(wrapper.getDOMNode())).toBe(500);
-  });
-
-  it('adds vertical margin to calculated height', () => {
-    const wrapper = mount(
-      <div style={{ height: 500, marginTop: 30, marginBottom: 30 }}>Text</div>,
-    );
-    const element = wrapper.getDOMNode();
-    Object.defineProperty(element, 'scrollHeight', {
-      configurable: true,
-      value: 500,
-    });
-    expect(getElementHeight(wrapper.getDOMNode())).toBe(560);
-  });
-});
