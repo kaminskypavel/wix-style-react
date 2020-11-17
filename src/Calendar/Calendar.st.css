@@ -157,10 +157,16 @@
   background-color: value(THEME-COLOR-50);
 }
 
-.calendarDay.selectedDay:not(.outsideDay) {
+@custom-selector :--selectedDay .calendarDay.selectedDay:not(.outsideDay);
+
+:--selectedDay {
   background-color: value(THEME-COLOR-10);
   color: value(D80);
 }
+/*.calendarDay.selectedDay:not(.outsideDay) {*/
+/*  background-color: value(THEME-COLOR-10);*/
+/*  color: value(D80);*/
+/*}*/
 
 @custom-selector :--outsideDay .calendarDay.outsideDay;
 @custom-selector :--disabledDay .calendarDay.disabledDay;
