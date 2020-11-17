@@ -23,6 +23,10 @@
 .root:skin(standard):secondary {
   color: value(D30);
 }
+.root:skin(standard):light:secondary,
+.root:skin(standard):light:secondary:size(tiny) {
+  color: value(D40);
+}
 .root:skin(standard):size(tiny) {
   color: value(D20);
 }

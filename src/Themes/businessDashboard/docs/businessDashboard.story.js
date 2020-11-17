@@ -19,8 +19,15 @@ import * as headings from './components/Heading';
 import * as texts from './components/Text';
 import * as textButtons from './components/TextButton';
 import * as iconButtons from './components/IconButton';
+import * as tooltips from './components/Tooltip';
+import * as card from './components/Card';
+import * as badge from './components/Badge';
 import * as circularProgressBar from './components/CircularProgressBar';
 import * as linearProgressBar from './components/LinearProgressBar';
+import * as listItemSelect from './components/ListItemSelect';
+import * as sidebar from './components/Sidebar';
+import * as listItemActions from './components/ListItemAction';
+import * as popoverMenu from './components/PopoverMenu';
 import { Category } from '../../../../stories/storiesHierarchy';
 import Box from '../../../Box';
 import Text from '../../../Text';
@@ -101,6 +108,34 @@ import { theme } from 'wix-style-react/themes/businessDashboard';
           example({
             text: TextComponent('IconButton'),
             source: iconButtons.playground,
+          }),
+          example({
+            text: TextComponent('ListItemSelect'),
+            source: listItemSelect.playground,
+          }),
+          example({
+            text: TextComponent('Tooltip'),
+            source: tooltips.playground,
+          }),
+          example({
+            text: TextComponent('Sidebar'),
+            source: sidebar.playground,
+          }),
+          example({
+            text: TextComponent('Card'),
+            source: card.playground,
+          }),
+          example({
+            text: TextComponent('ListItemAction'),
+            source: listItemActions.playground,
+          }),
+          example({
+            text: TextComponent('PopoverMenu'),
+            source: popoverMenu.playground,
+          }),
+          example({
+            text: TextComponent('Badge'),
+            source: badge.playground,
           }),
         ],
       }),

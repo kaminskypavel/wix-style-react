@@ -5,7 +5,7 @@
 
 :import {
   -st-from: "../foundations/colors.st.css";
-  -st-named: B10, B05, D10-40, D55, D70, D80;
+  -st-named: B10, B05, B50, D10-40, D55, D70, D80;
 }
 
 :import {
@@ -73,6 +73,34 @@
 }
 
 .root:priority(secondary):disabled {
+  color: value(D10-40);
+  background-color: transparent;
+  border-color: value(D55);
+}
+
+/* Skin: inverted */
+
+.root:skin(inverted) {
+  -st-mixin: bold;
+
+  border-color: value(D80);
+  background-color: value(D80);
+  color: value(B10);
+}
+
+.root:skin(inverted):hover {
+  color: value(B05);
+  border-color: transparent;
+  background-color: value(B50);
+}
+
+.root:skin(inverted):active {
+  background-color: value(D80);
+  border-color: value(D80);
+  color: value(B10);
+}
+
+.root:skin(inverted):disabled {
   color: value(D10-40);
   background-color: transparent;
   border-color: value(D55);

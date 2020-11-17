@@ -32,6 +32,16 @@ export const playground = `
     </Box>
     <hr />
     <Box padding="3px">
+      <Text secondary light>size="medium" secondary light</Text>
+    </Box>
+    <Box padding="3px">
+      <Text size="small" secondary light>size="small" secondary light</Text>
+    </Box>
+    <Box padding="3px">
+      <Text size="tiny" secondary light>size="tiny" secondary light</Text>
+    </Box>
+    <hr />
+    <Box padding="3px">
       <Text weight="bold">skin="standard" size="medium" weight="bold"</Text>
     </Box>
     <Box padding="3px">

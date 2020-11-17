@@ -1,6 +1,6 @@
 export const playground = `
 <ThemeProvider theme={theme()}>
-  <Carousel controlsPosition="bottom" buttonSkin="inverted" infinite={false}>
+  <Carousel controlsPosition="bottom" buttonSkin="inverted" infinite={false} controlsSize="tiny">
     <Card>
       <Card.Content>
         <Text>first card</Text>

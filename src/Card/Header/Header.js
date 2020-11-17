@@ -39,6 +39,7 @@ class Header extends React.PureComponent {
               dataHook={DataHooks.title}
               appearance="H3"
               children={title}
+              className={classes.title}
             />
           ) : (
             <span data-hook={DataHooks.title}>{title}</span>

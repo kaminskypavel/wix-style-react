@@ -5,14 +5,15 @@ import CircleLoaderCheckSmall from 'wix-ui-icons-common/system/CircleLoaderCheck
 import FormFieldError from 'wix-ui-icons-common/system/FormFieldError';
 import FormFieldErrorSmall from 'wix-ui-icons-common/system/FormFieldErrorSmall';
 import Tooltip from '../Tooltip';
+import { ThemeProviderConsumerBackwardCompatible } from '../ThemeProvider/ThemeProviderConsumerBackwardCompatible';
 import { st, classes } from './CircularProgressBar.st.css';
 import PropTypes from 'prop-types';
 import { dataHooks, Size, sizesMap } from './constants';
 
 const sizeToSuccessIcon = {
-  [Size.small]: <CircleLoaderCheckSmall />,
-  [Size.medium]: <CircleLoaderCheck />,
-  [Size.large]: <CircleLoaderCheck />,
+  [Size.small]: CircleLoaderCheckSmall,
+  [Size.medium]: CircleLoaderCheck,
+  [Size.large]: CircleLoaderCheck,
 };
 
 const sizeToErrorIcon = {
@@ -22,6 +23,21 @@ const sizeToErrorIcon = {
 };
 
 class CircularProgressBar extends React.PureComponent {
+  _renderSuccessIcon(size) {
+    return (
+      <ThemeProviderConsumerBackwardCompatible
+        defaultIcons={{
+          CircularProgressBar: sizeToSuccessIcon,
+        }}
+      >
+        {({ icons }) => {
+          const IconToRender = icons.CircularProgressBar[size];
+          return <IconToRender />;
+        }}
+      </ThemeProviderConsumerBackwardCompatible>
+    );
+  }
+
   _renderProgressBar() {
     const { light, size, label, ...otherProps } = this.props;
 
@@ -33,7 +49,7 @@ class CircularProgressBar extends React.PureComponent {
         data-hook={dataHooks.circularProgressBar}
         size={sizesMap[size]}
         data-size={size}
-        successIcon={sizeToSuccessIcon[size]}
+        successIcon={this._renderSuccessIcon(size)}
         errorIcon={sizeToErrorIcon[size]}
       />
     );

@@ -19,14 +19,12 @@ const DEFAULT_COLOR = colors.A1;
 class SparklineChart extends React.PureComponent {
   constructor(props) {
     super(props);
-    const { highlightedStartingIndex } = props;
 
     this.randomComponentId = Math.random().toString();
     this.chartContext = {};
 
     this.svgRef = React.createRef(null);
     this.componentRef = React.createRef(null);
-    this.enableHighlightedAreaEffect = highlightedStartingIndex > 0;
 
     this.state = {
       hoveredLabel: null,
@@ -326,6 +324,7 @@ class SparklineChart extends React.PureComponent {
       yCoordinate:
         context.yScale(currentHoveredValue) - TOOLTIP_ELEMENT_RADIUS / 2,
     };
+    const enableHighlightedAreaEffect = highlightedStartingIndex > 0;
 
     return (
       <div
@@ -355,7 +354,7 @@ class SparklineChart extends React.PureComponent {
               x2={`${innerWidth}px`}
               y2={'0px'}
             >
-              {this.enableHighlightedAreaEffect && [
+              {enableHighlightedAreaEffect && [
                 <stop
                   key={0}
                   offset="0"

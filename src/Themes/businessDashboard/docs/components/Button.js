@@ -30,6 +30,20 @@ export const playground = `
     </Box>
   </Layout>
   <Layout cols={4} gap="10px" alignItems="center">
+    <Box padding="3px" backgroundColor="D60">
+      <Button size="small" skin="inverted">Inverted</Button>
+    </Box>
+    <Box padding="3px" backgroundColor="D60">
+      <Button size="medium" skin="inverted">Medium</Button>
+    </Box>
+    <Box padding="3px" backgroundColor="D80">
+      <Button size="small" skin="inverted" disabled>Small disabled</Button>
+    </Box>
+    <Box padding="3px" backgroundColor="D80">
+      <Button size="medium" skin="inverted" disabled>Medium disabled</Button>
+    </Box>
+  </Layout>
+  <Layout cols={4} gap="10px" alignItems="center">
     <Box padding="3px" backgroundColor="D80">
       <Button size="small" prefixIcon={<Icons.ChevronDownSmall />}>
         Prefix

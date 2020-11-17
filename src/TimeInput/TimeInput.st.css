@@ -10,8 +10,6 @@
 
 :vars {
   hoverAmPmIndicationColor: value(B10);
-  timeHoverOutlineColor: 1px solid blue;
-  timeFocusOutlineColor: 1px solid black;
 }
 
 .root {
@@ -55,15 +53,7 @@
 
 .time:stretch {
    width: 100%;
- }
-
-.time:focus {
-  outline: value(timeFocusOutlineColor);
 }
-
-.time:hover {
-   outline: value(timeHoverOutlineColor);
- }
 
 .root:rtl .time {
    flex-direction: row-reverse;

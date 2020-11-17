@@ -40,6 +40,8 @@
   background: transparent;
   box-shadow: none;
   width: inherit;
+  /* FF only */
+  overflow-block: scroll;
 }
 
 .wrapper {
