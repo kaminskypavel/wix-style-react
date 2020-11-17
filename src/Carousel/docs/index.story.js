@@ -64,6 +64,7 @@ export default {
     infinite: true,
     autoplay: false,
     controlsPosition: 'sides',
+    controlsSize: 'medium',
   }),
 
   exampleProps: {
@@ -102,9 +103,10 @@ export default {
           }),
 
           example({
-            title: 'Controls Skin and Position',
+            title: 'Controls Skin, Size and Position',
             text: `
-Control arrows come in two skins: \`standard\` (default) and \`inverted\`.\n
+Control arrows come in two skins: \`standard\` (default), \`inverted\` and \`light\`.\n
+And two sized: \`tiny\`, \`small\` and \`medium\` (default).\n
 They can be placed in one of these positions: \`sides\` (default), \`overlay\`, \`bottom\` or \`none\` to remove them completely.
             `,
             source: examples.controlsPositionExample,

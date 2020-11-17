@@ -167,7 +167,8 @@ export default {
 
           example({
             title: 'Lists',
-            text: 'Text component provides a style for HTML based lists.',
+            text:
+              'Text component provides a style for HTML based lists. Using the listStyle prop, an unordered list items can be styled as checkmark (default) or circle .',
             source: examples.list,
           }),
         ],

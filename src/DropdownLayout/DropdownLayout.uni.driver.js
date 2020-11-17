@@ -219,11 +219,12 @@ export const dropdownLayoutDriverFactory = base => {
     },
 
     optionsContent: async () => {
-      const textArray = [];
+      const contentArray = [];
       for (const option of await options()) {
-        textArray.push(await option.text());
+        const optionDriver = await createOptionDriver(option);
+        contentArray.push(await optionDriver.content());
       }
-      return textArray;
+      return contentArray;
     },
 
     markedOption: async () => {

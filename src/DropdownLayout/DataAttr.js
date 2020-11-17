@@ -4,6 +4,7 @@ export const DATA_HOOKS = {
   INFINITE_SCROLL_CONTAINER: 'infinite-scroll-container',
   LINK_ITEM: 'link-item',
   TOP_ARROW: 'top-arrow',
+  OPTION: 'dropdown-layout-option',
 };
 
 export const OPTION_DATA_HOOKS = {
@@ -22,8 +23,6 @@ export const DATA_OPTION = {
   HOVERED: 'data-option-hovered',
   SELECTED: 'data-option-selected',
   DISABLED: 'data-option-disabled',
-  HOVERED_GLOBAL: 'data-option-hovered-global',
-  SELECTED_GLOBAL: 'data-option-selected-global',
 };
 
 export const DROPDOWN_LAYOUT_DIRECTIONS = {

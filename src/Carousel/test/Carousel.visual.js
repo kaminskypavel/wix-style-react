@@ -127,20 +127,28 @@ const CarouselWrapper = ({ done, ...props }) => {
   return <Carousel {...props} />;
 };
 
-visualize('Carousel', () => {
-  tests.forEach(({ describe, its }) => {
-    its.forEach(({ it, props }) => {
-      story(describe, () => {
-        snap(it, done => (
-          <div style={{ maxWidth: '550px' }}>
-            <CarouselWrapper
-              {...props}
-              dataHook={storySettings.dataHook}
-              done={done}
-            />
-          </div>
-        ));
+export const runTests = (
+  { themeName, testWithTheme } = { testWithTheme: i => i },
+) => {
+  visualize(`${themeName ? `${themeName}|` : ''}Carousel`, () => {
+    tests.forEach(({ describe, its }) => {
+      its.forEach(({ it, props }) => {
+        story(describe, () => {
+          snap(it, done =>
+            testWithTheme(
+              <div style={{ maxWidth: '550px' }}>
+                <CarouselWrapper
+                  {...props}
+                  dataHook={storySettings.dataHook}
+                  done={done}
+                />
+              </div>,
+            ),
+          );
+        });
       });
     });
   });
-});
+};
+
+runTests();

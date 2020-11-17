@@ -11,7 +11,7 @@
   D40: #868AA5;
   D55: #CFD1DC;
   D60: #DFE5EB;
-  D70: #ECEFF4;
+  D70: #ECEFF3;
 
 
   /* Primary */
@@ -37,8 +37,18 @@
   R20: #F1695F;
 
   /* Categories */
-  A2: #5C42C1;
+  A2: #5A48F5;
   A3: #06BEE1;
-  A4: #CEC6EC;
+  A4: #CDC8FC;
   A5: #FBAD4E;
+
+  /* Sidebar */
+  sidebarBackgroundColor: #131720;
+  selectedBackgroundColor: calc_rgba(value(D80), 0.1);
+  hoveredBackgroundColor: calc_rgba(value(D80), 0.05);
+  disabledBackgroundColor: value(sidebarBackgroundColor);
+  disabledTextColor: calc_rgba(value(D80), 0.6);
+  dividerColor: calc_rgba(value(D80), 0.1);
+  darkScrollbarThumbColor: #717479;
+  darkScrollbarThumbHoverColor: #b8b9bc;
 }

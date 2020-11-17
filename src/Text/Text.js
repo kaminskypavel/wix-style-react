@@ -12,6 +12,7 @@ const TextWithEllipsis = ({ className, ...props }) => {
       wrapperClassName={st(classes.root, {
         size: props.size,
         weight: props.weight,
+        listStyle: props.listStyle,
       })}
       render={({ ref, ellipsisClasses, ellipsisInlineStyle }) => (
         <RawText
@@ -59,6 +60,9 @@ TextWithEllipsis.propTypes = {
     'disabled',
     'primary',
   ]),
+
+  /** set list items style */
+  listStyle: PropTypes.oneOf(['checkmark', 'circle']),
 
   /** make the text color lighter */
   light: PropTypes.bool,

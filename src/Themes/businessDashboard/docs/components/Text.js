@@ -32,6 +32,16 @@ export const playground = `
     </Box>
     <hr />
     <Box padding="3px">
+      <Text secondary light>size="medium" secondary light</Text>
+    </Box>
+    <Box padding="3px">
+      <Text size="small" secondary light>size="small" secondary light</Text>
+    </Box>
+    <Box padding="3px">
+      <Text size="tiny" secondary light>size="tiny" secondary light</Text>
+    </Box>
+    <hr />
+    <Box padding="3px">
       <Text weight="bold">skin="standard" size="medium" weight="bold"</Text>
     </Box>
     <Box padding="3px">
@@ -62,13 +72,13 @@ export const playground = `
     </Box>
     <hr />
     <Box backgroundColor="D10" padding="3px">
-      <Text light>skin="standard" size="medium" light</Text>
+      <Text light>size="medium" light</Text>
     </Box>
     <Box backgroundColor="D10" padding="3px">
-      <Text size="small" light>skin="standard" size="small" light</Text>
+      <Text size="small" light>size="small" light</Text>
     </Box>
     <Box backgroundColor="D10" padding="3px">
-      <Text size="tiny" light>skin="standard" size="tiny" light</Text>
+      <Text size="tiny" light>size="tiny" light</Text>
     </Box>
     <hr />
     <Box backgroundColor="D10" padding="3px">

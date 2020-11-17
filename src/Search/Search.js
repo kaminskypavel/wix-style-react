@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import isEmpty from 'lodash/isEmpty';
-
 import InputWithOptions from '../InputWithOptions';
 import SearchIcon from 'wix-ui-icons-common/Search';
-
 import { StringUtils } from '../utils/StringUtils';
-import styles from './Search.scss';
+import { st, classes } from './Search.st.css';
 import Input from '../Input/Input';
 
 // because lodash debounce is not compatible with jest timeout mocks
@@ -201,24 +197,23 @@ class Search extends Component {
     const { expandable, size } = restProps;
     const { collapsed, inputValue } = this.state;
 
-    const wrapperClasses = classNames({
-      [styles.expandableStyles]: expandable,
-      [styles.collapsed]: collapsed && expandable,
-      [styles.expanded]: !collapsed && expandable,
-      [styles.small]: size === 'small',
-    });
-
     const contentStyle =
       expandable && !collapsed ? { width: expandWidth } : undefined;
 
     return (
       <div
         data-hook={dataHook}
-        className={wrapperClasses}
+        className={st(classes.root, {
+          expandable,
+          expanded: expandable && collapsed,
+          size,
+        })}
         onClick={this._onWrapperClick}
         onMouseDown={this._onWrapperMouseDown}
+        data-expandable={expandable || null}
+        data-collapsed={(expandable && collapsed) || null}
       >
-        <div className={styles.content} style={contentStyle}>
+        <div className={classes.content} style={contentStyle}>
           <InputWithOptions
             {...restProps}
             value={inputValue}

@@ -117,12 +117,52 @@ export const custom = `
 `;
 
 export const list = `
-<Text>
-  The list below is built using standard "ul" and "li" HTML tags.
-  <ul>
-    <li>First list item</li>
-    <li>Second list item</li>
-    <li>Third list item</li>
-  </ul>
-</Text>
+<div>
+  <Text listStyle="checkmark">
+    The list below is built using standard "ul" and "li" HTML tags.
+    <ul>
+      <li>First list item</li>
+      <li>
+        Second list item
+        <ul>
+          <li>First sub list item</li>
+          <li>Second sub list item</li>
+        </ul>
+      </li>
+
+      <li>Third list item</li>
+    </ul>
+  </Text>
+  <br />
+  <Text listStyle="circle">
+    <ul>
+      <li>First list item</li>
+      <li>
+        Second list item
+        <ul>
+          <li>First sub list item</li>
+          <li>Second sub list item</li>
+        </ul>
+      </li>
+
+      <li>Third list item</li>
+    </ul>
+  </Text>
+  <br />
+  <Text>
+    The list below is built using standard "ol" and "li" HTML tags.
+    <ol>
+      <li>First list item</li>
+      <li>
+        Second list item
+        <ol type="I">
+          <li>First sub list item</li>
+          <li>Second sub list item</li>
+        </ol>
+      </li>
+
+      <li>Third list item</li>
+    </ol>
+  </Text>
+</div>
 `;

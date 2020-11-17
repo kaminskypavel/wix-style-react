@@ -398,7 +398,6 @@ module.exports = {
     enzymeLegacyTestkit: true,
     protractorLegacyTestkit: true,
     noPuppeteerTestkit: true,
-    noUnidriver: true,
   },
 
   ColorPicker: {

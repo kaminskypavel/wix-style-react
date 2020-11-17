@@ -4,12 +4,16 @@ import { BadgeSkin } from '../Badge';
 
 export type BadgeSelectItemBuilderFn = (data: {
   id: string | number;
+  dataHook?: string;
+  className?: string;
   text: React.ReactNode;
   subtitle?: string;
   skin: BadgeSelectItemSkin;
   ellipsis?: boolean;
+  disabled?: boolean;
 }) => {
-  overrideStyle: true;
+  disabled: boolean;
+  overrideOptionStyle: true;
   id: string | number;
   value: (props?: Partial<BadgeSelectOption>) => React.ReactNode;
 };
@@ -39,7 +43,12 @@ export const badgeSelectItemBuilder: BadgeSelectItemBuilderFn;
 
 export interface BadgeSelectOption {
   id: string;
+  className?: string;
+  dataHook?: string;
   skin: BadgeSkin;
+  selected?: boolean;
+  disabled?: boolean;
+  highlighted?: boolean;
   text: React.ReactNode;
   subtitle?: string;
   ellipsis?: boolean;
