@@ -236,6 +236,12 @@ MultiSelect.propTypes = {
    * `onManuallyInput(values: Array<string>): void - The array of strings is the result of splitting the input value by the given delimiters */
   onManuallyInput: PropTypes.func,
 
+  /** A callback which is called when options dropdown is shown */
+  onOptionsShow: PropTypes.func,
+
+  /** A callback which is called when options dropdown is hidden */
+  onOptionsHide: PropTypes.func,
+
   /** A callback which is called when the user selects an option from the list.
    * `onSelect(option: Option): void` - Option is the original option from the provided `options` prop.
    */

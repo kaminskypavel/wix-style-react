@@ -495,8 +495,13 @@ InputWithOptions.propTypes = {
   autocomplete: PropTypes.string,
   inputElement: PropTypes.element,
   closeOnSelect: PropTypes.bool,
+  /** A callback which is called when the user performs a Submit-Action.
+   * Submit-Action triggers are: "Enter", "Tab", [typing any defined delimiters], Paste action.
+   * `onManuallyInput(values: Array<string>): void - The array of strings is the result of splitting the input value by the given delimiters */
   onManuallyInput: PropTypes.func,
+  /** A callback which is called when options dropdown is shown */
   onOptionsShow: PropTypes.func,
+  /** A callback which is called when options dropdown is hidden */
   onOptionsHide: PropTypes.func,
   /** Function that receives an option, and should return the value to be displayed. */
   valueParser: PropTypes.func,
