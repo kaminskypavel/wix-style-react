@@ -1,4 +1,4 @@
-import { st, classes } from './Calendar.st.css';
+import { st, classes, cssStates } from './Calendar.st.css';
 import React from 'react';
 import PropTypes from 'prop-types';
 import DayPicker from 'react-day-picker';
@@ -67,12 +67,12 @@ export default class Calendar extends React.PureComponent {
 
   static renderDay(day, modifiers) {
     const relevantModifiers = [
-      classes.start,
-      classes.end,
-      classes.selectedDay,
-      classes.outsideDay,
+      cssStates({ start: true }),
+      cssStates({ end: true }),
+      cssStates({ selected: true }),
+      cssStates({ outside: true }),
     ];
-    const isOutsideDay = !!modifiers[classes.outsideDay];
+    const isOutsideDay = !!modifiers[cssStates({ outside: true })];
 
     for (const modifier of relevantModifiers) {
       if (modifier in modifiers) {
@@ -280,9 +280,6 @@ export default class Calendar extends React.PureComponent {
     const captionElement = this._createCaptionElement(month);
     const selectedDays = this._getSelectedDays(value);
 
-    let containerClass = `DayPicker ${classes.calendarContainer}`;
-    containerClass += numOfMonths > 1 ? ` ${classes.twoMonths}` : '';
-
     return {
       disabledDays: excludePastDates
         ? { before: new Date() }
@@ -304,20 +301,22 @@ export default class Calendar extends React.PureComponent {
       onDayKeyDown: this._handleDayKeyDown,
       numberOfMonths: numOfMonths,
       modifiers: {
-        [classes.start]: from,
-        [classes.end]: to,
-        [classes.firstOfMonth]: firstOfMonth,
-        [classes.lastOfMonth]: lastOfMonth,
-        [classes.singleDay]: singleDay,
+        [cssStates({ start: true })]: from,
+        [cssStates({ end: true })]: to,
+        [cssStates({ firstOfMonth: true })]: firstOfMonth,
+        [cssStates({ lastOfMonth: true })]: lastOfMonth,
+        [cssStates({ singleDay: true })]: singleDay,
       },
       renderDay: Calendar.renderDay,
       dir: rtl ? 'rtl' : 'ltr',
       classNames: {
-        container: containerClass,
+        container: `DayPicker ${classes.calendarContainer}`,
         wrapper: 'DayPicker-wrapper', // is used at the drivers and e2e test
         interactionDisabled: 'DayPicker--interactionDisabled',
 
-        months: classes.calendarMonths,
+        months: `${classes.calendarMonths} ${cssStates({
+          twoMonths: numOfMonths > 1,
+        })}`,
         month: `DayPicker-Month ${classes.calendarMonth}`, // 'DayPicker-Month' at used at the drivers and e2e test
         weekdays: classes.calendarWeekdays,
         weekdaysRow: classes.calendarWeekdaysRow,
@@ -328,10 +327,10 @@ export default class Calendar extends React.PureComponent {
         day: `DayPicker-Day ${classes.calendarDay}`, // 'DayPicker-Day' at used in the drivers and e2e test
 
         // default modifiers
-        today: classes.today,
-        selected: classes.selectedDay,
-        disabled: `disabled ${classes.disabledDay}`, // 'disabled' is used at the drivers and e2e test
-        outside: classes.outsideDay,
+        today: cssStates({ today: true }),
+        selected: cssStates({ selected: true }),
+        disabled: `disabled ${cssStates({ disabled: true })}`, // 'disabled' is used at the drivers and e2e test
+        outside: cssStates({ outside: true }),
       },
     };
   };
@@ -353,12 +352,12 @@ export default class Calendar extends React.PureComponent {
   _focusSelectedDay = () => {
     if (this.dayPickerRef) {
       const selectedDay = this.dayPickerRef.dayPicker.querySelector(
-        `.${classes.selectedDay}`,
+        `.${cssStates({ selected: true })}`,
       );
 
       if (selectedDay) {
         // The 'unfocused' class is used at the drivers and e2e test
-        selectedDay.classList.add(classes.unfocusedDay, 'unfocused');
+        selectedDay.classList.add(cssStates({ unfocused: true }), 'unfocused');
         selectedDay.focus();
       }
     }
@@ -368,12 +367,15 @@ export default class Calendar extends React.PureComponent {
     this._preventActionEventDefault(event);
 
     const unfocusedDay = this.dayPickerRef.dayPicker.querySelector(
-      `.${classes.unfocusedDay}`,
+      `.${cssStates({ unfocused: true })}`,
     );
 
     if (unfocusedDay) {
       // The 'unfocused' class is used at the drivers and e2e test
-      unfocusedDay.classList.remove(classes.unfocusedDay, 'unfocused');
+      unfocusedDay.classList.remove(
+        cssStates({ unfocused: true }),
+        'unfocused',
+      );
     }
   };
 

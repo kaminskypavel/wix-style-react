@@ -36,6 +36,7 @@
 }
 
 .calendarMonths {
+  -st-states: twoMonths;
 }
 
 .calendarMonth {
@@ -78,6 +79,8 @@
 }
 
 .calendarDay {
+  -st-states: today, selected, disabled, outside, start, end, firstOfMonth, lastOfMonth, singleDay, unfocused;
+
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -115,136 +118,72 @@
   box-shadow: value(focusBoxShadow);
 }
 
-.calendarDay.unfocusedDay, .calendarDay:focus:hover {
+.calendarDay:unfocused, .calendarDay:focus:hover {
   box-shadow: none;
 }
 
-.today {
-}
-
-.selectedDay {
-}
-
-.disabledDay {
-}
-
-.outsideDay {
-}
-.unfocusedDay {
-}
-.start {
-}
-.end {
-}
-.firstOfMonth {
-}
-.lastOfMonth {
-}
-.singleDay {
-}
-
-@custom-selector :--todayNotSelectedDay .calendarDay.today:not(.selectedDay):not(:hover);
-
-:--todayNotSelectedDay {
+.calendarDay:today:not(:selected):not(:hover) {
   background-color: value(D70);
   box-shadow: value(boxShadow);
   z-index: 0;
 }
 
-/*.calendarDay.today:not(.selectedDay):not(:hover) {*/
-/*  background-color: value(D70);*/
-/*  box-shadow: value(boxShadow);*/
-/*  z-index: 0;*/
-/*}*/
-
-@custom-selector :--todayNotSelectedDayFocus .calendarDay.today:not(.selectedDay):not(:hover):focus;
-
-:--todayNotSelectedDayFocus {
+.calendarDay:today:not(:selected):not(:hover):focus {
   box-shadow: value(boxShadow), value(focusBoxShadow);
 }
-/*.calendarDay.today:not(.selectedDay):not(:hover):focus {*/
-/*  box-shadow: value(boxShadow), value(focusBoxShadow);*/
-/*}*/
 
 .calendarDay:hover {
   background-color: value(THEME-COLOR-50);
 }
 
-@custom-selector :--selectedDay .calendarDay.selectedDay:not(.outsideDay);
-
-:--selectedDay {
+.calendarDay:selected:not(:outside) {
   background-color: value(THEME-COLOR-10);
   color: value(D80);
 }
-/*.calendarDay.selectedDay:not(.outsideDay) {*/
-/*  background-color: value(THEME-COLOR-10);*/
-/*  color: value(D80);*/
-/*}*/
 
-@custom-selector :--outsideDay .calendarDay.outsideDay;
-@custom-selector :--disabledDay .calendarDay.disabledDay;
-
-:--outsideDay, :--disabledDay {
+.calendarDay:outside, .calendarDay:disabled {
   pointer-events: none;
   color: value(D55);
 }
-/*.calendarDay.outsideDay, .calendarDay.disabledDay {*/
-/*  pointer-events: none;*/
-/*  color: value(D55);*/
-/*}*/
 
 /** for selection mode type range **/
-.calendarDay.selectedDay:not(.start):not(.end):not(.outsideDay):not(.singleDay) {
+.calendarDay:selected:not(:start):not(:end):not(:outside):not(:singleDay) {
   background-color: value(THEME-COLOR-50);
   border-radius: 0;
   box-shadow: none;
   color: value(D10);
 }
 
-.calendarDay.selectedDay:not(.outsideDay):last-of-type,
-.calendarDay.lastOfMonth:not(.outsideDay) {
+.calendarDay:selected:not(:outside):last-of-type,
+.calendarDay:lastOfMonth:not(:outside) {
   border-top-right-radius: 50% !important;
   border-bottom-right-radius: 50% !important;
 }
 
-.calendarDay.selectedDay:not(.outsideDay):first-of-type,
-.calendarDay.firstOfMonth:not(.outsideDay) {
+.calendarDay:selected:not(:outside):first-of-type,
+.calendarDay:firstOfMonth:not(:outside) {
   border-top-left-radius: 50% !important;
   border-bottom-left-radius: 50% !important;
 }
 /**************************************************************/
 
-.calendarDay.singleDay:not(.outsideDay),
-.calendarDay.start.end:not(.outsideDay) {
+.calendarDay:singleDay:not(:outside),
+.calendarDay:start:end:not(:outside) {
   background: none !important;
   border-radius: 50% !important;
 }
 
-@custom-selector :--singleSelectedDayCircle .calendarDay.singleDay:not(.outsideDay) .dayCircle;
-@custom-selector :--singleSelectedDayCircleHover .calendarDay.singleDay:not(.outsideDay):hover .dayCircle;
-
-.calendarDay.selectedDay.start:not(.outsideDay) .dayCircle,
-.calendarDay.selectedDay.end:not(.outsideDay) .dayCircle,
-:--singleSelectedDayCircle {
+.calendarDay:selected:start:not(:outside) .dayCircle,
+.calendarDay:selected:end:not(:outside) .dayCircle,
+.calendarDay:singleDay:not(:outside) .dayCircle {
   background-color: value(THEME-COLOR-10);
 }
 
-.calendarDay.selectedDay.start:not(.outsideDay):hover .dayCircle,
-.calendarDay.selectedDay.end:not(.outsideDay):hover .dayCircle,
-:--singleSelectedDayCircleHover {
+.calendarDay:selected:start:not(:outside):hover .dayCircle,
+.calendarDay:selected:end:not(:outside):hover .dayCircle,
+.calendarDay:singleDay:not(:outside):hover .dayCircle {
   background-color: value(THEME-COLOR-20);
 }
-/*.calendarDay.selectedDay.start:not(.outsideDay) .dayCircle,*/
-/*.calendarDay.selectedDay.end:not(.outsideDay) .dayCircle,*/
-/*.calendarDay.singleDay:not(.outsideDay) .dayCircle {*/
-/*  background-color: value(THEME-COLOR-10);*/
-/*}*/
-
-/*.calendarDay.selectedDay.start:not(.outsideDay):hover .dayCircle,*/
-/*.calendarDay.selectedDay.end:not(.outsideDay):hover .dayCircle,*/
-/*.calendarDay.singleDay:not(.outsideDay):hover .dayCircle {*/
-/*  background-color: value(THEME-COLOR-20);*/
-/*}*/
 
 .calendarDay .dayCircle {
   border-radius: 50%;
@@ -257,25 +196,25 @@
 }
 
 /** for selection mode type range **/
-.calendarDay.selectedDay.start:not(.outsideDay) {
+.calendarDay:selected:start:not(:outside) {
   background: linear-gradient(to left, value(THEME-COLOR-50) 0%,value(THEME-COLOR-50) 50%,#000000 50%,transparent 50%,transparent 100%);
   border-radius: 0;
 }
 
-.calendarDay.selectedDay.end:not(.outsideDay) {
+.calendarDay:selected:end:not(:outside) {
   background: linear-gradient(to right, value(THEME-COLOR-50) 0%,value(THEME-COLOR-50) 50%,#000000 50%,transparent 50%,transparent 100%);
   border-radius: 0;
 }
 /************************************************/
 
 /** Two months mode **/
-.calendarContainer.twoMonths .calendarMonths {
+.calendarMonths:twoMonths {
   display: flex;
 }
 
-.calendarContainer.twoMonths .calendarMonth:first-child .calendarHeader::arrowRight,
-.calendarContainer.twoMonths .calendarMonth:last-child .calendarHeader::arrowLeft,
-.calendarContainer.twoMonths .outsideDay {
+.calendarMonths:twoMonths .calendarMonth:first-child .calendarHeader::arrowRight,
+.calendarMonths:twoMonths .calendarMonth:last-child .calendarHeader::arrowLeft,
+.calendarMonths:twoMonths .calendarDay:outside {
   visibility: hidden;
 }
 /************************************************/
