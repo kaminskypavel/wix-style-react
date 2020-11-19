@@ -28,7 +28,7 @@ describe(AnalyticsSummaryCard.displayName, () => {
   });
 
   it('should allow changing the button text', async () => {
-    const { driver } = render(<AnalyticsSummaryCard buttonText="Press me" />);
+    const { driver } = render(<AnalyticsSummaryCard title="title" />);
 
     expect(await driver.getButtonText()).toEqual('Press me');
   });

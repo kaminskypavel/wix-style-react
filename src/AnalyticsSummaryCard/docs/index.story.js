@@ -28,7 +28,8 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    buttonText: 'Hello World!',
+    title: 'Hello World!',
+    titleTooltip: 'tooltip',
   },
 
   exampleProps: {

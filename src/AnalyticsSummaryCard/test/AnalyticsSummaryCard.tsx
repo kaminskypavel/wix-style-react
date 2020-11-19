@@ -15,7 +15,8 @@ function analyticsSummaryCardWithAllProps() {
     <AnalyticsSummaryCard
       dataHook="dataHook"
       className="className"
-      buttonText="buttonText"
+      title="title"
+      value="value"
     />
   );
 }

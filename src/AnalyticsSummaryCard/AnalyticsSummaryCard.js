@@ -1,46 +1,97 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import noop from 'lodash/noop';
 
+import Heading from '../Heading';
+import Tooltip from '../Tooltip';
+import SparklineChart from '../SparklineChart';
 import Text from '../Text';
-import Button from '../Button';
+import Loader from '../Loader';
 import { st, classes } from './AnalyticsSummaryCard.st.css';
 import { dataHooks } from './constants';
 
 /** Analytics Summary Card */
 class AnalyticsSummaryCard extends React.PureComponent {
-  state = {
-    count: 0,
-  };
-
-  _handleClick = () => {
-    this.setState(({ count }) => ({
-      count: count + 1,
-    }));
-  };
-
   render() {
-    const { count } = this.state;
-    const { dataHook, buttonText, className } = this.props;
-    const isEven = count % 2 === 0;
+    const {
+      dataHook,
+      title,
+      titleTooltip,
+      className,
+      value,
+      valueTooltip,
+      percentage,
+      invertedPercentage,
+      chartData,
+      chartColorHex,
+      chartSize,
+      isLoading,
+      refreshButton,
+      onRefreshClick,
+      onChartHover,
+      chartHighlightedStartingIndex,
+      footer = null,
+    } = this.props;
 
+    let chartWidth = 100;
+    switch (chartSize) {
+      case 'small':
+        chartWidth = 50;
+        break;
+      case 'medium':
+        chartWidth = 100;
+        break;
+      case 'large':
+        chartWidth = 200;
+        break;
+      default:
+        chartWidth = 50;
+    }
     return (
-      <div
-        className={st(classes.root, { even: isEven, odd: !isEven }, className)}
-        data-hook={dataHook}
-      >
-        <Text dataHook={dataHooks.analyticsSummaryCardCount}>
-          You clicked this button {isEven ? 'even' : 'odd'} number (
-          <span className={classes.number}>{count}</span>) of times
-        </Text>
+      <div className={st(classes.root, className)} data-hook={dataHook}>
+        {isLoading && (
+          <div className={st(classes.loader)}>
+            <Loader size="small" />
+          </div>
+        )}
 
-        <div className={classes.button}>
-          <Button
-            onClick={this._handleClick}
-            dataHook={dataHooks.analyticsSummaryCardButton}
-          >
-            {buttonText}
-          </Button>
+        {refreshButton && (
+          <div onClick={onRefreshClick} className={st(classes.refreshButton)}>
+            {refreshButton}
+          </div>
+        )}
+        <div className={st(classes.title)}>
+          <Tooltip placement="top" content={titleTooltip}>
+            <Heading
+              appearance="H6"
+              dataHook={dataHooks.analyticsSummaryCardCount}
+            >
+              {title}
+            </Heading>
+          </Tooltip>
         </div>
+        <div className={st(classes.value)}>
+          <Tooltip placement="top" content={value}>
+            <Text weight="bold">{valueTooltip}</Text>
+          </Tooltip>
+        </div>
+        <div
+          className={st(classes.percentage, {
+            invertedPercentage: invertedPercentage,
+          })}
+        >
+          {percentage}
+        </div>
+        <div className={st(classes.sparklineChart)}>
+          <SparklineChart
+            onHover={onChartHover}
+            data={chartData}
+            color={chartColorHex}
+            width={chartWidth}
+            highlightedStartingIndex={chartHighlightedStartingIndex}
+          />
+        </div>
+        {footer}
       </div>
     );
   }
@@ -56,9 +107,31 @@ AnalyticsSummaryCard.propTypes = {
   className: PropTypes.string,
 
   /** Text for the button */
-  buttonText: PropTypes.string,
+  title: PropTypes.string,
+  titleTooltip: PropTypes.string,
+  value: PropTypes.string,
+  valueInShort: PropTypes.string,
+  percentage: PropTypes.number,
+  invertedPercentage: PropTypes.boolean,
+  isLoading: PropTypes.boolean,
+  refreshButton: PropTypes.Node, // IconButton
+  onRefreshClick: PropTypes.Function,
+  onClick: PropTypes.Function,
+  // chart
+  onChartHover: PropTypes.Function,
+  chartHighlightedStartingIndex: PropTypes.number,
+  chartSize: PropTypes.oneOf('small', 'medium', 'big'),
+  chartData: PropTypes.Array,
+  chartColorHex: PropTypes.string,
+  footer: PropTypes.Node,
 };
 
-AnalyticsSummaryCard.defaultProps = {};
+AnalyticsSummaryCard.defaultProps = {
+  isLoading: false,
+  refreshButton: null,
+  onRefreshClick: noop,
+  onChartHover: noop,
+  footer: null,
+};
 
 export default AnalyticsSummaryCard;
