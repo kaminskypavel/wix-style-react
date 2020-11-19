@@ -684,6 +684,8 @@ export function optionValidator(props, propName, componentName) {
 }
 
 DropdownLayout.propTypes = {
+  /** A single CSS class name to be appended to the root element. */
+  className: PropTypes.string,
   /** @deprecated */
   dropDirectionUp: PropTypes.bool,
   /** Scroll to the selected option on opening the dropdown */

@@ -8,8 +8,10 @@ class DropdownBase extends React.PureComponent {
   static displayName = 'DropdownBase';
 
   static propTypes = {
+    /** Applied as data-hook HTML attribute that can be used in the tests */
     dataHook: PropTypes.string,
-
+    /** A css class to be applied to the component's root element */
+    className: PropTypes.string,
     /** A controlled prop to control whether the Popover should be opened*/
     open: PropTypes.bool,
     /** The Popover's placement */
@@ -382,6 +384,7 @@ class DropdownBase extends React.PureComponent {
           >
             <DropdownLayout
               dataHook="dropdown-base-dropdownlayout"
+              className={classes.list}
               ref={r => (this._dropdownLayoutRef = r)}
               selectedId={selectedId}
               options={options}

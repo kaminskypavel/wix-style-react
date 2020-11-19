@@ -2,8 +2,10 @@
   -st-from: "../../DropdownBase/DropdownBase.st.css";
   -st-default: DropdownBase;
 }
+
 .root {
 }
+
 .dropdown {
   -st-extends: DropdownBase;
 }
