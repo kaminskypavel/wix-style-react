@@ -18,6 +18,12 @@
   padding: 0 6px;
 }
 
+.monthDropdown {
+}
+
+.yearDropdown {
+}
+
 .arrow {
   z-index: 1;
   width: 36px;
