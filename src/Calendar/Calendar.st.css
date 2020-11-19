@@ -12,7 +12,7 @@
 
 :import {
   -st-from: "../Calendar/DatePickerHead/DatePickerHead.st.css";
-  -st-default: CalendarHeader;
+  -st-default: Header;
 }
 
 :vars {
@@ -28,57 +28,57 @@
 .root {
 }
 
-.calendarContainer {
+.container {
   font-size: 14px;
   line-height: 18px;
   font-family: var(--wsr-font-family, "HelveticaNeueW01-45Ligh", "HelveticaNeueW02-45Ligh", "HelveticaNeueW10-45Ligh",
   "Helvetica Neue", "Helvetica", "Arial", "メイリオ, meiryo", "ヒラギノ角ゴ pro w3", "hiragino kaku gothic pro", "sans-serif");
 }
 
-.calendarMonths {
+.months {
   -st-states: twoMonths;
 }
 
-.calendarMonth {
+.month {
   width: value(calendarWidth);
 }
 
-.calendarHeader {
-  -st-extends: CalendarHeader;
+.header {
+  -st-extends: Header;
 }
 
-.calendarWeekdays {
+.weekdays {
   background-color: value(rootBackgroundColor);
   padding: 0 value(rootPadding);
 }
 
-.calendarWeekdaysRow {
+.weekdaysRow {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.calendarWeekday {
+.weekday {
   width: 17px;
   padding: 18px 0 12px;
   color: value(D10);
 }
 
-.calendarWeekday abbr {
+.weekday abbr {
   text-decoration: none;
 }
 
-.calendarBody {
+.body {
   background-color: value(rootBackgroundColor);
   padding: 0 value(rootPadding) value(rootPadding);
 }
 
-.calendarWeek {
+.week {
   display: flex;
   justify-content: space-around;
 }
 
-.calendarDay {
+.day {
   -st-states: today, selected, disabled, outside, start, end, firstOfMonth, lastOfMonth, singleDay, unfocused;
 
   box-sizing: border-box;
@@ -94,12 +94,12 @@
   position: relative;
 }
 
-.calendarDay:focus {
+.day:focus {
   outline: none;
   z-index: 10;
 }
 
-.calendarDay:focus::after {
+.day:focus::after {
   position: absolute;
   top: 0px;
   bottom: 0px;
@@ -114,78 +114,78 @@
   z-index: 11;
 }
 
-.calendarDay:focus .dayCircle {
+.day:focus .dayCircle {
   box-shadow: value(focusBoxShadow);
 }
 
-.calendarDay:unfocused, .calendarDay:focus:hover {
+.day:unfocused, .day:focus:hover {
   box-shadow: none;
 }
 
-.calendarDay:today:not(:selected):not(:hover) {
+.day:today:not(:selected):not(:hover) {
   background-color: value(D70);
   box-shadow: value(boxShadow);
   z-index: 0;
 }
 
-.calendarDay:today:not(:selected):not(:hover):focus {
+.day:today:not(:selected):not(:hover):focus {
   box-shadow: value(boxShadow), value(focusBoxShadow);
 }
 
-.calendarDay:hover {
+.day:hover {
   background-color: value(THEME-COLOR-50);
 }
 
-.calendarDay:selected:not(:outside) {
+.day:selected:not(:outside) {
   background-color: value(THEME-COLOR-10);
   color: value(D80);
 }
 
-.calendarDay:outside, .calendarDay:disabled {
+.day:outside, .day:disabled {
   pointer-events: none;
   color: value(D55);
 }
 
 /** for selection mode type range **/
-.calendarDay:selected:not(:start):not(:end):not(:outside):not(:singleDay) {
+.day:selected:not(:start):not(:end):not(:outside):not(:singleDay) {
   background-color: value(THEME-COLOR-50);
   border-radius: 0;
   box-shadow: none;
   color: value(D10);
 }
 
-.calendarDay:selected:not(:outside):last-of-type,
-.calendarDay:lastOfMonth:not(:outside) {
+.day:selected:not(:outside):last-of-type,
+.day:lastOfMonth:not(:outside) {
   border-top-right-radius: 50% !important;
   border-bottom-right-radius: 50% !important;
 }
 
-.calendarDay:selected:not(:outside):first-of-type,
-.calendarDay:firstOfMonth:not(:outside) {
+.day:selected:not(:outside):first-of-type,
+.day:firstOfMonth:not(:outside) {
   border-top-left-radius: 50% !important;
   border-bottom-left-radius: 50% !important;
 }
 /**************************************************************/
 
-.calendarDay:singleDay:not(:outside),
-.calendarDay:start:end:not(:outside) {
+.day:singleDay:not(:outside),
+.day:start:end:not(:outside) {
   background: none !important;
   border-radius: 50% !important;
 }
 
-.calendarDay:selected:start:not(:outside) .dayCircle,
-.calendarDay:selected:end:not(:outside) .dayCircle,
-.calendarDay:singleDay:not(:outside) .dayCircle {
+.day:selected:start:not(:outside) .dayCircle,
+.day:selected:end:not(:outside) .dayCircle,
+.day:singleDay:not(:outside) .dayCircle {
   background-color: value(THEME-COLOR-10);
 }
 
-.calendarDay:selected:start:not(:outside):hover .dayCircle,
-.calendarDay:selected:end:not(:outside):hover .dayCircle,
-.calendarDay:singleDay:not(:outside):hover .dayCircle {
+.day:selected:start:not(:outside):hover .dayCircle,
+.day:selected:end:not(:outside):hover .dayCircle,
+.day:singleDay:not(:outside):hover .dayCircle {
   background-color: value(THEME-COLOR-20);
 }
 
-.calendarDay .dayCircle {
+.day .dayCircle {
   border-radius: 50%;
   width: 100%;
   height: 100%;
@@ -196,25 +196,25 @@
 }
 
 /** for selection mode type range **/
-.calendarDay:selected:start:not(:outside) {
+.day:selected:start:not(:outside) {
   background: linear-gradient(to left, value(THEME-COLOR-50) 0%,value(THEME-COLOR-50) 50%,#000000 50%,transparent 50%,transparent 100%);
   border-radius: 0;
 }
 
-.calendarDay:selected:end:not(:outside) {
+.day:selected:end:not(:outside) {
   background: linear-gradient(to right, value(THEME-COLOR-50) 0%,value(THEME-COLOR-50) 50%,#000000 50%,transparent 50%,transparent 100%);
   border-radius: 0;
 }
 /************************************************/
 
 /** Two months mode **/
-.calendarMonths:twoMonths {
+.months:twoMonths {
   display: flex;
 }
 
-.calendarMonths:twoMonths .calendarMonth:first-child .calendarHeader::arrowRight,
-.calendarMonths:twoMonths .calendarMonth:last-child .calendarHeader::arrowLeft,
-.calendarMonths:twoMonths .calendarDay:outside {
+.months:twoMonths .month:first-child .header::arrowRight,
+.months:twoMonths .month:last-child .header::arrowLeft,
+.months:twoMonths .day:outside {
   visibility: hidden;
 }
 /************************************************/

@@ -236,7 +236,7 @@ export default class Calendar extends React.PureComponent {
     return (
       <DatePickerHead
         {...{
-          className: classes.calendarHeader,
+          className: classes.header,
           date: month,
           showYearDropdown,
           showMonthDropdown,
@@ -313,22 +313,19 @@ export default class Calendar extends React.PureComponent {
         /* The classes: 'DayPicker', 'DayPicker-wrapper', 'DayPicker-Month', 'DayPicker-Weekday', 'DayPicker-Day', 'disabled'
         are used as selectors for the elements at the drivers and at the e2e tests */
 
-        container: st('DayPicker', classes.calendarContainer),
+        container: st('DayPicker', classes.container),
         wrapper: 'DayPicker-wrapper',
         interactionDisabled: 'DayPicker--interactionDisabled',
 
-        months: st(
-          classes.calendarMonths,
-          cssStates({ twoMonths: numOfMonths > 1 }),
-        ),
-        month: st('DayPicker-Month', classes.calendarMonth),
-        weekdays: classes.calendarWeekdays,
-        weekdaysRow: classes.calendarWeekdaysRow,
-        weekday: st('DayPicker-Weekday', classes.calendarWeekday),
-        body: classes.calendarBody,
-        week: classes.calendarWeek,
+        months: st(classes.months, cssStates({ twoMonths: numOfMonths > 1 })),
+        month: st('DayPicker-Month', classes.month),
+        weekdays: classes.weekdays,
+        weekdaysRow: classes.weekdaysRow,
+        weekday: st('DayPicker-Weekday', classes.weekday),
+        body: classes.body,
+        week: classes.week,
         weekNumber: 'DayPicker-WeekNumber',
-        day: st('DayPicker-Day', classes.calendarDay),
+        day: st('DayPicker-Day', classes.day),
 
         // default modifiers
         today: cssStates({ today: true }),
