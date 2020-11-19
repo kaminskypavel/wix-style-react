@@ -28,6 +28,7 @@ class AnalyticsSummaryCard extends React.PureComponent {
       isLoading,
       refreshButton,
       onRefreshClick,
+      onClick,
       onChartHover,
       chartHighlightedStartingIndex,
       footer = null,
@@ -48,15 +49,25 @@ class AnalyticsSummaryCard extends React.PureComponent {
         chartWidth = 50;
     }
     return (
-      <div className={st(classes.root, className)} data-hook={dataHook}>
+      <div
+        className={st(classes.root, className)}
+        data-hook={dataHook}
+        onClick={onClick}
+      >
         {isLoading && (
           <div className={st(classes.loader)}>
-            <Loader size="small" />
+            <Loader size="tiny" />
           </div>
         )}
 
         {refreshButton && (
-          <div onClick={onRefreshClick} className={st(classes.refreshButton)}>
+          <div
+            onClick={e => {
+              e.stopPropagation();
+              onRefreshClick(e);
+            }}
+            className={st(classes.refreshButton)}
+          >
             {refreshButton}
           </div>
         )}
@@ -71,8 +82,8 @@ class AnalyticsSummaryCard extends React.PureComponent {
           </Tooltip>
         </div>
         <div className={st(classes.value)}>
-          <Tooltip placement="top" content={value}>
-            <Text weight="bold">{valueTooltip}</Text>
+          <Tooltip placement="top" content={valueTooltip}>
+            <Text weight="bold">{value}</Text>
           </Tooltip>
         </div>
         <div
@@ -110,20 +121,19 @@ AnalyticsSummaryCard.propTypes = {
   title: PropTypes.string,
   titleTooltip: PropTypes.string,
   value: PropTypes.string,
-  valueInShort: PropTypes.string,
   percentage: PropTypes.number,
-  invertedPercentage: PropTypes.boolean,
-  isLoading: PropTypes.boolean,
-  refreshButton: PropTypes.Node, // IconButton
-  onRefreshClick: PropTypes.Function,
-  onClick: PropTypes.Function,
+  invertedPercentage: PropTypes.bool,
+  isLoading: PropTypes.bool,
+  refreshButton: PropTypes.node,
+  onRefreshClick: PropTypes.func,
+  onClick: PropTypes.func,
   // chart
-  onChartHover: PropTypes.Function,
+  onChartHover: PropTypes.func,
   chartHighlightedStartingIndex: PropTypes.number,
-  chartSize: PropTypes.oneOf('small', 'medium', 'big'),
-  chartData: PropTypes.Array,
+  chartSize: PropTypes.oneOf(['small', 'medium', 'big']),
+  chartData: PropTypes.array,
   chartColorHex: PropTypes.string,
-  footer: PropTypes.Node,
+  footer: PropTypes.node,
 };
 
 AnalyticsSummaryCard.defaultProps = {

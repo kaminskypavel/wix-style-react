@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import {
   header,
@@ -15,9 +16,15 @@ import {
 
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
-
+import IconButton from '../../IconButton';
+import Refresh from 'wix-ui-icons-common/Refresh';
 import AnalyticsSummaryCard from '..';
 
+const chartData = [
+  { label: new Date('Thu Sep 4 2020'), value: 3 },
+  { label: new Date('Thu Sep 5 2020'), value: 17 },
+  { label: new Date('Thu Sep 6 2020'), value: 18 },
+];
 const example = config => baseExample({ components: allComponents, ...config });
 
 export default {
@@ -28,8 +35,25 @@ export default {
   componentPath: '..',
 
   componentProps: {
-    title: 'Hello World!',
+    title: 'Sessions',
     titleTooltip: 'tooltip',
+    value: '1,9K',
+    valueTooltip: '1,943',
+    percentage: 12,
+    invertedPercentage: false,
+    isLoading: false,
+    refreshButton: (
+      <IconButton size="tiny">
+        <Refresh />
+      </IconButton>
+    ),
+    onRefreshClick: () => console.log('refresh click'),
+    onClick: () => console.log('general click'),
+    onChartHover: () => console.log('on chart hover'),
+    chartSize: 'medium',
+    chartData,
+    chartColorHex: '#3899ec',
+    footer: <div> This is footer</div>,
   },
 
   exampleProps: {
