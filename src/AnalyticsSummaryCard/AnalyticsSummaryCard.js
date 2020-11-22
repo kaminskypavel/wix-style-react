@@ -34,19 +34,19 @@ class AnalyticsSummaryCard extends React.PureComponent {
       footer = null,
     } = this.props;
 
-    let chartWidth = 100;
+    let chartWidth;
     switch (chartSize) {
       case 'small':
-        chartWidth = 50;
+        chartWidth = 60;
         break;
       case 'medium':
-        chartWidth = 100;
+        chartWidth = 72;
         break;
       case 'large':
-        chartWidth = 200;
+        chartWidth = 134;
         break;
       default:
-        chartWidth = 50;
+        chartWidth = 72;
     }
     return (
       <div
@@ -60,7 +60,7 @@ class AnalyticsSummaryCard extends React.PureComponent {
           </div>
         )}
 
-        {refreshButton && (
+        {!isLoading && refreshButton && (
           <div
             onClick={e => {
               e.stopPropagation();
@@ -71,38 +71,47 @@ class AnalyticsSummaryCard extends React.PureComponent {
             {refreshButton}
           </div>
         )}
-        <div className={st(classes.title)}>
-          <Tooltip placement="top" content={titleTooltip}>
+
+        <div>
+          <div className={st(classes.title)}>
             <Heading
               appearance="H6"
               dataHook={dataHooks.analyticsSummaryCardCount}
             >
-              {title}
+              <Tooltip placement="top" content={titleTooltip}>
+                <span>{title}</span>
+              </Tooltip>
             </Heading>
-          </Tooltip>
+          </div>
+          <div className={st(classes.value)}>
+            <div className={st(classes.valueAndPercentage)}>
+              <Tooltip placement="top" content={valueTooltip}>
+                <Text tagName="span" weight="bold">
+                  {value}
+                </Text>
+              </Tooltip>
+              <span
+                className={st(classes.percentage, {
+                  invertedPercentage: invertedPercentage,
+                })}
+              >
+                {percentage}
+              </span>
+            </div>
+            <div className={st(classes.sparklineChart)}>
+              <SparklineChart
+                onHover={onChartHover}
+                data={chartData}
+                color={chartColorHex}
+                width={chartWidth}
+                highlightedStartingIndex={chartHighlightedStartingIndex}
+              />
+            </div>
+          </div>
+
+          {footer}
         </div>
-        <div className={st(classes.value)}>
-          <Tooltip placement="top" content={valueTooltip}>
-            <Text weight="bold">{value}</Text>
-          </Tooltip>
-        </div>
-        <div
-          className={st(classes.percentage, {
-            invertedPercentage: invertedPercentage,
-          })}
-        >
-          {percentage}
-        </div>
-        <div className={st(classes.sparklineChart)}>
-          <SparklineChart
-            onHover={onChartHover}
-            data={chartData}
-            color={chartColorHex}
-            width={chartWidth}
-            highlightedStartingIndex={chartHighlightedStartingIndex}
-          />
-        </div>
-        {footer}
+        <div></div>
       </div>
     );
   }
@@ -130,7 +139,7 @@ AnalyticsSummaryCard.propTypes = {
   // chart
   onChartHover: PropTypes.func,
   chartHighlightedStartingIndex: PropTypes.number,
-  chartSize: PropTypes.oneOf(['small', 'medium', 'big']),
+  chartSize: PropTypes.oneOf(['small', 'medium', 'large']),
   chartData: PropTypes.array,
   chartColorHex: PropTypes.string,
   footer: PropTypes.node,

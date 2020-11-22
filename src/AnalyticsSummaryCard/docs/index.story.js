@@ -85,7 +85,11 @@ export default {
           example({
             title: 'Simple Usage',
             text: 'A simple example with compact preview',
-            source: '<AnalyticsSummaryCard buttonText="Hello World!"/>',
+            source: `<AnalyticsSummaryCard 
+            <IconButton size="tiny">
+              <Refresh />
+            </IconButton>
+            chartData=${JSON.stringify(chartData)} buttonText="Hello World!"/>`,
           }),
         ],
       }),
