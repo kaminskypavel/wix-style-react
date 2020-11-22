@@ -563,6 +563,7 @@ class DropdownLayout extends React.PureComponent {
 
   render() {
     const {
+      className,
       options,
       visible,
       dropDirectionUp,
@@ -587,14 +588,18 @@ class DropdownLayout extends React.PureComponent {
     return (
       <div
         data-hook={dataHook}
-        className={st(classes.root, {
-          visible,
-          withArrow,
-          direction: dropDirectionUp
-            ? DROPDOWN_LAYOUT_DIRECTIONS.UP
-            : DROPDOWN_LAYOUT_DIRECTIONS.DOWN,
-          containerStyles: !inContainer,
-        })}
+        className={st(
+          classes.root,
+          {
+            visible,
+            withArrow,
+            direction: dropDirectionUp
+              ? DROPDOWN_LAYOUT_DIRECTIONS.UP
+              : DROPDOWN_LAYOUT_DIRECTIONS.DOWN,
+            containerStyles: !inContainer,
+          },
+          className,
+        )}
         tabIndex={tabIndex}
         onKeyDown={this._onKeyDown}
         onMouseEnter={onMouseEnter}
