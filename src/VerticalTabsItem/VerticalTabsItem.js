@@ -29,7 +29,7 @@ class VerticalTabsItem extends React.PureComponent {
     disabled: PropTypes.bool,
 
     /** identifier to help identify the current selected tab */
-    id: PropTypes.number,
+    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   };
 
   static defaultProps = {
@@ -105,7 +105,7 @@ class VerticalTabsItem extends React.PureComponent {
         })}
         id={id}
         tabIndex={tabIndex}
-        ref={ref => (this.innerComponentRef = ref)}
+        ref={(ref) => (this.innerComponentRef = ref)}
         data-hook={dataHook}
         onClick={!disabled ? () => this.context.onChange(id) : undefined}
       >

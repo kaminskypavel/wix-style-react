@@ -39,7 +39,7 @@ VerticalTabs.propTypes = {
   size: PropTypes.oneOf(['small', 'medium']),
 
   /** Current selected tab id */
-  activeTabId: PropTypes.number,
+  activeTabId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 
   /** Callback function called on tab selection change with the following parameters<code>(id)</code> */
   onChange: PropTypes.func,
