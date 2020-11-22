@@ -98,40 +98,11 @@ export default {
                 ],
                 [
                   <LinkTo
-                    kind={Category.COMPONENTS}
-                    story="ListItemSelect"
-                  >{`<ListItemSelect/>`}</LinkTo>,
-                  'A single option of any selectable component',
+                    kind={Category.WIP}
+                    story="Builders"
+                  >{`Builders`}</LinkTo>,
+                  'In order to render list items within `DropdownLayout`, there is a need to use render functions .',
                 ],
-                [
-                  <LinkTo
-                    kind={Category.COMPONENTS}
-                    story="ListItemSection"
-                  >{`<ListItemSection/>`}</LinkTo>,
-                  'An internal component which is used to build dropdown or menu like components.',
-                ],
-                [
-                  <LinkTo
-                    kind={Category.COMPONENTS}
-                    story="ListItemAction"
-                  >{`<ListItemAction/>`}</LinkTo>,
-                  'An internal component which is used to build dropdown or menu like components.',
-                ],
-                [
-                  <LinkTo
-                    kind={Category.COMPONENTS}
-                    story="ListItemEditable"
-                  >{`<ListItemEditable/>`}</LinkTo>,
-                  'An internal editable component which is used to build dropdown or menu like components.',
-                ],
-                // TODO:
-                // [
-                //   <LinkTo
-                //     kind={Category.COMPONENTS}
-                //     story="BadgeSelect"
-                //   >{`<BadgeSelect/>`}</LinkTo>,
-                //   'An internal component which is used to build dropdown or menu like components.',
-                // ],
               ],
             }),
           ]),
