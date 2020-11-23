@@ -42,7 +42,7 @@ export default {
     percentage: 12,
     invertedPercentage: false,
     isLoading: false,
-    refreshButton: (
+    ctaButton: (
       <IconButton size="tiny">
         <Refresh />
       </IconButton>

@@ -19,7 +19,7 @@ export interface AnalyticsSummaryCardProps {
   invertedPercentage?: boolean;
 
   isLoading?: boolean;
-  refreshButton?: IconButton; // IconButton
+  ctaButton?: IconButton; // IconButton
   onRefreshClick?: React.MouseEventHandler<HTMLButtonElement>;
 
   onClick?: React.MouseEventHandler<HTMLButtonElement>;

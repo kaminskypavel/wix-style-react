@@ -12,6 +12,9 @@ import { dataHooks } from './constants';
 
 /** Analytics Summary Card */
 class AnalyticsSummaryCard extends React.PureComponent {
+  state = {
+    hovered: false,
+  };
   render() {
     const {
       dataHook,
@@ -26,7 +29,7 @@ class AnalyticsSummaryCard extends React.PureComponent {
       chartColorHex,
       chartSize,
       isLoading,
-      refreshButton,
+      ctaButton,
       onRefreshClick,
       onClick,
       onChartHover,
@@ -34,6 +37,7 @@ class AnalyticsSummaryCard extends React.PureComponent {
       footer = null,
     } = this.props;
 
+    const { hovered } = this.state;
     let chartWidth;
     switch (chartSize) {
       case 'small':
@@ -50,9 +54,20 @@ class AnalyticsSummaryCard extends React.PureComponent {
     }
     return (
       <div
-        className={st(classes.root, className)}
+        className={st(
+          classes.root,
+          className,
+          hovered ? classes.hovered : '',
+          onClick ? classes.clickable : '',
+        )}
         data-hook={dataHook}
-        onClick={onClick}
+        onClick={e => onClick && onClick(e)}
+        onMouseEnter={() => {
+          this.setState({ hovered: true });
+        }}
+        onMouseLeave={() => {
+          this.setState({ hovered: false });
+        }}
       >
         {isLoading && (
           <div className={st(classes.loader)}>
@@ -60,15 +75,15 @@ class AnalyticsSummaryCard extends React.PureComponent {
           </div>
         )}
 
-        {!isLoading && refreshButton && (
+        {!isLoading && ctaButton && (
           <div
             onClick={e => {
               e.stopPropagation();
-              onRefreshClick(e);
+              onRefreshClick && onRefreshClick(e);
             }}
-            className={st(classes.refreshButton)}
+            className={st(classes.ctaButton)}
           >
-            {refreshButton}
+            {ctaButton}
           </div>
         )}
 
@@ -133,7 +148,7 @@ AnalyticsSummaryCard.propTypes = {
   percentage: PropTypes.number,
   invertedPercentage: PropTypes.bool,
   isLoading: PropTypes.bool,
-  refreshButton: PropTypes.node,
+  ctaButton: PropTypes.node,
   onRefreshClick: PropTypes.func,
   onClick: PropTypes.func,
   // chart
@@ -147,10 +162,9 @@ AnalyticsSummaryCard.propTypes = {
 
 AnalyticsSummaryCard.defaultProps = {
   isLoading: false,
-  refreshButton: null,
-  onRefreshClick: noop,
-  onChartHover: noop,
+  ctaButton: null,
   footer: null,
+  onChartHover: noop,
 };
 
 export default AnalyticsSummaryCard;

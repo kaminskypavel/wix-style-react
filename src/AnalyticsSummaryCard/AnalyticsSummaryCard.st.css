@@ -6,9 +6,15 @@
  .root {
   background-color:#FFF;
   position: relative;
-  
 }
 
+.root.hovered {
+  background-color:#f4fafe;
+}
+
+.root.clickable {
+  cursor: pointer;
+}
 
 .title {
   margin-bottom: 6px;
@@ -46,7 +52,7 @@
   top: 3px;
 }
 
-.refreshButton {
+.ctaButton {
   position: absolute;
   right: 3px;
   top: 3px;
