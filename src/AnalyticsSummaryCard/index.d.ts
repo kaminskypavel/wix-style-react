@@ -15,10 +15,13 @@ export interface AnalyticsSummaryCardProps {
   value: string;
   valueTooltip?: string;
 
+  isPercentageVisible?: boolean;
   percentage?: number;
   invertedPercentage?: boolean;
+  percentageTooltip?: string;
 
   isLoading?: boolean;
+  isCtaButtonVisible?: boolean;
   ctaButton?: IconButton; // IconButton
   onRefreshClick?: React.MouseEventHandler<HTMLButtonElement>;
 

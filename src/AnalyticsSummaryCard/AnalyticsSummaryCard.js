@@ -35,6 +35,9 @@ class AnalyticsSummaryCard extends React.PureComponent {
       onChartHover,
       chartHighlightedStartingIndex,
       footer = null,
+      isCtaButtonVisible,
+      isPercentageVisible,
+      percentageTooltip,
     } = this.props;
 
     const { hovered } = this.state;
@@ -75,7 +78,7 @@ class AnalyticsSummaryCard extends React.PureComponent {
           </div>
         )}
 
-        {!isLoading && ctaButton && (
+        {!isLoading && isCtaButtonVisible && ctaButton && (
           <div
             onClick={e => {
               e.stopPropagation();
@@ -105,13 +108,17 @@ class AnalyticsSummaryCard extends React.PureComponent {
                   {value}
                 </Text>
               </Tooltip>
-              <span
-                className={st(classes.percentage, {
-                  invertedPercentage: invertedPercentage,
-                })}
-              >
-                {percentage}
-              </span>
+              {isPercentageVisible && (
+                <Tooltip placement="top" content={percentageTooltip}>
+                  <span
+                    className={st(classes.percentage, {
+                      invertedPercentage: invertedPercentage,
+                    })}
+                  >
+                    {percentage}
+                  </span>
+                </Tooltip>
+              )}
             </div>
             <div className={st(classes.sparklineChart)}>
               <SparklineChart
@@ -158,6 +165,9 @@ AnalyticsSummaryCard.propTypes = {
   chartData: PropTypes.array,
   chartColorHex: PropTypes.string,
   footer: PropTypes.node,
+  isCtaButtonVisible: PropTypes.bool,
+  isPercentageVisible: PropTypes.bool,
+  percentageTooltip: PropTypes.string,
 };
 
 AnalyticsSummaryCard.defaultProps = {
@@ -165,6 +175,8 @@ AnalyticsSummaryCard.defaultProps = {
   ctaButton: null,
   footer: null,
   onChartHover: noop,
+  isCtaButtonVisible: true,
+  isPercentageVisible: true,
 };
 
 export default AnalyticsSummaryCard;
