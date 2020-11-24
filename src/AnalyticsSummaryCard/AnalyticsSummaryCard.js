@@ -30,7 +30,7 @@ class AnalyticsSummaryCard extends React.PureComponent {
       chartWidth,
       isLoading,
       ctaButton,
-      onRefreshClick,
+      onCTAClick,
       onClick,
       onChartHover,
       chartHighlightedStartingIndex,
@@ -69,7 +69,7 @@ class AnalyticsSummaryCard extends React.PureComponent {
           <div
             onClick={e => {
               e.stopPropagation();
-              onRefreshClick && onRefreshClick(e);
+              onCTAClick && onCTAClick(e);
             }}
             className={st(classes.ctaButton)}
           >
@@ -143,7 +143,7 @@ AnalyticsSummaryCard.propTypes = {
   invertedPercentage: PropTypes.bool,
   isLoading: PropTypes.bool,
   ctaButton: PropTypes.node,
-  onRefreshClick: PropTypes.func,
+  onCTAClick: PropTypes.func,
   onClick: PropTypes.func,
   // chart
   onChartHover: PropTypes.func,

@@ -23,16 +23,16 @@ export interface AnalyticsSummaryCardProps {
   isLoading?: boolean;
   isCtaButtonVisible?: boolean;
   ctaButton?: IconButton; // IconButton
-  onRefreshClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onCTAClick?: React.MouseEventHandler<HTMLButtonElement>;
 
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 
   //chart
   onChartHover?: React.MouseEventHandler<HTMLButtonElement>;
   chartHighlightedStartingIndex?: SparklineChartProps.highlightedStartingIndex;
-  chartSize?: number,
+  chartWidth?: number,
   chartData: SparklineChartProps.data;
-  chartColorHex: SparklineChartProps.color;
+  chartColorHex?: SparklineChartProps.color;
 
   footer?: React.ReactNode;
 }

@@ -47,7 +47,7 @@ export default {
         <Refresh />
       </IconButton>
     ),
-    onRefreshClick: () => console.log('refresh click'),
+    onCTAClick: () => console.log('refresh click'),
     onClick: () => console.log('general click'),
     onChartHover: () => console.log('on chart hover'),
     chartWidth: 169,
