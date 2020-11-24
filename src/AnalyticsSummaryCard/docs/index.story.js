@@ -50,7 +50,7 @@ export default {
     onRefreshClick: () => console.log('refresh click'),
     onClick: () => console.log('general click'),
     onChartHover: () => console.log('on chart hover'),
-    chartSize: 'medium',
+    chartWidth: 169,
     chartData,
     chartColorHex: '#3899ec',
     footer: <div> This is footer</div>,

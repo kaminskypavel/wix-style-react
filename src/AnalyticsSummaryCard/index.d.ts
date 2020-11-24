@@ -30,7 +30,7 @@ export interface AnalyticsSummaryCardProps {
   //chart
   onChartHover?: React.MouseEventHandler<HTMLButtonElement>;
   chartHighlightedStartingIndex?: SparklineChartProps.highlightedStartingIndex;
-  chartSize?: 'small' | 'medium' | 'large';
+  chartSize?: number,
   chartData: SparklineChartProps.data;
   chartColorHex: SparklineChartProps.color;
 

@@ -27,7 +27,7 @@ class AnalyticsSummaryCard extends React.PureComponent {
       invertedPercentage,
       chartData,
       chartColorHex,
-      chartSize,
+      chartWidth,
       isLoading,
       ctaButton,
       onRefreshClick,
@@ -41,20 +41,7 @@ class AnalyticsSummaryCard extends React.PureComponent {
     } = this.props;
 
     const { hovered } = this.state;
-    let chartWidth;
-    switch (chartSize) {
-      case 'small':
-        chartWidth = 60;
-        break;
-      case 'medium':
-        chartWidth = 72;
-        break;
-      case 'large':
-        chartWidth = 134;
-        break;
-      default:
-        chartWidth = 72;
-    }
+
     return (
       <div
         className={st(
@@ -78,7 +65,7 @@ class AnalyticsSummaryCard extends React.PureComponent {
           </div>
         )}
 
-        {!isLoading && isCtaButtonVisible && ctaButton && (
+        {!isLoading && isCtaButtonVisible && ctaButton && hovered && (
           <div
             onClick={e => {
               e.stopPropagation();
@@ -161,7 +148,7 @@ AnalyticsSummaryCard.propTypes = {
   // chart
   onChartHover: PropTypes.func,
   chartHighlightedStartingIndex: PropTypes.number,
-  chartSize: PropTypes.oneOf(['small', 'medium', 'large']),
+  chartSize: PropTypes.number,
   chartData: PropTypes.array,
   chartColorHex: PropTypes.string,
   footer: PropTypes.node,
@@ -177,6 +164,7 @@ AnalyticsSummaryCard.defaultProps = {
   onChartHover: noop,
   isCtaButtonVisible: true,
   isPercentageVisible: true,
+  chartSize: 69,
 };
 
 export default AnalyticsSummaryCard;
