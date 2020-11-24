@@ -85,11 +85,34 @@ export default {
           example({
             title: 'Simple Usage',
             text: 'A simple example with compact preview',
-            source: `<AnalyticsSummaryCard 
-            <IconButton size="tiny">
-              <Refresh />
-            </IconButton>
-            chartData=${JSON.stringify(chartData)} buttonText="Hello World!"/>`,
+            source: `<AnalyticsSummaryCard
+            chartColorHex="#3899ec"
+            chartData={[
+              {
+                label: new Date('2020-09-03T21:00:00.000Z'),
+                value: 3
+              },
+              {
+                label: new Date('2020-09-04T21:00:00.000Z'),
+                value: 17
+              },
+              {
+                label: new Date('2020-09-05T21:00:00.000Z'),
+                value: 18
+              }
+            ]}
+            chartWidth={169}
+            ctaButton={<IconButton size="tiny"><Icons.Refresh/></IconButton>}
+            footer={<div>{' '}This is footer</div>}
+            onCTAClick={() => console.log('refresh click')}
+            onChartHover={() => console.log('on chart hover')}
+            onClick={() => console.log('general click')}
+            percentage={12}
+            title="Sessions"
+            titleTooltip="tooltip"
+            value="1,9K"
+            valueTooltip="1,943"
+          />`,
           }),
         ],
       }),
