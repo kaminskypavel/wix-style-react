@@ -148,7 +148,7 @@ AnalyticsSummaryCard.propTypes = {
   // chart
   onChartHover: PropTypes.func,
   chartHighlightedStartingIndex: PropTypes.number,
-  chartSize: PropTypes.number,
+  chartWidth: PropTypes.number,
   chartData: PropTypes.array,
   chartColorHex: PropTypes.string,
   footer: PropTypes.node,
@@ -164,7 +164,7 @@ AnalyticsSummaryCard.defaultProps = {
   onChartHover: noop,
   isCtaButtonVisible: true,
   isPercentageVisible: true,
-  chartSize: 69,
+  chartWidth: 69,
 };
 
 export default AnalyticsSummaryCard;
