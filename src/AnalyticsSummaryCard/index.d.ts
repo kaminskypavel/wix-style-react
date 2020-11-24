@@ -21,7 +21,6 @@ export interface AnalyticsSummaryCardProps {
   percentageTooltip?: string;
 
   isLoading?: boolean;
-  isCtaButtonVisible?: boolean;
   ctaButton?: IconButton; // IconButton
   onCTAClick?: React.MouseEventHandler<HTMLButtonElement>;
 

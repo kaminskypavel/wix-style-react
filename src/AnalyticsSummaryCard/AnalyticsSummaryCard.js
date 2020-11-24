@@ -35,7 +35,6 @@ class AnalyticsSummaryCard extends React.PureComponent {
       onChartHover,
       chartHighlightedStartingIndex,
       footer = null,
-      isCtaButtonVisible,
       isPercentageVisible,
       percentageTooltip,
     } = this.props;
@@ -65,7 +64,7 @@ class AnalyticsSummaryCard extends React.PureComponent {
           </div>
         )}
 
-        {!isLoading && isCtaButtonVisible && ctaButton && hovered && (
+        {!isLoading && ctaButton && hovered && (
           <div
             onClick={e => {
               e.stopPropagation();
@@ -152,7 +151,6 @@ AnalyticsSummaryCard.propTypes = {
   chartData: PropTypes.array,
   chartColorHex: PropTypes.string,
   footer: PropTypes.node,
-  isCtaButtonVisible: PropTypes.bool,
   isPercentageVisible: PropTypes.bool,
   percentageTooltip: PropTypes.string,
 };
@@ -162,7 +160,6 @@ AnalyticsSummaryCard.defaultProps = {
   ctaButton: null,
   footer: null,
   onChartHover: noop,
-  isCtaButtonVisible: true,
   isPercentageVisible: true,
   chartWidth: 69,
 };
