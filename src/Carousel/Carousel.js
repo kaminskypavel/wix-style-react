@@ -12,7 +12,7 @@ import '../common/match-media-register';
 import Slider from 'react-slick';
 
 import './Carousel.global.scss';
-import { st, classes } from './Carousel.st.css';
+import { st, vars, classes } from './Carousel.st.css';
 import Pagination from './Pagination';
 import SliderArrow from './SliderArrow';
 import Loader from '../Loader';
@@ -84,6 +84,12 @@ class Carousel extends React.Component {
 
     /** Configure the start and end controls to be shown disabled or hidden. Relevant when infinite prop is set to false. */
     controlsStartEnd: PropTypes.oneOf(['disabled', 'hidden']),
+
+    /** Show a gradient on the edges of the carousel */
+    showEdgesGradient: PropTypes.bool,
+
+    /** Hex color for the gradient on the edges of the carousel */
+    edgesGradientColor: PropTypes.string,
   };
 
   static defaultProps = {
@@ -97,6 +103,7 @@ class Carousel extends React.Component {
     controlsSize: 'medium',
     controlsStartEnd: 'disabled',
     showControlsShadow: false,
+    showEdgesGradient: false,
   };
 
   constructor(props) {
@@ -116,6 +123,8 @@ class Carousel extends React.Component {
       controlsPosition,
       controlsSize,
       showControlsShadow,
+      showEdgesGradient,
+      edgesGradientColor,
     } = this.props;
     const { sliderSettings } = this.state;
     const hasImages = !children && images.length > 0;
@@ -125,9 +134,15 @@ class Carousel extends React.Component {
         data-hook={dataHook}
         className={st(
           classes.root,
-          { controlsPosition, controlsSize, showControlsShadow },
+          {
+            controlsPosition,
+            controlsSize,
+            showControlsShadow,
+            showEdgesGradient,
+          },
           className,
         )}
+        style={{ [vars.edgesGradientColor]: edgesGradientColor }}
       >
         <Slider {...sliderSettings}>
           {children}

@@ -136,6 +136,16 @@ They can be placed in one of these positions: \`sides\` (default), \`overlay\`, 
             text: `The carousel controls on the start and end of the carousel can be set to be \`hidden\` when not using infinite mode.`,
             source: examples.controlsStartEndHidden,
           }),
+
+          example({
+            title: 'Gradients on Edges',
+            text: `
+Show gradients on the left and right edges of the carousel.\n
+Enable the gradient edges with the \`showEdgesGradient\` flag and define the color using \`edgesGradientColor\`.\n
+If not given a \`edgesGradientColor\`, the gradient will use the D70 color.
+            `,
+            source: examples.gradientEdges,
+          }),
         ],
       }),
 
