@@ -68,6 +68,7 @@ class NoBorderInput extends React.Component {
             className={st(
               classes.root,
               {
+                isMadefor,
                 size,
                 focus: this.state.focus,
                 hasValue,
