@@ -1,6 +1,6 @@
 :import {
   -st-from: '../../Foundation/stylable/typography.st.css';
-  -st-named: text-small-thin, text-medium-thin;
+  -st-named: text-small-normal, text-small-thin, text-medium-normal, text-medium-thin;
 }
 
 :import {
@@ -10,7 +10,7 @@
 
 .root {
   -st-states: size(enum(small, medium, large)),
-              inPrefix, inSuffix, roundInput, disabled;
+  isMadefor, inPrefix, inSuffix, roundInput, disabled;
 
   display: flex;
   justify-content: center;
@@ -53,11 +53,20 @@
 }
 
 .root:size(small) {
+  -st-mixin: text-small-normal;
+}
+
+.root:size(small):isMadefor {
   -st-mixin: text-small-thin;
 }
 
 .root:size(medium),
 .root:size(large) {
+  -st-mixin: text-medium-normal;
+}
+
+.root:size(medium):isMadefor,
+.root:size(large):isMadefor {
   -st-mixin: text-medium-thin;
 }
 
