@@ -16,8 +16,9 @@ Types of changes:
 
 ## Next
 ### Added
-- `<TrendIndicator/>` - add new component [#6305](https://github.com/wix/wix-style-react/pull/6305)
+- `<TrendIndicator/>` - Add new component [#6305](https://github.com/wix/wix-style-react/pull/6305)
 - `<Carousel/>` - Add showControlsShadow prop [#6301](https://github.com/wix/wix-style-react/pull/6301)
+- `<Carousel/>` - Add controlsStartEnd prop [#6300](https://github.com/wix/wix-style-react/pull/6300)
 - `<Carousel/>` - [Testkit] Add 'clickNext' and 'clickPrevious' [#6303](https://github.com/wix/wix-style-react/pull/6303)
 
 ### Changed

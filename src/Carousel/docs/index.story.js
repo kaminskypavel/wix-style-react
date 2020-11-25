@@ -130,6 +130,12 @@ They can be placed in one of these positions: \`sides\` (default), \`overlay\`, 
               'Set variableWidth to disable automatic slide width calculation. Use this prop when you want the carousel to show more than a single item simultaneously.',
             source: examples.variableWidthExample,
           }),
+
+          example({
+            title: 'Controls on Start and End',
+            text: `The carousel controls on the start and end of the carousel can be set to be \`hidden\` when not using infinite mode.`,
+            source: examples.controlsStartEndHidden,
+          }),
         ],
       }),
 

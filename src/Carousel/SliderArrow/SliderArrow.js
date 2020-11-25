@@ -17,17 +17,18 @@ const SliderArrow = ({
   buttonSkin,
   icon,
   className,
+  controlsStartEnd,
   ...remainingProps
 }) => {
-  const isDisabled = className.includes('slick-disabled');
+  const isControlOnEdge = className.includes('slick-disabled');
 
-  return (
+  return isControlOnEdge && controlsStartEnd === 'hidden' ? null : (
     <div {...remainingProps} data-hook={dataHook} className={className}>
       <IconButton
         className={classes.controls}
         skin={buttonSkin}
         size={arrowSize}
-        disabled={isDisabled}
+        disabled={isControlOnEdge}
         priority={skinPriorityMap[buttonSkin]}
       >
         {icon}

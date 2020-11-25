@@ -80,6 +80,14 @@ const tests = [
           controlsPosition: 'none',
         },
       },
+      {
+        it: 'Hide start and end controls',
+        props: {
+          images: sampleImages,
+          infinite: false,
+          controlsStartEnd: 'hidden',
+        },
+      },
     ],
   },
   {

@@ -81,6 +81,9 @@ class Carousel extends React.Component {
 
     /** Sets the arrows position */
     controlsSize: PropTypes.oneOf(['tiny', 'small', 'medium']),
+
+    /** Configure the start and end controls to be shown disabled or hidden. Relevant when infinite prop is set to false. */
+    controlsStartEnd: PropTypes.oneOf(['disabled', 'hidden']),
   };
 
   static defaultProps = {
@@ -92,6 +95,7 @@ class Carousel extends React.Component {
     buttonSkin: 'standard',
     controlsPosition: 'sides',
     controlsSize: 'medium',
+    controlsStartEnd: 'disabled',
     showControlsShadow: false,
   };
 
@@ -166,6 +170,7 @@ class Carousel extends React.Component {
     beforeChange,
     controlsPosition,
     controlsSize,
+    controlsStartEnd,
   }) => {
     return {
       infinite,
@@ -185,6 +190,7 @@ class Carousel extends React.Component {
           buttonSkin={buttonSkin}
           arrowSize={controlsSize}
           icon={this.rightIconByControlSize(controlsSize)}
+          controlsStartEnd={controlsStartEnd}
         />
       ),
       prevArrow: (
@@ -193,6 +199,7 @@ class Carousel extends React.Component {
           buttonSkin={buttonSkin}
           arrowSize={controlsSize}
           icon={this.leftIconByControlSize(controlsSize)}
+          controlsStartEnd={controlsStartEnd}
         />
       ),
       arrows: controlsPosition !== 'none',
