@@ -6,7 +6,7 @@
 
 :import {
   -st-from: '../Foundation/stylable/typography.st.css';
-  -st-named: text-medium-thin;
+  -st-named: text-medium-normal, text-medium-thin;
 }
 
 :vars {
@@ -21,7 +21,7 @@
 }
 
 .root {
-  -st-states: hidePlaceholder, disabled, hasError, hasWarning;
+  -st-states: hidePlaceholder, disabled, hasError, hasWarning, isMadefor;
   min-height: value(minHeight);
   min-width: value(minWidth);
   background-color: value(backgroundColor);
@@ -29,6 +29,14 @@
 }
 
 .root :global(.public-DraftEditorPlaceholder-root) {
+  padding: value(padding);
+  position: absolute;
+  pointer-events: none;
+  color: value(D40);
+  -st-mixin: text-medium-normal;
+}
+
+.root :global(.public-DraftEditorPlaceholder-root):isMadefor {
   padding: value(padding);
   position: absolute;
   pointer-events: none;
