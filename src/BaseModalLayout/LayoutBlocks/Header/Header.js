@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { st, classes } from './Header.st.css';
 import ModalHeading from './ModalHeading';
 import { dataHooks } from '../../constants';
@@ -15,10 +14,13 @@ export const Header = ({
   showHeaderDivider,
 }) => {
   const { headerClassName, title, subtitle } = useBaseModalLayoutContext();
-  className = classNames(headerClassName, className);
+
   return (
     ((title || subtitle) && (
-      <div data-hook={dataHook} className={st(classes.root, className)}>
+      <div
+        data-hook={dataHook}
+        className={st(classes.root, headerClassName, className)}
+      >
         <div className={classes.innerContent}>
           {typeof title === 'string' ? (
             <ModalHeading
@@ -53,14 +55,19 @@ Header.displayName = 'BaseModalLayout.Header';
 Header.propTypes = {
   /** additional css classes */
   className: PropTypes.string,
+
   /** data hook for testing */
   dataHook: PropTypes.string,
+
   /** The modal's title */
   title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+
   /** The modal's title appearance */
   titleAppearance: ModalHeading.propTypes.headingAppearance,
+
   /** The modal's subtitle */
   subtitle: PropTypes.string,
+
   /** Shows a divider at the bottom of the Header*/
   showHeaderDivider: PropTypes.bool,
 };

@@ -113,6 +113,12 @@ They can be placed in one of these positions: \`sides\` (default), \`overlay\`, 
           }),
 
           example({
+            title: 'Controls Shadow',
+            text: `Display a shadow behind the carousel controls by using the \`showControlsShadow\` flag.`,
+            source: examples.controlsShadowExample,
+          }),
+
+          example({
             title: 'Without Dots',
             text: 'Pagination at the bottom can be removed.',
             source: examples.withoutDotsExample,

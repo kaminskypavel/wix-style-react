@@ -4,6 +4,7 @@ import PageFooter from '../PageFooter';
 import { Button } from '../..';
 import Pagination from '../../Pagination';
 import Box from '../../Box';
+import ArrowLeft from 'wix-ui-icons-common/ArrowLeft';
 
 const tests = [
   {
@@ -46,10 +47,13 @@ const tests = [
         story: () => (
           <PageFooter divider>
             <PageFooter.Start>
-              <Button size="medium">⬅⬅</Button>
+              <Button size="medium">
+                <ArrowLeft />
+                <ArrowLeft />
+              </Button>
               <Box marginLeft="SP2">
                 <Button size="medium" skin="inverted">
-                  ⬅
+                  <ArrowLeft />
                 </Button>
               </Box>
             </PageFooter.Start>

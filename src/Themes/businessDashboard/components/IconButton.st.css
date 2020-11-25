@@ -5,7 +5,7 @@
 
 :import {
   -st-from: '../foundations/colors.st.css';
-  -st-named: B05, B10, B50, D10, D20, D30, D55, D70, D80, D10-30, D10-40, D80-70;
+  -st-named: B05, B10, B40, B50, D10, D20, D30, D55, D70, D80, D10-30, D10-40, D80-70;
 }
 
 .root {
@@ -13,6 +13,10 @@
   background-color: value(B10);
   border-color: value(B10);
   color: value(D80);
+}
+
+.root:focus-visible {
+  box-shadow: 0 0 0 3px value(B40);
 }
 
 .root:hover {

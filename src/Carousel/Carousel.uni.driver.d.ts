@@ -5,4 +5,6 @@ export interface CarouselUniDriver extends BaseUniDriver {
   isLoading: () => Promise<boolean>;
   getChildren: () => UniDriverList;
   getImages: () => Array<Promise<string | null>>;
+  clickNext: () => Promise<void>;
+  clickPrevious: () => Promise<void>;
 }

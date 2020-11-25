@@ -6,11 +6,6 @@
  */
 
 module.exports = {
-  BadgeSelectItemBuilder: {
-    skipSanityTest: true,
-    noTestkit: true,
-  },
-
   BadgeSelect: {
     vanillaLegacyTestkit: true,
     enzymeLegacyTestkit: true,

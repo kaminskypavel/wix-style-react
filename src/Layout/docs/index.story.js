@@ -14,12 +14,16 @@ import {
 import { storySettings } from '../test/storySettings';
 import allComponents from '../../../stories/utils/allComponents';
 import { Layout, Cell } from '..';
-import styles from './styles.scss';
+import { style, classes } from './styles.st.css';
 import * as examples from './examples';
 
 const example = config => baseExample({ components: allComponents, ...config });
 const GreyBox = ({ children, height }) => (
-  <div className={styles.greyBox} style={{ height }} children={children} />
+  <div
+    className={style(classes.greyBox)}
+    style={{ height }}
+    children={children}
+  />
 );
 GreyBox.displayName = 'GreyBox';
 

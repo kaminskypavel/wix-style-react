@@ -79,25 +79,25 @@
 
 /* Skin: standard - secondary */
 
-.root:priority(secondary) {
+.root:skin(standard):priority(secondary) {
   background-color: transparent;
   border-color: value(THEME-COLOR-10);
   color: value(THEME-COLOR-10);
 }
 
-.root:priority(secondary):hover {
+.root:skin(standard):priority(secondary):hover {
   color: value(D80);
   border-color: transparent;
   background-color: value(THEME-COLOR-20);
 }
 
-.root:priority(secondary):active {
+.root:skin(standard):priority(secondary):active {
   background-color: value(THEME-COLOR-10);
   border-color: value(THEME-COLOR-10);
   color: value(D80);
 }
 
-.root:priority(secondary):disabled {
+.root:skin(standard):priority(secondary):disabled {
   color: value(D10-30);
   background-color: transparent;
   border-color: value(D10-30);

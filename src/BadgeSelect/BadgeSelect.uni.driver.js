@@ -14,8 +14,7 @@ export const badgeSelectUniDriverFactory = (base, body) => {
   const driver = {
     ...baseUniDriverFactory(base),
 
-    /** Returns 'true' whether the element exists */
-    exists: popoverDriver.exists,
+    exists: () => popoverDriver.exists(),
 
     clickAtOption: async index => {
       await badgeDriver.click();
@@ -76,9 +75,9 @@ export const badgeSelectUniDriverFactory = (base, body) => {
     hasClickCursor: badgeDriver.hasClickCursor,
 
     /**
-     * Clicks on an option
-     * @param {number} index Option index
-     * @return {Promise<void>}
+     * Clicks an option at given index
+     * @param {number} index Position of the option
+     * @returns {Promise<void>}
      */
     clickAtOption: driver.clickAtOption,
   };

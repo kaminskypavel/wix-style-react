@@ -184,5 +184,3 @@ export const runTests = (
     );
   });
 };
-
-runTests();

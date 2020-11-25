@@ -25,6 +25,7 @@ function CarouselWithAllProps() {
       initialSlideIndex={1}
       variableWidth
       controlsPosition="sides"
+      showControlsShadow={false}
     />
   );
 }

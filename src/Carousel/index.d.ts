@@ -21,4 +21,5 @@ export interface CarouselProps {
   beforeChange?: (currentSlide: number, nextSlide: number) => void;
   controlsPosition?: CarouselControlsPosition;
   controlsSize?: 'tiny' | 'small' | 'medium';
+  showControlsShadow?: boolean;
 }

@@ -1,6 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import SidebarBackButton from '../SidebarBackButton';
+import Box from '../../Box';
+import { SidebarContext } from '../../Sidebar/SidebarAPI';
+import { sidebarSkins } from '../../Sidebar/constants';
 
 const tests = [
   {
@@ -14,6 +17,8 @@ const tests = [
   },
 ];
 
+const skins = Object.values(sidebarSkins);
+
 export const runTests = (
   { themeName, testWithTheme } = { testWithTheme: i => i },
 ) => {
@@ -25,10 +30,24 @@ export const runTests = (
         }`,
         module,
       ).add(it, () =>
-        testWithTheme(<SidebarBackButton>Go Back</SidebarBackButton>),
+        testWithTheme(
+          skins.map(skin => (
+            <Box
+              direction="vertical"
+              backgroundColor="D70"
+              marginBottom={5}
+              marginRight={5}
+              key={skin}
+            >
+              <div style={{ width: '228px', margin: '16px' }}>
+                <SidebarContext.Provider value={{ getSkin: () => skin }}>
+                  <SidebarBackButton>Go Back</SidebarBackButton>
+                </SidebarContext.Provider>
+              </div>
+            </Box>
+          )),
+        ),
       );
     });
   });
 };
-
-runTests();

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import IconButton from '../../IconButton/IconButton';
+import { classes } from '../Carousel.st.css';
 
 const skinPriorityMap = {
   standard: 'secondary',
@@ -23,6 +24,7 @@ const SliderArrow = ({
   return (
     <div {...remainingProps} data-hook={dataHook} className={className}>
       <IconButton
+        className={classes.controls}
         skin={buttonSkin}
         size={arrowSize}
         disabled={isDisabled}

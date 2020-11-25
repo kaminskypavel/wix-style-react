@@ -54,5 +54,3 @@ export const runTests = (
     ),
   );
 };
-
-runTests();

@@ -1,13 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
-
 import ChevronLeftLarge from 'wix-ui-icons-common/ChevronLeftLarge';
 import ChevronRightLarge from 'wix-ui-icons-common/ChevronRightLarge';
-
 import YearDropdown from './YearDropdown';
 import MonthDropdown from './MonthDropdown';
-import { classes } from './styles.st.css';
+import { st, classes } from './styles.st.css';
 import Text from '../../Text';
 
 const getMonthName = (months, month) => months[month] || months[0];
@@ -26,11 +23,7 @@ const DatePickerHead = ({
   return (
     <div data-hook="datepicker-head" className={classes.root}>
       <div
-        className={classnames(
-          classes.arrow,
-          classes.arrowLeft,
-          'DayPicker-Nav--Left',
-        )}
+        className={st(classes.arrow, classes.arrowLeft, 'DayPicker-Nav--Left')}
         data-hook="datepicker-left-arrow"
         onClick={onLeftArrowClick}
       >
@@ -66,7 +59,7 @@ const DatePickerHead = ({
       )}
 
       <div
-        className={classnames(
+        className={st(
           classes.arrow,
           classes.arrowRight,
           'DayPicker-Nav--Right',

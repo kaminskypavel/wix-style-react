@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import uniqueId from 'lodash/uniqueId';
 import classNames from 'classnames';
-
 import RadioButton from './RadioButton/RadioButton';
 import { classes } from './RadioGroup.st.css';
 import { dataHooks } from './constants';

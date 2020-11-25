@@ -149,12 +149,8 @@ class ListItemSelect extends React.PureComponent {
           </Text>
         )}
 
-        <Box
-          display="grid"
+        <div
           className={st(classes.titleWrapper, { subtitle: Boolean(subtitle) })}
-          direction="vertical"
-          lineHeight="initial"
-          fontSize="initial"
         >
           <Text
             className={classes.title}
@@ -173,7 +169,7 @@ class ListItemSelect extends React.PureComponent {
               {subtitle}
             </Text>
           )}
-        </Box>
+        </div>
         {suffix && (
           <Text
             dataHook={dataHooks.SUFFIX}

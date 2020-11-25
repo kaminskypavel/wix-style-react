@@ -5,7 +5,7 @@
 
 :import {
   -st-from: '../foundations/colors.st.css';
-  -st-named: B05, B10, D10, D20, D30, D80, D10-30, D10-40, D80-70;
+  -st-named: B05, B10, B40, B50, D10, D20, D30, D80, D10-30, D10-40, D80-70;
 }
 
 :import {
@@ -39,14 +39,8 @@
   padding-left: 4px;
 }
 
-.root:size(small)::prefix {
-  width: 24px;
-  height: 24px;
-}
-
-.root:size(small)::suffix {
-  width: 24px;
-  height: 24px;
+.root:focus-visible {
+  box-shadow: 0 0 0 3px value(B40);
 }
 
 /****** Weights ******/
@@ -78,17 +72,23 @@
   line-height: 16px;
   height: 16px;
   font-size: 12px;
+  align-items: center;
 }
 
 .root:size(small) {
   line-height: 20px;
   height: 20px;
+  align-items: center;
 }
 
 /* Skin: light */
 
 .root:skin(light) {
   color: value(D80);
+}
+
+.root:skin(light):hover {
+  color: value(B50);
 }
 
 .root:skin(light):disabled {
@@ -109,10 +109,6 @@
   color: value(D10);
 }
 
-.root:skin(dark):disabled {
-  color: value(D10-40);
-}
-
 .root:skin(dark):weight(thin) {
   color: value(D20);
 }
@@ -123,4 +119,8 @@
 
 .root:skin(dark):weight(thin):active {
   color: value(D20);
+}
+
+.root:skin(dark):disabled {
+  color: value(D10-40);
 }

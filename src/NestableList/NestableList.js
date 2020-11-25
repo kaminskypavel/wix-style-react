@@ -1,5 +1,5 @@
 import React from 'react';
-import { removeFromTree, addToTree } from './utils';
+import { addToTree, getDropParent, removeFromTree } from './utils';
 
 import CustomDragLayer from './DragLayer';
 import Container from './Container';
@@ -43,8 +43,11 @@ class NestableList extends React.PureComponent {
     isRenderDraggingChildren: false,
     childrenProperty: 'children',
     childrenStyle: {},
+    renderPrefix: () => null,
+    renderAction: () => null,
     onUpdate: () => {},
     useDragHandle: false,
+    preventChangeDepth: false,
     maxDepth: Infinity,
     threshold: 30,
   };
@@ -64,8 +67,15 @@ class NestableList extends React.PureComponent {
   };
 
   moveItem = ({ dragItem, prevPosition, nextPosition }) => {
-    const { childrenProperty } = this.props;
+    const { childrenProperty, preventChangeDepth, items } = this.props;
     let newItems = this.state.items.slice();
+
+    if (preventChangeDepth && nextPosition.length > 1) {
+      const parent = getDropParent(items, nextPosition, childrenProperty);
+      if (!parent) {
+        return prevPosition;
+      }
+    }
 
     // the remove action might affect the next position,
     // so update next coordinates accordingly
@@ -110,23 +120,29 @@ class NestableList extends React.PureComponent {
     const {
       dataHook,
       renderItem,
+      readOnly,
       childrenProperty,
       childrenStyle,
+      renderAction,
       isRenderDraggingChildren,
       useDragHandle,
       maxDepth,
+      preventChangeDepth,
       threshold,
       theme,
+      renderPrefix,
     } = this.props;
-
     return (
       <div data-hook={dataHook}>
         <NestableListContext.Provider
           value={{
             useDragHandle,
             maxDepth,
+            preventChangeDepth,
             threshold,
+            readOnly,
             renderItem,
+            renderPrefix,
             moveItem: this.moveItem,
             dropItem: this.dropItem,
             onDragStart: this.onDragStart,
@@ -135,7 +151,9 @@ class NestableList extends React.PureComponent {
         >
           <div>
             <Container
+              treeDepth={1}
               items={items}
+              renderAction={renderAction}
               parentPosition={[]}
               childrenProperty={childrenProperty}
               childrenStyle={childrenStyle}

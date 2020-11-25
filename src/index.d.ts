@@ -27,8 +27,11 @@ export { BadgeProps, BadgeSize, BadgeSkin, BadgeType } from './Badge';
 export { default as BadgeSelect } from './BadgeSelect';
 export * from './BadgeSelect';
 
-export { badgeSelectItemBuilder } from './BadgeSelectItemBuilder';
-export * from './BadgeSelectItemBuilder';
+export {
+  default as BadgeSelectItem,
+  badgeSelectItemBuilder
+} from './BadgeSelectItem';
+export * from './BadgeSelectItem';
 
 export { default as BarChart } from './BarChart';
 export * from './BarChart';
@@ -495,5 +498,12 @@ export { default as AnalyticsSummaryCard } from './AnalyticsSummaryCard';
 export * from './AnalyticsSummaryCard';
 
 export * from './PageFooter';
+
+export { default as StyledNestableList } from './StyledNestableList';
+
+export { default as TrendIndicator } from './TrendIndicator';
+export * from './TrendIndicator';
+
+export * from './StyledNestableList';
 
 export * from './StackedBarChart';

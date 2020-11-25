@@ -4,6 +4,9 @@ import ChevronLeftLarge from 'wix-ui-icons-common/ChevronLeftLarge';
 import ChevronRightLarge from 'wix-ui-icons-common/ChevronRightLarge';
 import ChevronLeftLargeSmall from 'wix-ui-icons-common/ChevronLeftLargeSmall';
 import ChevronRightLargeSmall from 'wix-ui-icons-common/ChevronRightLargeSmall';
+import ChevronLeftSmall from 'wix-ui-icons-common/ChevronLeftSmall';
+import ChevronRightSmall from 'wix-ui-icons-common/ChevronRightSmall';
+
 // This is here and not in the test setup because we don't want consumers to need to run it as well
 import '../common/match-media-register';
 import Slider from 'react-slick';
@@ -49,6 +52,9 @@ class Carousel extends React.Component {
     /** Sets the skin of the arrow buttons */
     buttonSkin: PropTypes.oneOf(['standard', 'inverted', 'light']),
 
+    /** Show a shadow for the carousel controls */
+    showControlsShadow: PropTypes.bool,
+
     /** Images loop endlessly */
     infinite: PropTypes.bool,
 
@@ -86,6 +92,7 @@ class Carousel extends React.Component {
     buttonSkin: 'standard',
     controlsPosition: 'sides',
     controlsSize: 'medium',
+    showControlsShadow: false,
   };
 
   constructor(props) {
@@ -104,6 +111,7 @@ class Carousel extends React.Component {
       children,
       controlsPosition,
       controlsSize,
+      showControlsShadow,
     } = this.props;
     const { sliderSettings } = this.state;
     const hasImages = !children && images.length > 0;
@@ -113,7 +121,7 @@ class Carousel extends React.Component {
         data-hook={dataHook}
         className={st(
           classes.root,
-          { controlsPosition, controlsSize },
+          { controlsPosition, controlsSize, showControlsShadow },
           className,
         )}
       >
@@ -124,6 +132,28 @@ class Carousel extends React.Component {
       </div>
     );
   }
+
+  leftIconByControlSize = controlSize => {
+    switch (controlSize) {
+      case 'tiny':
+        return <ChevronLeftSmall />;
+      case 'small':
+        return <ChevronLeftLargeSmall />;
+      default:
+        return <ChevronLeftLarge />;
+    }
+  };
+
+  rightIconByControlSize = controlSize => {
+    switch (controlSize) {
+      case 'tiny':
+        return <ChevronRightSmall />;
+      case 'small':
+        return <ChevronRightLargeSmall />;
+      default:
+        return <ChevronRightLarge />;
+    }
+  };
 
   _resolveSliderSettings = ({
     infinite,
@@ -154,13 +184,7 @@ class Carousel extends React.Component {
           dataHook={dataHooks.nextButton}
           buttonSkin={buttonSkin}
           arrowSize={controlsSize}
-          icon={
-            controlsSize === 'tiny' || controlsSize === 'small' ? (
-              <ChevronRightLargeSmall />
-            ) : (
-              <ChevronRightLarge />
-            )
-          }
+          icon={this.rightIconByControlSize(controlsSize)}
         />
       ),
       prevArrow: (
@@ -168,13 +192,7 @@ class Carousel extends React.Component {
           dataHook={dataHooks.prevButton}
           buttonSkin={buttonSkin}
           arrowSize={controlsSize}
-          icon={
-            controlsSize === 'tiny' || controlsSize === 'small' ? (
-              <ChevronLeftLargeSmall />
-            ) : (
-              <ChevronLeftLarge />
-            )
-          }
+          icon={this.leftIconByControlSize(controlsSize)}
         />
       ),
       arrows: controlsPosition !== 'none',

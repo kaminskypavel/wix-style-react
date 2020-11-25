@@ -5,12 +5,7 @@
 
 :import {
   -st-from: "../foundations/colors.st.css";
-  -st-named: B10, B05, B50, D10-40, D55, D70, D80;
-}
-
-:import {
-  -st-from: "../../../Foundation/stylable/spacing.st.css";
-  -st-named: SP2;
+  -st-named: B10, B05, B40, B50, D10-40, D55, D70, D80;
 }
 
 :import {
@@ -20,6 +15,10 @@
 
 .root {
   -st-extends: Button;
+}
+
+.root:focus-visible {
+  box-shadow: 0 0 0 3px value(B40);
 }
 
 /* Skin standard primary */
@@ -52,7 +51,7 @@
 
 /* Skin: standard - secondary */
 
-.root:priority(secondary) {
+.root:skin(standard):priority(secondary) {
   -st-mixin: bold;
 
   background-color: transparent;
@@ -60,19 +59,19 @@
   color: value(B10);
 }
 
-.root:priority(secondary):hover {
+.root:skin(standard):priority(secondary):hover {
   color: value(B05);
   border-color: value(B05);
   background-color: transparent;
 }
 
-.root:priority(secondary):active {
+.root:skin(standard):priority(secondary):active {
   background-color: transparent;
   border-color: value(D55);
   color: value(B10);
 }
 
-.root:priority(secondary):disabled {
+.root:skin(standard):priority(secondary):disabled {
   color: value(D10-40);
   background-color: transparent;
   border-color: value(D55);

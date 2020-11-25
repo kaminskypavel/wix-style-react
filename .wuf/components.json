@@ -38,8 +38,8 @@
   "BadgeSelect": {
     "path": "src/BadgeSelect"
   },
-  "BadgeSelectItemBuilder": {
-    "path": "src/BadgeSelectItemBuilder",
+  "BadgeSelectItem": {
+    "path": "src/BadgeSelectItem",
     "missingFiles": [
       "docs/index.story.js"
     ]
@@ -440,6 +440,9 @@
   "Stepper": {
     "path": "src/Stepper"
   },
+  "StyledNestableList": {
+    "path": "src/StyledNestableList"
+  },
   "Swatches": {
     "path": "src/Swatches"
   },
@@ -496,6 +499,9 @@
   },
   "Tooltip": {
     "path": "src/Tooltip"
+  },
+  "TrendIndicator": {
+    "path": "src/TrendIndicator"
   },
   "VariableInput": {
     "path": "src/VariableInput"
