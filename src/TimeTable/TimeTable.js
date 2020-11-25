@@ -4,6 +4,7 @@ import AddSmallIcon from 'wix-ui-icons-common/AddSmall';
 import cloneDeep from 'lodash/cloneDeep';
 import uniqueId from 'lodash/uniqueId';
 import { stVars } from '../Foundation/stylable/easing.st.css';
+import { FontUpgradeContext } from '../FontUpgrade/context';
 import { DataHook, DataAttribute } from './constants';
 import { st, classes } from './TimeTable.st.css';
 import SortableList from '../SortableList';
@@ -202,14 +203,18 @@ class TimeTable extends React.PureComponent {
     const { dragging } = this.state;
 
     return (
-      <div
-        className={st(classes.root, { dragging })}
-        style={{ height }}
-        data-hook={dataHook}
-      >
-        {this._renderHeader()}
-        {this._renderContent()}
-      </div>
+      <FontUpgradeContext.Consumer>
+        {({ active: isMadefor }) => (
+          <div
+            className={st(classes.root, { isMadefor, dragging })}
+            style={{ height }}
+            data-hook={dataHook}
+          >
+            {this._renderHeader()}
+            {this._renderContent()}
+          </div>
+        )}
+      </FontUpgradeContext.Consumer>
     );
   }
 
