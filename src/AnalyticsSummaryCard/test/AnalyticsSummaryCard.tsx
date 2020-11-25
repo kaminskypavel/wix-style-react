@@ -12,7 +12,7 @@ const chartData = [
   { label: new Date('Thu Sep 5 2020'), value: 17 },
   { label: new Date('Thu Sep 6 2020'), value: 18 },
 ];
-
+// dummy
 const props = {
   title: 'Sessions',
   titleTooltip: 'tooltip',
