@@ -106,12 +106,23 @@
   padding-right: 2px;
 }
 .root .textWrapper {
+  -st-mixin: text-medium-normal;
+  display: inline;
+}
+
+.root:isMadefor .textWrapper {
   -st-mixin: text-medium-thin;
   display: inline;
 }
+
 .root:size(small) .textWrapper {
+  -st-mixin: text-small-normal;
+}
+
+.root:size(small):isMadefor .textWrapper {
   -st-mixin: text-small-thin;
 }
+
 .root :global(.public-DraftStyleDefault-block) {
   line-height: var(--rowHeight);
 }
