@@ -134,6 +134,7 @@ class EditableSelector extends React.PureComponent {
                   isSelected={option.isSelected}
                   toggleType={toggleType}
                   onToggle={id => this._onOptionToggle(id)}
+                  className={classes.editableSelectorItem}
                 />
                 <div className={classes.optionMenu}>
                   <IconButton
