@@ -2,11 +2,6 @@ import * as React from 'react';
 import IconButton from '../IconButton'
 import { SparklineChartProps } from '../SparklineChart'
 
-type chartData = {
-  label: Date;
-  value: number;
-};
-
 export interface AnalyticsSummaryCardProps {
   dataHook?: string;
   className?: string;
@@ -21,17 +16,17 @@ export interface AnalyticsSummaryCardProps {
   percentageTooltip?: string;
 
   isLoading?: boolean;
-  ctaButton?: IconButton; // IconButton
+  ctaButton?: React.ReactNode; // IconButton
   onCTAClick?: React.MouseEventHandler<HTMLButtonElement>;
 
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 
   //chart
   onChartHover?: React.MouseEventHandler<HTMLButtonElement>;
-  chartHighlightedStartingIndex?: SparklineChartProps.highlightedStartingIndex;
+  chartHighlightedStartingIndex?: SparklineChartProps["highlightedStartingIndex"]
   chartWidth?: number,
-  chartData: SparklineChartProps.data;
-  chartColorHex?: SparklineChartProps.color;
+  chartData: SparklineChartProps["data"];
+  chartColorHex?: SparklineChartProps["color"];
 
   footer?: React.ReactNode;
 }

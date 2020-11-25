@@ -5,18 +5,44 @@ import { analyticsSummaryCardTestkitFactory as analyticsSummaryCardEnzymeTestkit
 import { analyticsSummaryCardTestkitFactory as analyticsSummaryCardPuppeteerTestkitFactory } from '../../../testkit/puppeteer';
 import * as enzyme from 'enzyme';
 import * as puppeteer from 'puppeteer';
+import IconButton from '../../IconButton';
+
+const chartData = [
+  { label: new Date('Thu Sep 4 2020'), value: 3 },
+  { label: new Date('Thu Sep 5 2020'), value: 17 },
+  { label: new Date('Thu Sep 6 2020'), value: 18 },
+];
+
+const props = {
+  title: 'Sessions',
+  titleTooltip: 'tooltip',
+  value: '1,9K',
+  valueTooltip: '1,943',
+  percentage: 12,
+  invertedPercentage: false,
+  isLoading: false,
+  ctaButton:
+    <IconButton size="tiny">
+      Icon
+    </IconButton>
+  ,
+  onCTAClick: () => console.log('refresh click'),
+  onClick: () => console.log('general click'),
+  onChartHover: () => console.log('on chart hover'),
+  chartWidth: 169,
+  chartData,
+  chartColorHex: '#3899ec',
+  footer: <div> This is footer</div>,
+}
 
 function analyticsSummaryCardWithMandatoryProps() {
-  return <AnalyticsSummaryCard />;
+  return <AnalyticsSummaryCard {...props}
+  />;
 }
 
 function analyticsSummaryCardWithAllProps() {
   return (
-    <AnalyticsSummaryCard
-      dataHook="dataHook"
-      className="className"
-      title="title"
-      value="value"
+    <AnalyticsSummaryCard {...props}
     />
   );
 }
