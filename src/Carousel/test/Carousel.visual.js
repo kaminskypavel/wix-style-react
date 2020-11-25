@@ -91,25 +91,16 @@ const tests = [
     ],
   },
   {
-    describe: 'Gradient Edges',
+    describe: 'Gradient Sides',
     its: [
       {
         it: 'Without gradients',
-        props: {
-          showEdgesGradient: false,
-        },
+        props: {},
       },
       {
-        it: 'Display default color gradients',
+        it: 'Display sides gradients',
         props: {
-          showEdgesGradient: true,
-        },
-      },
-      {
-        it: 'Display custom color gradients',
-        props: {
-          showEdgesGradient: true,
-          edgesGradientColor: '#FF0000',
+          sidesGradientColor: '#F0F4F7',
         },
       },
     ],

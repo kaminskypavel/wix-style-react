@@ -22,7 +22,7 @@
   -st-states: controlsPosition(enum(sides, overlay, bottom, none)),
     controlsSize(enum(tiny, small, medium, large)),
     showControlsShadow,
-    showEdgesGradient;
+    showSidesGradients;
 }
 
 .root:controlsSize(tiny) {
@@ -87,17 +87,17 @@
   left: 0;
 }
 
-.root:showEdgesGradient :global(.container) {
+.root:showSidesGradients :global(.container) {
   padding: 40px;
   background: rgba(0, 0, 0, 1);
 }
 
-.root:showEdgesGradient :global(.slick-list) {
+.root:showSidesGradients :global(.slick-list) {
   position: relative;
 }
 
-.root:showEdgesGradient :global(.slick-list:before),
-.root:showEdgesGradient :global(.slick-list:after) {
+.root:showSidesGradients :global(.slick-list:before),
+.root:showSidesGradients :global(.slick-list:after) {
   content: "";
   position: absolute;
   z-index: 1;
@@ -107,16 +107,16 @@
   pointer-events: none;
 }
 
-.root:showEdgesGradient :global(.slick-list:before) {
+.root:showSidesGradients :global(.slick-list:before) {
   left: 0;
   background: linear-gradient(to left, rgba(240, 244, 247, 0) 50%, value(D70));
-  background: linear-gradient(to left, rgba(240, 244, 247, 0) 50%, var(--edgesGradientColor, value(D70)));
+  background: linear-gradient(to left, rgba(240, 244, 247, 0) 50%, var(--sidesGradientColor, value(D70)));
 }
 
-.root:showEdgesGradient :global(.slick-list:after) {
+.root:showSidesGradients :global(.slick-list:after) {
   right: 0;
   background: linear-gradient(to right, rgba(240, 244, 247, 0) 50%, value(D70));
-  background: linear-gradient(to right, rgba(240, 244, 247, 0) 50%, var(--edgesGradientColor, value(D70)));
+  background: linear-gradient(to right, rgba(240, 244, 247, 0) 50%, var(--sidesGradientColor, value(D70)));
 }
 
 .image {

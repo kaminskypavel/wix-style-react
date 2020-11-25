@@ -27,8 +27,7 @@ function CarouselWithAllProps() {
       controlsPosition="sides"
       controlsStartEnd="disabled"
       showControlsShadow={false}
-      showEdgesGradient={false}
-      edgesGradientColor="#FF0000"
+      sidesGradientColor="#F0F4F7"
     />
   );
 }

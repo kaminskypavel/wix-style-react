@@ -90,6 +90,9 @@ class Carousel extends React.Component {
 
     /** Hex color for the gradient on the edges of the carousel */
     edgesGradientColor: PropTypes.string,
+
+    /** Color for the gradients on the sides of the carousel */
+    sidesGradientColor: PropTypes.string,
   };
 
   static defaultProps = {
@@ -103,7 +106,6 @@ class Carousel extends React.Component {
     controlsSize: 'medium',
     controlsStartEnd: 'disabled',
     showControlsShadow: false,
-    showEdgesGradient: false,
   };
 
   constructor(props) {
@@ -123,8 +125,7 @@ class Carousel extends React.Component {
       controlsPosition,
       controlsSize,
       showControlsShadow,
-      showEdgesGradient,
-      edgesGradientColor,
+      sidesGradientColor,
     } = this.props;
     const { sliderSettings } = this.state;
     const hasImages = !children && images.length > 0;
@@ -138,11 +139,11 @@ class Carousel extends React.Component {
             controlsPosition,
             controlsSize,
             showControlsShadow,
-            showEdgesGradient,
+            showSidesGradients: !!sidesGradientColor,
           },
           className,
         )}
-        style={{ [vars.edgesGradientColor]: edgesGradientColor }}
+        style={{ [vars.sidesGradientColor]: sidesGradientColor }}
       >
         <Slider {...sliderSettings}>
           {children}

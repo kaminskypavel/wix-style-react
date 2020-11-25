@@ -112,13 +112,12 @@ export const variableWidthExample = `
 </Carousel>
 `;
 
-export const gradientEdges = `
+export const gradientSides = `
 <Carousel
   buttonSkin="light"
   controlsPosition="overlay"
   controlsSize="medium"
-  showEdgesGradient
-  edgesGradientColor="#FF0000"
+  sidesGradientColor="#F0F4F7"
   images={[
     {
       src: 'https://a-static.besthdwallpaper.com/garfield-wallpaper-2800x2100-815_28.jpg'

@@ -138,13 +138,9 @@ They can be placed in one of these positions: \`sides\` (default), \`overlay\`, 
           }),
 
           example({
-            title: 'Gradients on Edges',
-            text: `
-Show gradients on the left and right edges of the carousel.\n
-Enable the gradient edges with the \`showEdgesGradient\` flag and define the color using \`edgesGradientColor\`.\n
-If not given a \`edgesGradientColor\`, the gradient will use the D70 color.
-            `,
-            source: examples.gradientEdges,
+            title: 'Gradient Sides',
+            text: 'Show gradients on the left and right sides of the carousel.',
+            source: examples.gradientSides,
           }),
         ],
       }),
