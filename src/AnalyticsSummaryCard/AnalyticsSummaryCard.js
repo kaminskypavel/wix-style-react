@@ -5,11 +5,11 @@ import noop from 'lodash/noop';
 import Heading from '../Heading';
 import Tooltip from '../Tooltip';
 import SparklineChart from '../SparklineChart';
+import TrendIndicator from '../TrendIndicator';
 import Text from '../Text';
 import Loader from '../Loader';
 import { st, classes } from './AnalyticsSummaryCard.st.css';
 import { dataHooks } from './constants';
-
 /** Analytics Summary Card */
 class AnalyticsSummaryCard extends React.PureComponent {
   state = {
@@ -95,18 +95,15 @@ class AnalyticsSummaryCard extends React.PureComponent {
                 </Text>
               </Tooltip>
               {isPercentageVisible && (
-                <Tooltip placement="top" content={percentageTooltip}>
-                  <span
-                    className={st(classes.percentage, {
-                      invertedPercentage: invertedPercentage,
-                    })}
-                  >
-                    {percentage}
-                  </span>
+                <Tooltip placement="top" content={valueTooltip}>
+                  <TrendIndicator
+                    value={percentage}
+                    inverted={invertedPercentage}
+                  />
                 </Tooltip>
               )}
             </div>
-            <div className={st(classes.sparklineChart)}>
+            <div>
               <SparklineChart
                 onHover={onChartHover}
                 data={chartData}

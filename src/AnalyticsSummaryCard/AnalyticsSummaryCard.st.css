@@ -35,18 +35,6 @@
   align-items: center;
 }
 
-.percentage {
-  margin-left: 6px;
-}
-
-.invertedPercentage {
-
-}
-
-.sparklineChart {
-
-}
-
 .loader {
   position: absolute;
   z-index: 2;
