@@ -1,7 +1,9 @@
 import { textUniDriverFactory } from '../Text/Text.uni.driver';
-import { getDataAttributeValue } from '../../test/utils/unidriver';
+import {
+  baseUniDriverFactory,
+  getDataAttributeValue,
+} from '../../test/utils/unidriver';
 import { dataAttr, sizes, shapes } from './constants';
-import { baseUniDriverFactory } from 'wix-ui-test-utils/base-driver';
 
 export const selectorUniDriverFactory = base => {
   const toggleInput = () => base.$('[data-hook="toggle"] input');
