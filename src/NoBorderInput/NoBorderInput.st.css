@@ -138,8 +138,14 @@
 
 .root:size(medium) input,
 .root:size(large) input {
+  -st-mixin: text-medium-normal;
+}
+
+.root:size(medium):isMadefor input,
+.root:size(large):isMadefor input {
   -st-mixin: text-medium-thin;
 }
+
 
 /* Focus */
 .root:focus input,
