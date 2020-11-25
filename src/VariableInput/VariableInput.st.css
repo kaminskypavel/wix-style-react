@@ -6,7 +6,7 @@
 
 :import {
   -st-from: '../Foundation/stylable/typography.st.css';
-  -st-named: text-small-thin, text-medium-thin;
+  -st-named: text-small-normal, text-small-thin, text-medium-normal, text-medium-thin;
 }
 
 :import {
@@ -14,7 +14,7 @@
   -st-named: defaultScrollBar;
 }
 .root {
-  -st-states: disabled, readOnly, status(enum(error, warning)), size(enum(small, medium, large)), singleLine;
+  -st-states: isMadefor, disabled, readOnly, status(enum(error, warning)), size(enum(small, medium, large)), singleLine;
   --rows: 1;
   --rowHeight: 24px;
   --contentHeight: 7px;
@@ -35,6 +35,16 @@
   --rowHeight: 35px;
 }
 .root :global(.public-DraftEditorPlaceholder-root) {
+  -st-mixin: text-medium-normal;
+  color: value(D40);
+  margin: 2px 0;
+  position: absolute;
+  pointer-events: none;
+  top: 4px;
+  left: 13px;
+}
+
+.root :global(.public-DraftEditorPlaceholder-root):isMadefor {
   -st-mixin: text-medium-thin;
   color: value(D40);
   margin: 2px 0;
@@ -43,9 +53,15 @@
   top: 4px;
   left: 13px;
 }
+
 .root:size(small) :global(.public-DraftEditorPlaceholder-root) {
+  -st-mixin: text-small-normal;
+}
+
+.root:size(small):isMadefor :global(.public-DraftEditorPlaceholder-root) {
   -st-mixin: text-small-thin;
 }
+
 .root :global(.public-DraftEditor-content) {
   -st-mixin: defaultScrollBar; /* TODO: hide will not hovering  */
   background-color: value(D80);
