@@ -24,5 +24,5 @@ export interface CarouselProps {
   controlsStartEnd?: 'disabled' | 'hidden';
   showControlsShadow?: boolean;
   showEdgesGradient?: boolean;
-  edgesGradientColor?: string;
+  edgesGradientColor?: React.CSSProperties['color'];
 }
