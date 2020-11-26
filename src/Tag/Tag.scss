@@ -28,6 +28,7 @@
 .tinySize {
   padding: 0 9px;
   border-radius: 9px;
+  max-height: 18px;
 
   &.light-outlined-theme {
     padding: 0 8px;
@@ -60,7 +61,7 @@
 .smallSize {
   padding: 3px 12px;
   border-radius: 12px;
-
+  max-height: 24px;
 
   &.light-outlined-theme {
     padding: 2px 11px;
@@ -97,7 +98,7 @@
 .mediumSize {
   padding: 6px 12px;
   border-radius: 15px;
-
+  max-height: 30px;
 
   &.light-outlined-theme {
     padding: 5px 11px;
@@ -134,7 +135,7 @@
 .largeSize {
   padding: 6px 18px;
   border-radius: 18px;
-
+  max-height: 36px;
 
   &.light-outlined-theme {
     padding: 5px 17px;
