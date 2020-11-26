@@ -14,7 +14,7 @@
   -st-named: defaultScrollBar;
 }
 .root {
-  -st-states: disabled, readOnly, status(enum(error, warning)), size(enum(small, medium, large)), singleLine;
+  -st-states: isMadefor, disabled, readOnly, status(enum(error, warning)), size(enum(small, medium, large)), singleLine;
   --rows: 1;
   --rowHeight: 24px;
   --contentHeight: 7px;
@@ -92,16 +92,12 @@
   padding-right: 2px;
 }
 
-.textWrapper {
-  -st-states: isMadefor;
-}
-
 .root .textWrapper {
   -st-mixin: text-medium-normal;
   display: inline;
 }
 
-.root .textWrapper:isMadefor {
+.root:isMadefor .textWrapper {
   -st-mixin: text-medium-thin;
 }
 
@@ -109,7 +105,7 @@
   -st-mixin: text-small-normal;
 }
 
-.root:size(small) .textWrapper:isMadefor {
+.root:size(small):isMadefor .textWrapper{
   -st-mixin: text-small-thin;
 }
 
