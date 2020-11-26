@@ -86,26 +86,36 @@ class Tooltip extends React.PureComponent {
   _renderContent = () => {
     const { content, textAlign, size } = this.props;
     const textSize = size === 'small' ? 'tiny' : 'small';
+
+    /*
+     * Tooltip (medium): normal 55 (Helvetica) , regular 400 (Madefor)
+     * Tooltip (small): bold 65 (Helvetica) ,  medium 530 (Madefor)
+     * */
     return (
       <FontUpgradeContext.Consumer>
-        {({ active: isMadefor }) => (
-          <div style={{ textAlign }}>
-            <FontUpgrade active={!!isMadefor}>
-              {typeof content === 'string' ? (
-                <RawText
-                  dataHook={dataHooks.tooltipText}
-                  size={textSize}
-                  weight={isMadefor ? 'thin' : 'normal'}
-                  light
-                >
-                  {content}
-                </RawText>
-              ) : (
-                content
-              )}
-            </FontUpgrade>
-          </div>
-        )}
+        {({ active: isMadefor }) => {
+          const textWeight =
+            size === 'small' ? 'normal' : isMadefor ? 'thin' : 'normal';
+
+          return (
+            <div style={{ textAlign }}>
+              <FontUpgrade active={!!isMadefor}>
+                {typeof content === 'string' ? (
+                  <RawText
+                    dataHook={dataHooks.tooltipText}
+                    size={textSize}
+                    weight={textWeight}
+                    light
+                  >
+                    {content}
+                  </RawText>
+                ) : (
+                  content
+                )}
+              </FontUpgrade>
+            </div>
+          );
+        }}
       </FontUpgradeContext.Consumer>
     );
   };
