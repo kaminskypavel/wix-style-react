@@ -119,10 +119,8 @@
   color: value(D20);
 }
 
-.root:skin(dark):disabled {
+.root:skin(dark):disabled,
+.root:skin(dark):disabled:hover{
   color: value(D10-40);
 }
 
-.root:skin(dark):disabled:hover {
-  color: value(D10-40);
-}
