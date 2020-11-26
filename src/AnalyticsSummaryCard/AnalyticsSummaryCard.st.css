@@ -1,17 +1,17 @@
 :import {
-  -st-from: "../Foundation/stylable/colors.st.css";
-  -st-named: G30,R30;
+  -st-from: '../Foundation/stylable/colors.st.css';
+  -st-named: G30, R30, D80;
 }
 
- .root {
-  background-color:#FFF;
+.root {
+  background-color: value(D80);
   position: relative;
   padding: 18px 30px;
   min-width: 216px;
 }
 
 .root.hovered {
-  background-color:#f4fafe;
+  background-color: #f4fafe;
 }
 
 .root.clickable {

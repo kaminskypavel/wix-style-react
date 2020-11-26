@@ -829,4 +829,16 @@ export default {
       value: 0,
     },
   },
+
+  AnalyticsSummaryCard: {
+    props: {
+      percentage: 0,
+      chartData: [
+        {
+          label: new Date(),
+          value: 0,
+        },
+      ],
+    },
+  },
 };

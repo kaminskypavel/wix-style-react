@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import noop from 'lodash/noop';
-
 import Heading from '../Heading';
 import Tooltip from '../Tooltip';
 import SparklineChart from '../SparklineChart';
@@ -10,11 +9,13 @@ import Text from '../Text';
 import Loader from '../Loader';
 import { st, classes } from './AnalyticsSummaryCard.st.css';
 import { dataHooks } from './constants';
+
 /** Analytics Summary Card */
 class AnalyticsSummaryCard extends React.PureComponent {
   state = {
     hovered: false,
   };
+
   render() {
     const {
       dataHook,

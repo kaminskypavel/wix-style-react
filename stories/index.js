@@ -10,6 +10,7 @@ require('./Playground/Playground.story');
 // Components API
 require('../src/Accordion/docs/index.story');
 require('../src/AddItem/docs/index.story');
+require('../src/AnalyticsSummaryCard/docs/index.story');
 require('../src/Animate/docs/index.story');
 require('../src/AnnouncementModalLayout/docs/index.story');
 require('../src/AreaChart/docs/index.story');
@@ -169,7 +170,6 @@ require('../src/VerticalTabs/docs/index.story');
 require('../src/VerticalTabs/docs/index.story');
 require('../src/VerticalTabsItem/docs/index.story');
 require('../src/VerticalTabsItem/docs/index.story');
-require('../src/AnalyticsSummaryCard/docs/index.story');
 require('./WIP');
 require('./Internal');
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import IconButton from '../IconButton'
-import { SparklineChartProps } from '../SparklineChart'
+import IconButton from '../IconButton';
+import { SparklineChartProps } from '../SparklineChart';
 
 export interface AnalyticsSummaryCardProps {
   dataHook?: string;
@@ -21,16 +21,18 @@ export interface AnalyticsSummaryCardProps {
 
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 
-  //chart
+  // chart
   onChartHover?: React.MouseEventHandler<HTMLButtonElement>;
-  chartHighlightedStartingIndex?: SparklineChartProps["highlightedStartingIndex"]
-  chartWidth?: number,
-  chartData: SparklineChartProps["data"];
-  chartColorHex?: SparklineChartProps["color"];
+  chartHighlightedStartingIndex?: SparklineChartProps['highlightedStartingIndex'];
+  chartWidth?: number;
+  chartData: SparklineChartProps['data'];
+  chartColorHex?: SparklineChartProps['color'];
 
   footer?: React.ReactNode;
 }
 
-//SparklineChartProps 
+// SparklineChartProps
 
-export default class AnalyticsSummaryCard extends React.PureComponent<AnalyticsSummaryCardProps>{ }
+export default class AnalyticsSummaryCard extends React.PureComponent<
+  AnalyticsSummaryCardProps
+> {}

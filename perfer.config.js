@@ -2,6 +2,7 @@ const javascriptFiles = [
   ['Accordion.bundle.min.js', 51],
   ['AddItem.bundle.min.js', 44],
   ['AddressInput.bundle.min.js', 67],
+  ['AnalyticsSummaryCard.bundle.min.js', 70],
   ['Animate.bundle.min.js', 5],
   ['AnnouncementModalLayout.bundle.min.js', 50],
   ['AreaChart.bundle.min.js', 87],
@@ -161,13 +162,13 @@ const javascriptFiles = [
   ['VerticalTabs.bundle.min.js', 40],
   ['VerticalTabsItem.bundle.min.js', 39],
   ['WarningIndicator.bundle.min.js', 40],
-  ['AnalyticsSummaryCard.bundle.min.js', 10],
 ];
 
 const cssFiles = [
   ['Accordion.min.css', 2],
   ['AddItem.min.css', 2],
   ['AddressInput.min.css', 1],
+  ['AnalyticsSummaryCard.min.css', 1],
   ['Animate.min.css', 1],
   ['AreaChart.min.css', 1],
   ['AudioPlayer.min.css', 1],
@@ -286,7 +287,6 @@ const cssFiles = [
   ['Tooltip.min.css', 2],
   ['VariableInput.min.css', 2],
   ['WarningIndicator.min.css', 2],
-  ['AnalyticsSummaryCard.min.css', 1],
 ];
 
 const getJS = () =>
