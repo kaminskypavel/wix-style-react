@@ -44,8 +44,15 @@
   left: 13px;
 }
 
+.root:isMadefor :global(.public-DraftEditorPlaceholder-root) {
+  -st-mixin: text-medium-thin;
+}
+
 .root:size(small) :global(.public-DraftEditorPlaceholder-root) {
   -st-mixin: text-small-normal;
+}
+.root:size(small):isMadefor :global(.public-DraftEditorPlaceholder-root) {
+  -st-mixin: text-small-thin;
 }
 
 .root :global(.public-DraftEditor-content) {
