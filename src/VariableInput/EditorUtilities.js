@@ -10,8 +10,7 @@ import {
 } from 'draft-js';
 import Tag from '../Tag';
 import { entityTypes, dataHooks } from './constants';
-import { st, classes } from './VariableInput.st.css';
-import { FontUpgradeContext } from '../FontUpgrade/context';
+import { classes } from './VariableInput.st.css';
 
 /** Insert text in current cursor position */
 const insertText = (editorState, text) => {
