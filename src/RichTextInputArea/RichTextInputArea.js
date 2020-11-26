@@ -75,7 +75,7 @@ class RichTextInputArea extends React.PureComponent {
     const isEditorEmpty = EditorUtilities.isEditorEmpty(this.state.editorState);
 
     return (
-      <FontUpgradeContext>
+      <FontUpgradeContext.Consumer>
         {({ active: isMadefor }) => (
           <div
             data-hook={dataHook}
@@ -111,7 +111,7 @@ class RichTextInputArea extends React.PureComponent {
                 onUnderline={this._setEditorState}
                 onLink={newEditorState => {
                   this._setEditorState(newEditorState, () =>
-                    this.refs.editor.focus(),
+                    this.editorRef.current.focus(),
                   );
                 }}
                 onBulletedList={this._setEditorState}
@@ -139,7 +139,7 @@ class RichTextInputArea extends React.PureComponent {
             </div>
           </div>
         )}
-      </FontUpgradeContext>
+      </FontUpgradeContext.Consumer>
     );
   }
 
