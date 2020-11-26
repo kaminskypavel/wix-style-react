@@ -74,8 +74,8 @@ import { badgeSelectItemBuilder } from 'wix-style-react';
           title('Examples'),
 
           example({
-            title: 'Default Example',
-            text: '',
+            title: 'Simple Usage',
+            text: 'A basic example',
             source: examples.defaultExample,
           }),
 
@@ -87,13 +87,15 @@ import { badgeSelectItemBuilder } from 'wix-style-react';
 
           example({
             title: 'Skins',
-            text: "The badge's skin can be changed",
+            text:
+              "The badge's skin can be any skin that is available for <Badge /> component. Default is general skin.",
             source: examples.skins,
           }),
 
           example({
             title: 'Ellipsis',
-            text: '',
+            text:
+              'Text and subtitle get cann ellipsis with tooltip, or get broken into lines when it reaches the end of its container',
             source: examples.ellipsis,
           }),
 
