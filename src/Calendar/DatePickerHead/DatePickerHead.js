@@ -33,7 +33,7 @@ const DatePickerHead = ({
 
       {showMonthDropdown ? (
         <MonthDropdown
-          className={className.monthDropdown}
+          className={classes.monthDropdown}
           date={date}
           onChange={onChange}
           months={localeUtils.getMonths()}
@@ -50,7 +50,7 @@ const DatePickerHead = ({
 
       {showYearDropdown ? (
         <YearDropdown
-          className={className.yearDropdown}
+          className={classes.yearDropdown}
           date={date}
           onChange={onChange}
         />
