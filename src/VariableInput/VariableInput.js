@@ -42,48 +42,46 @@ class VariableInput extends React.PureComponent {
       handlePastedText: this._handlePastedText,
       handleReturn: () => 'handled',
     };
-    return (
-      <FontUpgradeContext>
-        {({ active: isMadefor }) => (
-          <div
-            data-hook={dataHook}
-            className={st(
-              classes.root,
-              {
-                isMadefor,
-                disabled,
-                readOnly,
-                size,
-                status,
-                singleLine: !multiline,
-              },
-              className,
-            )}
-            style={{ [vars.rows]: rows }}
-          >
-            <Editor
-              ref="editor"
-              editorState={this.state.editorState}
-              onChange={this._onEditorChange}
-              placeholder={placeholder}
-              readOnly={disabled || readOnly}
-              {...(readOnly && { tabIndex: 0 })}
-              {...(!multiline && singleLineProps)}
-            />
 
-            {/* Status */}
-            {status && (
-              <span className={classes.indicatorWrapper}>
-                <StatusIndicator
-                  dataHook={dataHooks.indicator}
-                  status={status}
-                  message={statusMessage}
-                />
-              </span>
-            )}
-          </div>
+    const editorRef = React.createRef();
+
+    return (
+      <div
+        data-hook={dataHook}
+        className={st(
+          classes.root,
+          {
+            disabled,
+            readOnly,
+            size,
+            status,
+            singleLine: !multiline,
+          },
+          className,
         )}
-      </FontUpgradeContext>
+        style={{ [vars.rows]: rows }}
+      >
+        <Editor
+          ref="editor"
+          editorState={this.state.editorState}
+          onChange={this._onEditorChange}
+          placeholder={placeholder}
+          readOnly={disabled || readOnly}
+          {...(readOnly && { tabIndex: 0 })}
+          {...(!multiline && singleLineProps)}
+        />
+
+        {/* Status */}
+        {status && (
+          <span className={classes.indicatorWrapper}>
+            <StatusIndicator
+              dataHook={dataHooks.indicator}
+              status={status}
+              message={statusMessage}
+            />
+          </span>
+        )}
+      </div>
     );
   }
 

@@ -14,7 +14,7 @@
   -st-named: defaultScrollBar;
 }
 .root {
-  -st-states: isMadefor, disabled, readOnly, status(enum(error, warning)), size(enum(small, medium, large)), singleLine;
+  -st-states: disabled, readOnly, status(enum(error, warning)), size(enum(small, medium, large)), singleLine;
   --rows: 1;
   --rowHeight: 24px;
   --contentHeight: 7px;
@@ -44,22 +44,8 @@
   left: 13px;
 }
 
-.root :global(.public-DraftEditorPlaceholder-root):isMadefor {
-  -st-mixin: text-medium-thin;
-  color: value(D40);
-  margin: 2px 0;
-  position: absolute;
-  pointer-events: none;
-  top: 4px;
-  left: 13px;
-}
-
 .root:size(small) :global(.public-DraftEditorPlaceholder-root) {
   -st-mixin: text-small-normal;
-}
-
-.root:size(small):isMadefor :global(.public-DraftEditorPlaceholder-root) {
-  -st-mixin: text-small-thin;
 }
 
 .root :global(.public-DraftEditor-content) {
@@ -105,21 +91,25 @@
   padding-left: 2px;
   padding-right: 2px;
 }
+
+.textWrapper {
+  -st-states: isMadefor;
+}
+
 .root .textWrapper {
   -st-mixin: text-medium-normal;
   display: inline;
 }
 
-.root:isMadefor .textWrapper {
+.root .textWrapper:isMadefor {
   -st-mixin: text-medium-thin;
-  display: inline;
 }
 
 .root:size(small) .textWrapper {
   -st-mixin: text-small-normal;
 }
 
-.root:size(small):isMadefor .textWrapper {
+.root:size(small) .textWrapper:isMadefor {
   -st-mixin: text-small-thin;
 }
 
