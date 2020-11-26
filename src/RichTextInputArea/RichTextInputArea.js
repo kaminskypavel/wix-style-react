@@ -57,6 +57,7 @@ class RichTextInputArea extends React.PureComponent {
 
     // TODO: currently it treats the value as an initial value
     this._updateContentByValue(initialValue);
+    this.editorRef = React.createRef();
   }
 
   render() {
@@ -119,7 +120,7 @@ class RichTextInputArea extends React.PureComponent {
             </RichTextInputAreaContext.Provider>
             <div className={classes.editorWrapper}>
               <Editor
-                ref="editor"
+                ref={this.editorRef}
                 editorState={this.state.editorState}
                 onChange={this._setEditorState}
                 placeholder={placeholder}

@@ -36,11 +36,7 @@
   -st-mixin: text-medium-normal;
 }
 
-.root :global(.public-DraftEditorPlaceholder-root):isMadefor {
-  padding: value(padding);
-  position: absolute;
-  pointer-events: none;
-  color: value(D40);
+.root:isMadefor :global(.public-DraftEditorPlaceholder-root) {
   -st-mixin: text-medium-thin;
 }
 
