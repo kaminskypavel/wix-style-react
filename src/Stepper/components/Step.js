@@ -80,6 +80,7 @@ class Step extends React.PureComponent {
             className={st(
               classes.root,
               {
+                isMadefor,
                 type,
                 styleType,
                 selected: active,
