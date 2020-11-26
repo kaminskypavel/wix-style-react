@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Editor, EditorState } from 'draft-js';
-import { FontUpgradeContext } from '../FontUpgrade/context';
 import EditorUtilities from './EditorUtilities';
 import { sizeTypes, inputToTagsSize, dataHooks } from './constants';
 import { st, classes, vars } from './VariableInput.st.css';
@@ -42,8 +41,6 @@ class VariableInput extends React.PureComponent {
       handlePastedText: this._handlePastedText,
       handleReturn: () => 'handled',
     };
-
-    const editorRef = React.createRef();
 
     return (
       <div
