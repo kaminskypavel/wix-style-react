@@ -190,14 +190,16 @@ const decoratorFactory = ({ tag: { size, disabled } }) => {
         /** We adding a space before and after the Tag,
          * to prevent from the cursor to enter the Tag while moving it.  */
         return (
-          <FontUpgradeContext>
+          <FontUpgradeContext.Consumer>
             {({ active: isMadefor }) => (
               <span
                 data-offset-key={offsetKey}
                 contentEditable={false}
                 className={classes.tagWrapper}
               >
-                <span className={st(classes.textWrapper, { isMadefor })} />
+                <span className={st(classes.textWrapper, { isMadefor })}>
+                  {' '}
+                </span>
                 <Tag
                   id={`variableinput-tag-${entityKey}`}
                   dataHook={dataHooks.tag}
@@ -208,10 +210,10 @@ const decoratorFactory = ({ tag: { size, disabled } }) => {
                 >
                   {text}
                 </Tag>
-                <span className={st(classes.textWrapper, { isMadefor })} />
+                <span className={st(classes.textWrapper, { isMadefor })} />{' '}
               </span>
             )}
-          </FontUpgradeContext>
+          </FontUpgradeContext.Consumer>
         );
       },
     },
