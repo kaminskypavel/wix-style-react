@@ -87,7 +87,7 @@ class Tag extends React.PureComponent {
         [styles.withThumb]: thumb,
         [styles.disabled]: disabled,
         [styles.clickable]: onClick !== noop,
-        [styles.hoverable]: !disabled,
+        [styles.hoverable]: !disabled && onClick !== noop,
       },
     );
   }
