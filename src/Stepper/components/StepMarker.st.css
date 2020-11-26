@@ -54,7 +54,6 @@
 }
 
 /* completed style */
-
 .root:type(completed):styleType(text) {
   color: value(B10);
 }
