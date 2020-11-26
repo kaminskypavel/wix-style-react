@@ -128,13 +128,13 @@ Tag.propTypes = {
    * and mouse event as second parameter when clicking on Tag */
   onClick: PropTypes.func,
 
-  /** Callback function that pass `id` property as parameter when removing the Tag  */
+  /** Callback function that pass `id` property as parameter when removing the Tag. If the Tag is rendered inside of a `TagList`, its `onRemove` handler is set by the TagList's `onTagRemove` prop  */
   onRemove: PropTypes.func,
 
   /** If the Tag is removable then it will contain a small clickable X */
   removable: PropTypes.bool,
 
-  /** The height of the Tag */
+  /** The height of the Tag. If the Tag is rendered inside of a `TagList`, its `size` is set by the TagList's `size` prop */
   size: PropTypes.oneOf(['tiny', 'small', 'medium', 'large']),
 
   /** theme of the Tag */
