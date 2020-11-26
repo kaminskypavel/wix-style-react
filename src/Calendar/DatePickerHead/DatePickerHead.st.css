@@ -8,6 +8,16 @@
   -st-named: speed-fast-1;
 }
 
+:import {
+  -st-from: "./MonthDropdown/MonthDropdown.st.css";
+  -st-default: MonthDropdown;
+}
+
+:import {
+  -st-from: "./YearDropdown/YearDropdown.st.css";
+  -st-default: YearDropdown;
+}
+
 .root {
   display: flex;
   align-items: center;
@@ -23,9 +33,11 @@
 }
 
 .monthDropdown {
+  -st-extends: MonthDropdown;
 }
 
 .yearDropdown {
+  -st-extends: YearDropdown;
 }
 
 .arrow {
