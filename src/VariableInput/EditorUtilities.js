@@ -197,9 +197,7 @@ const decoratorFactory = ({ tag: { size, disabled } }) => {
                 contentEditable={false}
                 className={classes.tagWrapper}
               >
-                <span className={st(classes.textWrapper, { isMadefor })}>
-                  {' '}
-                </span>
+                <span className={st(classes.textWrapper, { isMadefor })} />
                 <Tag
                   id={`variableinput-tag-${entityKey}`}
                   dataHook={dataHooks.tag}
@@ -210,9 +208,7 @@ const decoratorFactory = ({ tag: { size, disabled } }) => {
                 >
                   {text}
                 </Tag>
-                <span className={st(classes.textWrapper, { isMadefor })}>
-                  {' '}
-                </span>
+                <span className={st(classes.textWrapper, { isMadefor })} />
               </span>
             )}
           </FontUpgradeContext>
