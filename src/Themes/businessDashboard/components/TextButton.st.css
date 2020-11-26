@@ -122,3 +122,7 @@
 .root:skin(dark):disabled {
   color: value(D10-40);
 }
+
+.root:skin(dark):disabled:hover {
+  color: value(D10-40);
+}
