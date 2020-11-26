@@ -1,1 +1,1 @@
-export * from './YearDropdown';
+export { default } from './YearDropdown';

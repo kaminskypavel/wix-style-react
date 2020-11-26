@@ -1,1 +1,1 @@
-export * from './DatePickerDropdown';
+export { default } from './DatePickerDropdown';

@@ -11,7 +11,7 @@
 }
 
 :import {
-  -st-from: "../Calendar/DatePickerHead/DatePickerHead.st.css";
+  -st-from: "./DatePickerHead/DatePickerHead.st.css";
   -st-default: Header;
 }
 

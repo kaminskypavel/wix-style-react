@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 
 import ChevronLeftLarge from 'wix-ui-icons-common/ChevronLeftLarge';
 import ChevronRightLarge from 'wix-ui-icons-common/ChevronRightLarge';
 
-import YearDropdown from './YearDropdown/YearDropdown';
-import MonthDropdown from './MonthDropdown/MonthDropdown';
-import { classes } from './DatePickerHead.st.css';
+import YearDropdown from './YearDropdown';
+import MonthDropdown from './MonthDropdown';
+import { st, classes } from './DatePickerHead.st.css';
 import Text from '../../Text';
 
 const getMonthName = (months, month) => months[month] || months[0];
@@ -23,12 +22,9 @@ const DatePickerHead = ({
   showYearDropdown,
 }) => {
   return (
-    <div
-      data-hook="datepicker-head"
-      className={classnames(classes.root, className)}
-    >
+    <div data-hook="datepicker-head" className={st(classes.root, className)}>
       <div
-        className={classnames(classes.arrow, classes.arrowLeft)}
+        className={st(classes.arrow, classes.arrowLeft)}
         data-hook="datepicker-left-arrow"
         onClick={onLeftArrowClick}
       >
@@ -37,6 +33,7 @@ const DatePickerHead = ({
 
       {showMonthDropdown ? (
         <MonthDropdown
+          className={className.monthDropdown}
           date={date}
           onChange={onChange}
           months={localeUtils.getMonths()}
@@ -52,7 +49,11 @@ const DatePickerHead = ({
       )}
 
       {showYearDropdown ? (
-        <YearDropdown date={date} onChange={onChange} />
+        <YearDropdown
+          className={className.yearDropdown}
+          date={date}
+          onChange={onChange}
+        />
       ) : (
         <Text
           className={classes.caption}
@@ -64,7 +65,7 @@ const DatePickerHead = ({
       )}
 
       <div
-        className={classnames(classes.arrow, classes.arrowRight)}
+        className={st(classes.arrow, classes.arrowRight)}
         data-hook="datepicker-right-arrow"
         onClick={onRightArrowClick}
       >

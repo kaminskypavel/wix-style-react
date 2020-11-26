@@ -1,1 +1,1 @@
-export * from './DatePickerHead';
+export { default } from './DatePickerHead';

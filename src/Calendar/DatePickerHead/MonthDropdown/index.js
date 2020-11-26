@@ -1,1 +1,1 @@
-export * from './MonthDropdown';
+export { default } from './MonthDropdown';
