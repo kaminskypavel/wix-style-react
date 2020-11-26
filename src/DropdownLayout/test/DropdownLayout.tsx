@@ -13,7 +13,7 @@ function DropdownLayoutWithMandatoryProps() {
 function DropdownLayoutWithAllProps() {
   return (
     <DropdownLayout
-      className="dropdownBase"
+      className="dropdownLayout"
       closeOnSelect
       dataHook="hook"
       dropDirectionUp
