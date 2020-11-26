@@ -145,6 +145,7 @@ Tag.propTypes = {
     'dark',
     'neutral',
     'light',
+    'lightOutlined',
   ]),
 
   /** An optional thumb to display as part of the Tag */
