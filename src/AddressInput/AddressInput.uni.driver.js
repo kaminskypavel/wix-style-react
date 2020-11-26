@@ -37,11 +37,11 @@ export const addressInputDriverFactory = (base, body) => {
     isDisabled: () => driver.isDisabled(),
 
     /**
-     * Clicks an option at given position
-     * @param {number} position Position of the option
+     * Clicks an option at given index
+     * @param {number} index Position of the option
      * @returns {Promise<void>}
      */
-    clickAtOption: position => dropdownLayoutDriver.clickAtOption(position),
+    clickAtOption: index => dropdownLayoutDriver.clickAtOption(index),
 
     /**
      * Clicks an option with a given value

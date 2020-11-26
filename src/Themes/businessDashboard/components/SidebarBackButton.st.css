@@ -10,5 +10,8 @@
 
 .root {
   -st-extends: SidebarBackButton;
+}
+
+.root:skin(dark) {
   background: value(sidebarBackgroundColor);
 }

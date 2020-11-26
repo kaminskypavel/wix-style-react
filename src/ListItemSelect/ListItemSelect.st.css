@@ -86,6 +86,9 @@
 .titleWrapper {
   -st-states: subtitle;
   margin: 6px;
+  display: grid;
+  line-height: initial;
+  font-size: initial;
 }
 
 .titleWrapper:subtitle {

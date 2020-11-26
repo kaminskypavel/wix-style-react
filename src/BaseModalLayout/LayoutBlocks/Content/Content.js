@@ -2,7 +2,6 @@ import { st, classes } from './Content.st.css';
 import React, { useState, useCallback } from 'react';
 import Divider from '../../../Divider';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import ScrollableContainer, {
   AreaY,
 } from '../../../common/ScrollableContainer';
@@ -53,7 +52,6 @@ export const Content = ({
     [hideBottomScrollDivider, scrollAreaY],
   );
 
-  className = classNames(contentClassName, className);
   const registerToScrollAreaChanges =
     !hideContentDividers || !!onScrollAreaChanged;
 
@@ -68,6 +66,7 @@ export const Content = ({
             hideTopDivider: isTopDividerHidden(),
             hideBottomDivider: isBottomDividerHidden(),
           },
+          contentClassName,
           className,
         )}
       >
@@ -95,20 +94,25 @@ Content.displayName = 'BaseModalLayout.Content';
 Content.propTypes = {
   /** additional css classes */
   className: PropTypes.string,
+
   /** data hook for testing */
   dataHook: PropTypes.string,
+
   /** the content you want to render in the modal, children passed directly will be treated as `content` as well */
   content: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+
   /** whether to show divider above content (default: false)
    * when set to true - top divider is never shown
    * when set to false - shows top divider when scroll position is greater than 0
    */
   hideTopScrollDivider: PropTypes.bool,
+
   /** whether to show divider below content (default: false)
    * when set to true - bottom divider is never shown
    * when set to false - shows bottom divider until content is scrolled to the boottom
    */
   hideBottomScrollDivider: PropTypes.bool,
+
   /** Props related to the scrollable content.
    *
    * **onScrollAreaChanged** - A Handler for scroll area changes, will be triggered only when the user scrolls to a

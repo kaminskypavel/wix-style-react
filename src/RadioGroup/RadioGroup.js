@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import uniqueId from 'lodash/uniqueId';
 import classNames from 'classnames';
-
 import RadioButton from './RadioButton/RadioButton';
 import { classes } from './RadioGroup.st.css';
 import { dataHooks } from './constants';
@@ -15,7 +14,7 @@ import { dataHooks } from './constants';
 class RadioGroup extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.name = uniqueId('RadioGroup_');
+    this.name = props.name || uniqueId('RadioGroup_');
   }
 
   render() {
@@ -113,6 +112,9 @@ RadioGroup.propTypes = {
 
   /** Text line height */
   lineHeight: PropTypes.string,
+
+  /** Controls html name attribute  */
+  name: PropTypes.string,
 };
 
 RadioGroup.defaultProps = {

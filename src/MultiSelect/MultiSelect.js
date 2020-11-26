@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-
 import InputWithOptions from '../InputWithOptions/InputWithOptions';
 import InputWithTags from './InputWithTags';
 import last from 'lodash/last';
 import difference from 'difference';
-
 import styles from './MultiSelect.scss';
 
 class MultiSelect extends InputWithOptions {

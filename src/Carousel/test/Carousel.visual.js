@@ -67,10 +67,25 @@ const tests = [
         },
       },
       {
+        it: 'Display shadow behind controls',
+        props: {
+          images: sampleImages,
+          showControlsShadow: true,
+        },
+      },
+      {
         it: 'Remove controls',
         props: {
           images: sampleImages,
           controlsPosition: 'none',
+        },
+      },
+      {
+        it: 'Hide start and end controls',
+        props: {
+          images: sampleImages,
+          infinite: false,
+          controlsStartEnd: 'hidden',
         },
       },
     ],
@@ -150,5 +165,3 @@ export const runTests = (
     });
   });
 };
-
-runTests();

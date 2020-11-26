@@ -113,6 +113,12 @@ They can be placed in one of these positions: \`sides\` (default), \`overlay\`, 
           }),
 
           example({
+            title: 'Controls Shadow',
+            text: `Display a shadow behind the carousel controls by using the \`showControlsShadow\` flag.`,
+            source: examples.controlsShadowExample,
+          }),
+
+          example({
             title: 'Without Dots',
             text: 'Pagination at the bottom can be removed.',
             source: examples.withoutDotsExample,
@@ -123,6 +129,12 @@ They can be placed in one of these positions: \`sides\` (default), \`overlay\`, 
             text:
               'Set variableWidth to disable automatic slide width calculation. Use this prop when you want the carousel to show more than a single item simultaneously.',
             source: examples.variableWidthExample,
+          }),
+
+          example({
+            title: 'Controls on Start and End',
+            text: `The carousel controls on the start and end of the carousel can be set to be \`hidden\` when not using infinite mode.`,
+            source: examples.controlsStartEndHidden,
           }),
         ],
       }),

@@ -18,6 +18,11 @@
   -st-named: sidebarWidth
 }
 
+:import {
+  -st-from: '../Foundation/stylable/easing.st.css';
+  -st-named: ease-8;
+}
+
 @keyframes backAndForth {
   0% {
     transform: translateX(0px);
@@ -36,7 +41,7 @@
 
 .root {
   -st-extends: Focusable;
-  -st-states: lightSkin;
+  -st-states: skin(enum(dark, light));
   cursor: pointer;
   box-sizing: border-box;
   border: none;
@@ -46,13 +51,17 @@
   padding: 15px 24px 15px 18px;
   display: flex;
   align-items: center;
-  background: value(sidebarBackgroundColor);
 
   /* not supported in IE11 & Edge; 'left' as fallback */
   text-align: left;
   text-align: start;
 }
-.root:lightSkin {
+
+.root:skin(dark) {
+  background: value(sidebarBackgroundColor);
+}
+
+.root:skin(light) {
   background: value(sidebarLightBackgroundColor);
 }
 
@@ -69,7 +78,7 @@
   position: relative;
   color: value(textColor);
 }
-.root:lightSkin .arrow {
+.root:skin(light) .arrow {
   color: value(lightTextColor)
 }
 .root:hover .arrow, .root:focus-visible .arrow {
@@ -82,5 +91,5 @@
   animation-duration: 4s;
   animation-delay: 3s;
   animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: value(ease-8);
 }

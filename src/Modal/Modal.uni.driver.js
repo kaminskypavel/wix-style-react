@@ -22,15 +22,15 @@ export const modalUniDriverFactory = (base, body) => {
 
     /** true when the module is open */
     isOpen,
-    /** true if theme <arg> exists in the modal */
-    isThemeExist: async theme => (await getPortal()).$(`.${theme}`).exists(),
     getChildBySelector: async selector => {
       const portal = await getPortal();
       return (await portal.$(selector).exists()) ? portal.$(selector) : null;
     },
     /** true if the modal is scrollable */
-    isScrollable: async () =>
-      !(await (await getPortal()).hasClass('portalNonScrollable')),
+    isScrollable: async () => {
+      const content = await getPortal();
+      return !!(await content.$('[data-scrollable]').exists());
+    },
     closeButtonExists: () => getCloseButton().exists(),
     /** click on the modal overlay (helpful for testing if the modal is dismissed) */
     clickOnOverlay: () => getOverlay().click(),

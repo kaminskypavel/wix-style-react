@@ -5,7 +5,7 @@
 
 :import {
   -st-from: "../foundations/colors.st.css";
-  -st-named: sidebarBackgroundColor, selectedBackgroundColor, hoveredBackgroundColor, disabledBackgroundColor, disabledTextColor;
+  -st-named: sidebarBackgroundColor, selectedTextColor, selectedBackgroundColor, hoveredBackgroundColor, disabledBackgroundColor, textColor, selectedTextColor, disabledTextColor;
 }
 
 :import {
@@ -21,30 +21,37 @@
 
 .root:skin(dark) {
   background-color: value(sidebarBackgroundColor);
+  color: value(textColor);
+}
+
+.root:skin(dark)::text {
+  line-height: 18px;
 }
 
 /* Selected */
 
 .root:skin(dark):selected {
   background-color: value(selectedBackgroundColor);
+  color: value(selectedTextColor);
 }
 
-.root:skin(dark):selected .text {
+.root:skin(dark):selected::text {
   -st-mixin: bold;
+  color: value(selectedTextColor);
 }
 
 /* Hovered */
 
-.root:hover, .root:hover:selected:not(:disabled) {
+.root:skin(dark):hover, .root:skin(dark):hover:selected:not(:disabled) {
   background-color: value(hoveredBackgroundColor);
 }
 
 /* Disabled */
 
-.root:disabled {
+.root:skin(dark):disabled {
   background-color: value(disabledBackgroundColor);
 }
 
-.root:disabled::text {
+.root:skin(dark):disabled::text {
   color: value(disabledTextColor);
 }

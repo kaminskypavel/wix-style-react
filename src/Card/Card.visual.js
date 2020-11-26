@@ -88,6 +88,29 @@ const tests = [
     ],
   },
   {
+    describe: 'card style',
+    its: [
+      {
+        it: 'hideOverflow',
+        props: {
+          hideOverflow: true,
+        },
+      },
+      {
+        it: 'stretchVertically',
+        props: {
+          stretchVertically: true,
+        },
+      },
+      {
+        it: 'showShadow',
+        props: {
+          showShadow: true,
+        },
+      },
+    ],
+  },
+  {
     describe: 'content size',
     its: [
       {
@@ -151,7 +174,12 @@ export const runTests = (
             <Container>
               <Row>
                 <Col span={6}>
-                  <Card controls={props.controls}>
+                  <Card
+                    controls={props.controls}
+                    hideOverflow={props.hideOverflow}
+                    stretchVertically={props.stretchVertically}
+                    showShadow={props.showShadow}
+                  >
                     <Card.Header
                       title="Card header"
                       subtitle={props.subtitle}
@@ -171,5 +199,3 @@ export const runTests = (
     });
   });
 };
-
-runTests();

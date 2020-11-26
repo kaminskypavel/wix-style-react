@@ -8,7 +8,7 @@ export const dropdownBaseDriverFactory = (base, body) => {
   const byDataHook = dataHook => base.$(`[data-hook="${dataHook}"]`);
   const getTargetElement = dataHook => byDataHook(dataHook);
   const getContentElement = async () =>
-      popoverCommonDriverFactory(base, body).getContentElement();
+    popoverCommonDriverFactory(base, body).getContentElement();
 
   const createDropdownLayoutDriver = async () =>
     dropdownLayoutDriverFactory(

@@ -36,6 +36,13 @@ export default {
     },
   },
 
+  BadgeSelectItem: {
+    props: {
+      skin: 'general',
+      text: 'Badge 1',
+    },
+  },
+
   AudioPlayer: {
     props: {
       src: 'example.mp3',
@@ -814,6 +821,12 @@ export default {
           xxx
         </CardFolderTabs.Tab>
       ),
+    },
+  },
+
+  TrendIndicator: {
+    props: {
+      value: 0,
     },
   },
 };

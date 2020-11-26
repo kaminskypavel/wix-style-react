@@ -27,8 +27,11 @@ describe('InputArea', () => {
       <InputArea {...props} dataHook="textarea-div" />
     );
 
-    afterEach(() => {
-      cleanup();
+    afterEach(cleanup);
+
+    it('sanity', async () => {
+      const driver = createDriver(<InputAreaForTesting />);
+      expect(await driver.exists()).toBe(true);
     });
 
     describe('enterText driver method', () => {

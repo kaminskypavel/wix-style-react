@@ -4,6 +4,11 @@
 }
 
 :import {
+  -st-from: '../Foundation/stylable/shadows.st.css';
+  -st-named: shadow30;
+}
+
+:import {
   -st-from: "./Pagination/Pagination.st.css";
   -st-default: Pagination;
 }
@@ -14,7 +19,9 @@
 }
 
 .root {
-  -st-states: controlsPosition(enum(sides, overlay, bottom, none)), controlsSize(enum(tiny, small, medium, large));
+  -st-states: controlsPosition(enum(sides, overlay, bottom, none)),
+    controlsSize(enum(tiny, small, medium, large)),
+    showControlsShadow;
 }
 
 .root:controlsSize(tiny) {
@@ -31,6 +38,10 @@
 
 .root:controlsSize(large) {
   --arrow-size: 42px;
+}
+
+.root:showControlsShadow .controls {
+  box-shadow: value(shadow30);
 }
 
 .root[data-is-loading='true'] {

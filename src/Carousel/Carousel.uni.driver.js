@@ -28,5 +28,17 @@ export const carouselUniDriverFactory = base => {
       base
         .$$(withoutClonedNodes('[data-hook="carousel-img"]'))
         .map(img => img.attr('src')),
+
+    /**
+     * Click on the previous item button
+     * @return {Promise<void>}
+     */
+    clickPrevious: () => base.$('[data-hook="prev-button"]').click(),
+
+    /**
+     * Click on the next item button
+     * @return {Promise<void>}
+     */
+    clickNext: () => base.$('[data-hook="next-button"]').click(),
   };
 };

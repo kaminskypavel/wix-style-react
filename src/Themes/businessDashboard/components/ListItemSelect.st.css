@@ -10,7 +10,7 @@
 
 :import {
   -st-from: "../foundations/colors.st.css";
-  -st-named: B10, B20, B50, D10-40, D20, D80;
+  -st-named: B10, B20, B50, D10-40, D10, D20, D40, D80;
 }
 
 .root {
@@ -46,7 +46,9 @@
   background-color: value(B50);
 }
 .root:highlighted::title,
-.root:hover::title{
+.root:hover::title,
+.root:highlighted::title strong,
+.root:hover::title strong {
   color: value(B10);
 }
 

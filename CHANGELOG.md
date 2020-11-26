@@ -15,9 +15,64 @@ Types of changes:
 1. **Lab** components and features that are still in a work in progress
 
 ## Next
-### Fixed
-`<GoogleAddressInput/>`- adding IDs to options recevied from client [#6258](https://github.com/wix/wix-style-react/pull/6258)
 
+## 9.44.0 - 2020-11-25
+### Added
+- `<TrendIndicator/>` - Add new component [#6305](https://github.com/wix/wix-style-react/pull/6305)
+- `<Carousel/>` - Add showControlsShadow prop [#6301](https://github.com/wix/wix-style-react/pull/6301)
+- `<Carousel/>` - Add controlsStartEnd prop [#6300](https://github.com/wix/wix-style-react/pull/6300)
+- `<Carousel/>` - [Testkit] Add 'clickNext' and 'clickPrevious' [#6303](https://github.com/wix/wix-style-react/pull/6303)
+- `<RadioGroup/>` - add name prop [#6313](https://github.com/wix/wix-style-react/pull/6313)
+
+### Changed
+- `<StatisticsWidget/>` - use TrendIndicator component [#6316](https://github.com/wix/wix-style-react/pull/6316)
+- `Themes | Business Dashboard` - Adjustments to DropdownLayout & PopoverMenu [#6307](https://github.com/wix/wix-style-react/pull/6307)
+
+## 9.43.0 - 2020-11-23
+### Added
+- `<MarketingLayout/>` - add badge and hiddenBadge props [#6273](https://github.com/wix/wix-style-react/pull/6273)
+- `<MarketingLayout/>` - add size tiny [#6269](https://github.com/wix/wix-style-react/pull/6269)
+
+### Fixed
+- `Themes | Business Dashboard` - Misc Sidebar Fixes [#6295](https://github.com/wix/wix-style-react/pull/6295)
+- `<InputArea/>` - fix rtl css [#6302](https://github.com/wix/wix-style-react/pull/6302)
+
+### Deprecated
+- `<Table/>` - deprecate hideHeader prop [#6255](https://github.com/wix/wix-style-react/pull/6255)
+
+## 9.42.0 - 2020-11-22
+### Added
+- `<MarketingLayout/>` - add alignItems prop [#6275](https://github.com/wix/wix-style-react/pull/6275)
+- `<BadgeSelectItem/>`- adding a uni driver [#6124](https://github.com/wix/wix-style-react/pull/6124)
+
+### Changed
+- `Themes | Business Dashboard` - changed focus ring color of Button, IconButton, TextButton [#6282](https://github.com/wix/wix-style-react/pull/6282)
+- `Themes | Business Dashboard` - changed ListItemSelect color back to D20 [#6288](https://github.com/wix/wix-style-react/pull/6288)
+- `Themes | Business Dashboard` - adjusted TextButton dark disabled color & light hover color [#6291](https://github.com/wix/wix-style-react/pull/6291)
+- `Themes | Business Dashboard` - Changing Carousel icons size and pagination color [#6287](https://github.com/wix/wix-style-react/pull/6287)
+- `<ListItemSelect/>` - implement styling using css instead of js [#6292](https://github.com/wix/wix-style-react/pull/6292)
+
+### Fixed
+- `<NestableList/>` - fix drag and drop with preventChangeDepth [#6286](https://github.com/wix/wix-style-react/pull/6286)
+
+## 9.41.0 - 2020-11-19
+### Added
+- `<Card/>` - add withShadow prop [#6257](https://github.com/wix/wix-style-react/pull/6257)
+- `<Text />` - added tooltipProps as a new prop [#6261](https://github.com/wix/wix-style-react/pull/6261)
+- `Themes | Business Dashboard` - add Input theme [#6265](https://github.com/wix/wix-style-react/pull/6265)
+- `Themes | Business Dashboard` - add EmptyState theme [#6262](https://github.com/wix/wix-style-react/pull/6262)
+- `Themes | Business Dashboard` - add Loader theme [#6277](https://github.com/wix/wix-style-react/pull/6277)
+- `Themes | Business Dashboard` - Modal [#6274](https://github.com/wix/wix-style-react/pull/6274)
+- `Themes | Business Dashboard` - added box-shadow theming [#6263](https://github.com/wix/wix-style-react/pull/6263)
+- `Themes | Business Dashboard` - UX fixes to CircularProgressBar, EmptyState, ListItemSelect, Tooltip, Loader & colors [#6279](https://github.com/wix/wix-style-react/pull/6279)
+
+### Changed
+- `<Modal/>` - migrate to stylable [#6266](https://github.com/wix/wix-style-react/pull/6266)
+- `<Image/>` - Add className prop [#6272](https://github.com/wix/wix-style-react/pull/6272)
+
+### Fixed
+- `<GoogleAddressInput/>`- adding IDs to options recevied from client [#6258](https://github.com/wix/wix-style-react/pull/6258)
+- `<TableListItem/>` - fix width/align not working [#6271](https://github.com/wix/wix-style-react/pull/6271)
 
 ## 9.40.0 - 2020-11-17
 ### Added 
