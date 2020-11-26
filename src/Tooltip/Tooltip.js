@@ -88,14 +88,14 @@ class Tooltip extends React.PureComponent {
     const textSize = size === 'small' ? 'tiny' : 'small';
     return (
       <FontUpgradeContext.Consumer>
-        {({ active }) => (
+        {({ active: isMadefor }) => (
           <div style={{ textAlign }}>
-            <FontUpgrade active={!!active}>
+            <FontUpgrade active={!!isMadefor}>
               {typeof content === 'string' ? (
                 <RawText
                   dataHook={dataHooks.tooltipText}
                   size={textSize}
-                  weight="thin"
+                  weight={isMadefor ? 'thin' : 'normal'}
                   light
                 >
                   {content}
