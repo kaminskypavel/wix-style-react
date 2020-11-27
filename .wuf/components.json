@@ -347,6 +347,9 @@
   "Proportion": {
     "path": "src/Proportion"
   },
+  "Radio": {
+    "path": "src/Radio"
+  },
   "RadioGroup": {
     "path": "src/RadioGroup"
   },
