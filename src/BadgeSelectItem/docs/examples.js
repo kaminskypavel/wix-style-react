@@ -1,7 +1,3 @@
-export const defaultExample = `
-<BadgeSelectItem text='Badge Select Item' />
-`;
-
 export const subtitleExample = `
 <BadgeSelectItem text='Badge Select Item' subtitle='subtitle' />
 `;
@@ -15,34 +11,19 @@ export const skins = `
 </Layout>
 `;
 
-export const ellipsis = `
+export const textCropping = `
 <Box width="300px">
-  <DropdownLayout
-    visible
-    inContainer
-    options={[
-      badgeSelectItemBuilder({
-        id: 1,
-        text: 'This is short',
-        subtitle: 'This is a short subtitle',
-        skin: 'general',
-        ellipsis: true,
-      }),
-      badgeSelectItemBuilder({
-        id: 2,
-        text: 'This is a very long text with ellipsis',
-        subtitle: 'This is a  very very long subtitle with ellipsis',
-        skin: 'general',
-        ellipsis: true,
-      }),
-      badgeSelectItemBuilder({
-        id: 2,
-        text: 'This is a very very long text without ellipsis',
-        subtitle: 'This is a very very long subtitle without ellipsis',
-        skin: 'general',
-      }),
-    ]}
-  />
+  <Layout cols={1}>
+    <BadgeSelectItem
+      text="This is a very very very very long text that is perfect to demonstrate how it will wrap at some point"
+      subtitle="This is a very very very very long subtitle that is perfect to demonstrate how it will wrap into multiple lines  at some point"
+    />
+    <BadgeSelectItem
+      ellipsis
+      text="This is a very very very very long text that is perfect to demonstrate how it will cropped by ellipsis at some point"
+      subtitle="This is a very very very very long text that is perfect to demonstrate how it will cropped by ellipsis at some point"
+    />
+  </ Layout>
 </Box>
 `;
 
@@ -53,40 +34,26 @@ export const advancedExample = `
   selectedId={2}
   options={[
     badgeSelectItemBuilder({
-      id: 0,
-      text: 'option 1',
-      subtitle: 'subtitle 1',
-    }),
-    badgeSelectItemBuilder({
-      id: 1,
-      text: 'option 2',
-      subtitle: 'subtitle 2',
-      skin: 'success',
-    }),
-    badgeSelectItemBuilder({
-      id: 2,
-      text: 'option 3',
-      subtitle: 'subtitle 3',
-      skin: 'neutralLight',
-    }),
-    badgeSelectItemBuilder({
-      id: 3,
-      text: 'option 4',
-      subtitle: 'subtitle 4',
-      skin: 'premium',
-    }),
-    badgeSelectItemBuilder({
       id: 4,
-      text: 'option 5',
-      subtitle: 'subtitle 5',
+      text: 'Not Paid',
+      subtitle: 'Waiting for a payment',
       skin: 'danger',
     }),
     badgeSelectItemBuilder({
-      id: 5,
-      text: 'option 6',
-      subtitle: 'subtitle 6',
-      skin: 'urgent',
+      id: 0,
+      text: 'Paid in Person',
+      subtitle: 'Cash',
     }),
+    badgeSelectItemBuilder({
+      id: 2,
+      text: 'Paid Plan: Gold',
+      subtitle: '8/10 sessions left • Valid until Jan 24 2021',
+    }),
+    badgeSelectItemBuilder({
+      id: 1,
+      text: 'Paid Plan: Silver',
+      subtitle: '10/10 sessions left • Valid until Dec 22 2020',
+    })
   ]}
-/>
+/>;
 `;

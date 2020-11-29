@@ -31,7 +31,7 @@ export default {
   componentProps: {
     text: 'Badge select item title',
     subtitle: 'Badge select item subtitle',
-    suffix: 'Badge select item suffix',
+    skin: 'warning',
   },
 
   sections: [
@@ -74,34 +74,30 @@ import { badgeSelectItemBuilder } from 'wix-style-react';
           title('Examples'),
 
           example({
-            title: 'Simple Usage',
-            text: 'A basic example',
-            source: examples.defaultExample,
-          }),
-
-          example({
-            title: 'Subtitle',
-            text: 'BadgeSelectItem can have a subtitle',
-            source: examples.subtitleExample,
-          }),
-
-          example({
-            title: 'Skins',
+            title: 'Skin',
             text:
-              "The badge's skin can be any skin that is available for <Badge /> component. Default is general skin.",
+              "The component supports 13 different skins. Each skin represents a different status like warning or success. They are reflected in item's prefix.",
             source: examples.skins,
           }),
 
           example({
-            title: 'Ellipsis',
+            title: 'Subtitle',
             text:
-              'Text and subtitle get cann ellipsis with tooltip, or get broken into lines when it reaches the end of its container',
-            source: examples.ellipsis,
+              'Additional information, like user email or address can be inserted to subtitle area.',
+            source: examples.subtitleExample,
+          }),
+
+          example({
+            title: 'Text cropping',
+            text:
+              'By default component wraps the text. If needed it can be configured to show ellipsis and display full value on hover.',
+            source: examples.textCropping,
           }),
 
           example({
             title: 'Advanced Example',
-            text: '',
+            text:
+              'All properties work together and can be combined in various ways. It can be rendered as standalone or as part of dropdown.',
             source: examples.advancedExample,
           }),
         ],
