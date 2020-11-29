@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { classes, st } from './DatePickerDropdown.st.css';
+import { st, classes } from './DatePickerDropdown.st.css';
 import ChevronDown from 'wix-ui-icons-common/ChevronDown';
 import DropdownBase from '../../DropdownBase';
 import TextButton from '../../TextButton';
@@ -40,6 +40,7 @@ export default class DropdownPicker extends React.Component {
           {({ toggle }) => {
             return (
               <TextButton
+                className={classes.caption}
                 skin="dark"
                 size="small"
                 suffixIcon={<ChevronDown />}

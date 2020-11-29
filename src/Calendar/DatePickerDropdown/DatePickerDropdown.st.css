@@ -3,9 +3,18 @@
   -st-default: DropdownBase;
 }
 
+:import {
+  -st-from: "../../TextButton/TextButton.st.css";
+  -st-default: TextButton;
+}
+
 .root {
 }
 
 .dropdown {
   -st-extends: DropdownBase;
+}
+
+.caption {
+  -st-extends: TextButton;
 }
