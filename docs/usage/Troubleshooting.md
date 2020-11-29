@@ -6,10 +6,8 @@ In this doc we will share how we troubleshoot issues that we experience when we 
 2. Check our [Cheetsheet](https://www.wix-style-react.com/?path=/story/introduction-cheatsheet--components-cheatsheet) which includes a view of most of the library components inventory and links to the relevant documentation pages.
 3. Use the [Playground](https://www.wix-style-react.com/?path=/story/introduction-playground--playground) to easily test the component abilities.
 4. You may find an answer to your question in our [Frequently Asked Questions](https://github.com/wix/wix-style-react/tree/master/docs/FAQ#frequently-asked-questions) article.
-5. Each component within the library is tested with our on drivers. This is a great way to document the proper usage of the component and drivers. You can learn from the tests on how the component should properly used / tested. Checkout the [sourcecode](https://github.com/wix/wix-style-react). Each component's tests files are listed under:
-`src/ComponentName/test/...`.
-6. Strip down abilities until you get to the bottom of it. 
-For example, let's say the component '<Table/>' does not function as we expect it to and all the above steps did not help us. One of the two things that we can do is:
+5. Each component within the library is tested with our own drivers. This is a great way to document the proper usage of the component and drivers. You can learn from the tests on how the component should properly used / tested. Checkout the [sourcecode](https://github.com/wix/wix-style-react). Each component's tests files are listed under:
+6. Strip down abilities until you get to the bottom of it. For instance, if the `<Table/>` component does not work as expected, and the above steps did not help, we can try one of the following:
     - Take the most basic and clean table example and on top of it add your own feature in small parts.
     - Take your current code which does not work and strip it's features slowly, one by one, until you reach to the point where things are working, then slowly add them back again so you will be able to find the root cause of the problem.
 7. Still stuck? Let's debug.
