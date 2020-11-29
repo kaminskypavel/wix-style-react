@@ -40,3 +40,9 @@
 .list {
   -st-extends: DropdownLayout;
 }
+
+/* expose it for theming capabilities */
+@st-scope .root {
+  .popoverContent{}
+}
+/*************************/
